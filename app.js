@@ -256,7 +256,7 @@ function receivedMessage(event) {
   //PREJETO SPOROCILO
   console.log("ZACNEMO");
   if (messageText) {
-  var tabelaBesed = JSON.stringify(message).split(" ");;
+  var tabelaBesed = JSON.stringify(messageText).split(" ");;
     
   sendTextMessage(senderID, tabelaBesed[0]);
   //Sporocilo razdeljeno na besede v tabelo
