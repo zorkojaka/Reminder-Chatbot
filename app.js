@@ -249,7 +249,34 @@ function receivedMessage(event) {
     return;
   }
 
+
+
+
+
+  //PREJETO SPOROCILO
+  console.log("ZACNEMO");
   if (messageText) {
+  var tabelaBesed = JSON.stringify(message).split(" ");;
+    
+  
+  //Sporocilo razdeljeno na besede v tabelo
+  
+  
+  //KORENJENJE
+  
+  //PREPOZNAVANJE UKAZOV
+  
+  //IZVAJANJE UKAZOV
+  
+  //ODGOVOR
+
+}
+
+
+
+
+
+  if (!messageText) {
 
     // If we receive a text message, check to see if it matches any special
     // keywords and send back the corresponding example. Otherwise, just echo
