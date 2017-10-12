@@ -257,8 +257,11 @@ function receivedMessage(event) {
   console.log("ZACNEMO");
   if (messageText) {
   var tabelaBesed = JSON.stringify(messageText).split(" ");;
-    
-  sendTextMessage(senderID, tabelaBesed[0]);
+  
+  
+  for(var i=0;i<tabelaBesed.length;i++){  
+    sendTextMessage(senderID, tabelaBesed[i]);
+  }
   //Sporocilo razdeljeno na besede v tabelo
   
   
