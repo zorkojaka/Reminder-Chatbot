@@ -258,7 +258,7 @@ function receivedMessage(event) {
   if (messageText) {
   var tabelaBesed = JSON.stringify(message).split(" ");;
     
-  sendTextMessage(senderID, "odgovor...");
+  sendTextMessage(senderID, tabelaBesed[0]);
   //Sporocilo razdeljeno na besede v tabelo
   
   
