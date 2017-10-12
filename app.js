@@ -257,7 +257,7 @@ function receivedMessage(event) {
   console.log("ZACNEMO");
   if (messageText) {
     
-  var tekst = messageText.replace("\"","");
+  var tekst = messageText.replace("/\"/g","");
   var tabelaBesed = JSON.stringify(messageText).split(" ");;
   
   
