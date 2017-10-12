@@ -256,6 +256,8 @@ function receivedMessage(event) {
   //PREJETO SPOROCILO
   console.log("ZACNEMO");
   if (messageText) {
+    
+  var tekst = messageText.replace("\"","");
   var tabelaBesed = JSON.stringify(messageText).split(" ");;
   
   
