@@ -258,7 +258,7 @@ function receivedMessage(event) {
   if (messageText) {
     
   var tekst = messageText.replace("/\"/g","");
-  var tabelaBesed = JSON.stringify(messageText).split(" ");;
+  var tabelaBesed = JSON.stringify(tekst).split(" ");;
   
   
   for(var i=0;i<tabelaBesed.length;i++){  
