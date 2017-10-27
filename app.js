@@ -266,9 +266,7 @@ function receivedMessage(event) {
   var tabelaBesed = JSON.stringify(tekst).split(" ");;
   
   
-  for(var i=0;i<tabelaBesed.length;i++){  
-    
-  }
+
   //Sporocilo razdeljeno na besede v tabelo
   
   
@@ -291,6 +289,12 @@ function receivedMessage(event) {
      primerjam besede kam bi loh spadale (akcije elementi sobe)
      primerjam kaj bi lahko pomenile (točkovanje? glasovanje)
      */
+     
+     /* PREPOZNAVANJE BESED
+        lahko iščem samo korene možnih besed v vseh prejetih besedah sporočila.
+        naprimer tako da poiščem vse prve črke korena v besedi in preverjam če se nadaljujejo kot koren...
+        tiste korene ki najdem, označim katere akcije so se pojavile, kateri elementi in katere sobe, in index teh besed v spooročilu, da jih lahko naprej pregledujem.
+     */
   
   //IZVAJANJE UKAZOV
   
@@ -302,13 +306,13 @@ function receivedMessage(event) {
   for(var j = 0; j<tabelaBesed.length; j++){
     switch (tabelaBesed[j]) {
       case 'živjo':
-        sendTextMessage(senderID, "Pozdravljen!");
-        sendTextMessage(senderID, "Kako ti lahko pomagam? :D");
+        //sendTextMessage(senderID, "Pozdravljen!");
+        //sendTextMessage(senderID, "Kako ti lahko pomagam? :D");
         break;
         
-  default:
-    sendTextMessage(senderID, tabelaBesed[j]);
-  }
+      default:
+        sendTextMessage(senderID, tabelaBesed[j]);
+    }
   
 
 }//KONC IF messageText
