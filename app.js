@@ -256,7 +256,7 @@ function receivedMessage(event) {
   - SOBE (Dnevna, Kopalnica, Kuhinja)
   */
 
-
+  
   //PREJETO SPOROCILO
   console.log("ZACNEMO");
   if (messageText) {
@@ -299,15 +299,15 @@ function receivedMessage(event) {
   
   //ZANKA za obdelavo prejetega sporocila: razdelim na besede in vsako besedo posebej pogledam kaj je
   
-  for(var j = 0; j<tekst.length; j++){
-    switch (tekst[j]) {
+  for(var j = 0; j<tabelaBesed.length; j++){
+    switch (tabelaBesed[j]) {
       case 'živjo':
         sendTextMessage(senderID, "Pozdravljen!");
         sendTextMessage(senderID, "Kako ti lahko pomagam? :D");
         break;
         
   default:
-    sendTextMessage(senderID, tekst[j]);
+    sendTextMessage(senderID, tabelaBesed[j]);
   }
   
 
