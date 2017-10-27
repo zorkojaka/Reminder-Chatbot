@@ -250,7 +250,11 @@ function receivedMessage(event) {
   }
 
 
-
+  /* prepoznavanje ukazev
+  - AKCIJE (on / off / set+value / info-stanja)
+  - ELEMENTI (Luč, Žaluzija, scena1, scena2, scena3, temperaturni-senzor, klima)
+  - SOBE (Dnevna, Kopalnica, Kuhinja)
+  */
 
 
   //PREJETO SPOROCILO
@@ -258,25 +262,56 @@ function receivedMessage(event) {
   if (messageText) {
     
   var tekst = messageText;
-  tekst=tekst.replace( /\"/g, "");
+  tekst=tekst.replace( /\"/g, "");  // TO NEKI NE ŠTIMA ŠE OSTANEJO ""
   var tabelaBesed = JSON.stringify(tekst).split(" ");;
   
   
   for(var i=0;i<tabelaBesed.length;i++){  
-    sendTextMessage(senderID, tabelaBesed[i]);
+    
   }
   //Sporocilo razdeljeno na besede v tabelo
   
   
   //KORENJENJE
   
+  //Možne besede
+  var Akcije = [
+  ["on","prižgi","prizgi", "vklopi", "vključi", "vkljuci"],     //ON
+  ["off", "ugasni", "izklopi", "izključi", "izkljuci"],     //OFF
+  ["stanje", "vrednost", "info", "koliko"],      //stanje
+  ["nastavi", "odpri", "zapri", "zasenči", "zasenci", "povecaj", "povečaj", "zmanjšaj","zmanjsaj", "pomanjšaj", "pomanjsaj"]    //nastavi vrednost  
+];
+
+  var Elementi = [["Luč"], ["Klima"], ["Žaluzija"]];
+  var Sobe = [["Dnevna"], ["Kuhinja"],  ["Spalnica"]];
+  
   //PREPOZNAVANJE UKAZOV
+  /* prejeto sporočilo ločim na besede
+     besede korenim
+     primerjam besede kam bi loh spadale (akcije elementi sobe)
+     primerjam kaj bi lahko pomenile (točkovanje? glasovanje)
+     */
   
   //IZVAJANJE UKAZOV
   
   //ODGOVOR
+  
+  
+  //ZANKA za obdelavo prejetega sporocila: razdelim na besede in vsako besedo posebej pogledam kaj je
+  
+  for(var j = 0; j<tekst.length; j++){
+    switch (tekst[j]) {
+      case 'živjo':
+        sendTextMessage(senderID, "Pozdravljen!");
+        sendTextMessage(senderID, "Kako ti lahko pomagam? :D");
+        break;
+        
+  default:
+    sendTextMessage(senderID, tekst[j]);
+  }
+  
 
-}
+}//KONC IF messageText
 
 
 
