@@ -306,8 +306,8 @@ function receivedMessage(event) {
   for(var j = 0; j<tabelaBesed.length; j++){
     switch (tabelaBesed[j]) {
       case 'živjo':
-        //sendTextMessage(senderID, "Pozdravljen!");
-        //sendTextMessage(senderID, "Kako ti lahko pomagam? :D");
+        sendTextMessage(senderID, "Pozdravljen!");
+        sendTextMessage(senderID, "Kako ti lahko pomagam? :D");
         break;
         
       default:
