@@ -313,9 +313,10 @@ function receivedMessage(event) {
       default:
         sendTextMessage(senderID, tabelaBesed[j]);
     }
+  }
   
-
-}//KONC IF messageText
+}
+//KONC IF messageText
 
 
 
