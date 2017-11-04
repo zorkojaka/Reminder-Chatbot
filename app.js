@@ -201,6 +201,31 @@ function receivedAuthentication(event) {
   sendTextMessage(senderID, "Authentication successful");
 }
 
+
+
+
+
+
+//              HERE MAGIC HAPPENS
+
+
+  //Možne besede
+  var Akcije = 
+  ["on","prižgi","prizgi", "vklopi", "vključi", "vkljuci",     //ON
+  "off", "ugasni", "izklopi", "izključi", "izkljuci",     //OFF
+  "stanje", "vrednost", "info", "koliko",      //stanje
+  "nastavi", "odpri", "zapri", "zasenči", "zasenci", "povecaj", "povečaj", "zmanjšaj","zmanjsaj", "pomanjšaj", "pomanjsaj"   //nastavi vrednost  
+];
+
+  var Elementi = ["Luč", "Klima", "Žaluzija"];
+  var Sobe = ["Dnevna", "Kuhinja",  "Spalnica"];
+  
+  var najdeneAkcije=[];
+  var najdeneAkcijeIndex=[];
+  
+
+
+
 /*
  * Message Event
  *
@@ -274,17 +299,7 @@ function receivedMessage(event) {
   
   //KORENJENJE
   
-  //Možne besede
-  var Akcije = [
-  ["on","prižgi","prizgi", "vklopi", "vključi", "vkljuci"],     //ON
-  ["off", "ugasni", "izklopi", "izključi", "izkljuci"],     //OFF
-  ["stanje", "vrednost", "info", "koliko"],      //stanje
-  ["nastavi", "odpri", "zapri", "zasenči", "zasenci", "povecaj", "povečaj", "zmanjšaj","zmanjsaj", "pomanjšaj", "pomanjsaj"]    //nastavi vrednost  
-];
 
-  var Elementi = [["Luč"], ["Klima"], ["Žaluzija"]];
-  var Sobe = [["Dnevna"], ["Kuhinja"],  ["Spalnica"]];
-  
   //PREPOZNAVANJE UKAZOV
   /* prejeto sporočilo ločim na besede
      besede korenim
@@ -305,6 +320,8 @@ function receivedMessage(event) {
   
   //ZANKA za obdelavo prejetega sporocila: razdelim na besede in vsako besedo posebej pogledam kaj je
   
+  najdiakcije(tabelaBesed);
+  
   for(var j = 0; j<tabelaBesed.length; j++){
     switch (tabelaBesed[j]) {
       case 'živjo':
@@ -313,7 +330,7 @@ function receivedMessage(event) {
         break;
         
       default:
-        sendTextMessage(senderID, tabelaBesed[j]+j);
+        sendTextMessage(senderID, tabelaBesed[najdeneAkcijeIndex[j]]+j);
         
     }
   }
@@ -399,6 +416,26 @@ function receivedMessage(event) {
  * these fields at https://developers.facebook.com/docs/messenger-platform/webhook-reference/message-delivered
  *
  */
+function alijekorenvbesedi(koren, beseda){
+    //index ofvrne -1 ce ni korena v besed
+    return beseda.indexOf(koren) !== -1;
+} 
+
+function najdiakcije(sporocilo){
+  //cez vse akcije
+  for(var i =0; i<Akcije.length;i++){
+    //cez vse besede sporocila
+    for(var j =0; j<sporocilo.length;j++){
+      if(alijekorenvbesedi(Akcije[i],sporocilo[j])){
+        najdeneAkcije.push(i);
+        najdeneAkcijeIndex.push(j);
+        
+      }
+    }//konc sporocila
+  }//konc akcij  
+  
+}
+ 
 function receivedDeliveryConfirmation(event) {
   var senderID = event.sender.id;
   var recipientID = event.recipient.id;
