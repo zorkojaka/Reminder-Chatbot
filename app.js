@@ -261,9 +261,9 @@ function receivedMessage(event) {
   console.log("ZACNEMO");
   if (messageText) {
     
-  var tekst = messageText;
+  var tekst = JSON.stringify(messageText);
   tekst=tekst.replace( /\"/g, "");  // TO NEKI NE ŠTIMA ŠE OSTANEJO ""
-  var tabelaBesed = JSON.stringify(tekst).split(" ");;
+  var tabelaBesed = tekst.split(" ");;
   
   tabelaBesed[0]=[0].replace( /\"/g, "");
   tabelaBesed[tabelaBesed.length-1] = tabelaBesed[tabelaBesed.length-1].replace( /\"/g, "");
