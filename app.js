@@ -265,8 +265,8 @@ function receivedMessage(event) {
   tekst=tekst.replace( /\"/g, "");  // TO NEKI NE ŠTIMA ŠE OSTANEJO ""
   var tabelaBesed = JSON.stringify(tekst).split(" ");;
   
-  tabelaBesed[0].replace( /\"/g, "");
-  tabelaBesed[tabelaBesed.length-1].replace( /\"/g, "");
+  tabelaBesed[0]=[0].replace( /\"/g, "");
+  tabelaBesed[tabelaBesed.length-1] = tabelaBesed[tabelaBesed.length-1].replace( /\"/g, "");
   
 
   //Sporocilo razdeljeno na besede v tabelo
