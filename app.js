@@ -313,8 +313,8 @@ function receivedMessage(event) {
         break;
         
       default:
-        sendTextMessage(senderID, tabelaBesed[j]);
-        setTimeout(100);
+        sendTextMessage(senderID, tabelaBesed[j]+j);
+        
     }
   }
   
