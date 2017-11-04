@@ -211,14 +211,17 @@ function receivedAuthentication(event) {
 
   //Možne besede
   var Akcije = 
-  ["on","prizgi", "vklopi", "vkljuci",     //ON
+  ["on","prizgi","przgi", "vklopi", "vkljuc",     //ON
   "off", "ugasni", "izklopi", "izkljuci",     //OFF
   "stanje", "vrednost", "info", "koliko",      //stanje
   "nastavi", "odpri", "zapri", "zasenci", "povecaj","zmanjsaj", "pomanjsaj", "odgrni","zagrni","odrolaj","naj", "bo"   //nastavi vrednost  
 ];
 
-  var Elementi = ["Luč", "Klima", "Žaluzija"];
-  var Sobe = ["Dnevna", "Kuhinja",  "Spalnica"];
+  var Elementi = ["Luc", "klima", "zaluzija"];
+  var Sobe = ["dnevna", "kuhinja",  "spalnica"];
+  
+  //STANJE???????????????''
+  //var Stanja = ["on","off","przgan","prizgan","ugasnjen","odprt","zaprt"]
   
   var najdeneAkcije=[];
   var najdeneAkcijeIndex=[];
@@ -245,6 +248,7 @@ function receivedMessage(event) {
   var recipientID = event.recipient.id;
   var timeOfMessage = event.timestamp;
   var message = event.message;
+  
 
   console.log("Received message for user %d and page %d at %d with message:", 
     senderID, recipientID, timeOfMessage);
@@ -285,6 +289,8 @@ function receivedMessage(event) {
   //PREJETO SPOROCILO
   console.log("ZACNEMO");
   if (messageText) {
+    najdeneAkcije=[];
+    najdeneAkcijeIndex=[];
     
   var tekst = JSON.stringify(messageText);
   
@@ -296,6 +302,7 @@ function receivedMessage(event) {
               replace( /\?/g, "").
               replace( /\!/g, "").
               replace( /č/g, "c").
+              replace( /ć/g, "c").
               replace( /š/g, "s").
               replace( /ž/g, "z");
               
