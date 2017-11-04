@@ -217,14 +217,20 @@ function receivedAuthentication(event) {
   "nastavi", "odpri", "zapri", "zasenci", "povecaj","zmanjsaj", "pomanjsaj", "odgrni","zagrni","odrolaj","naj", "bo"   //nastavi vrednost  
 ];
 
-  var Elementi = ["Luc", "klima", "zaluzija"];
-  var Sobe = ["dnevna", "kuhinja",  "spalnica"];
+  var Elementi = ["luc", "klima", "zaluzija"];
+  var Sobe = ["dnevn", "kuhinj",  "spalnic"];
   
   //STANJE???????????????''
   //var Stanja = ["on","off","przgan","prizgan","ugasnjen","odprt","zaprt"]
   
   var najdeneAkcije=[];
   var najdeneAkcijeIndex=[];
+  
+  var najdeniElementi=[];
+  var najdeniElementiIndex=[];
+  
+  var najdeneSobe=[];
+  var najdeneSobeIndex=[];
   
 
 
@@ -289,8 +295,18 @@ function receivedMessage(event) {
   //PREJETO SPOROCILO
   console.log("ZACNEMO");
   if (messageText) {
+    
+    
+    //incializacija od prej
+  
     najdeneAkcije=[];
     najdeneAkcijeIndex=[];
+    
+    najdeniElementi=[];
+    najdeniElementiIndex=[];
+  
+    najdeneSobe=[];
+    najdeneSobeIndex=[];
     
   var tekst = JSON.stringify(messageText);
   
@@ -338,7 +354,8 @@ function receivedMessage(event) {
   
   //ZANKA za obdelavo prejetega sporocila: razdelim na besede in vsako besedo posebej pogledam kaj je
   
-  najdiakcije(tabelaBesed);
+  //pregledam vse in najdem besede, ki so pomembne= spadajo v eno od grup AKCIJE, ELEMENTI, SOBE
+  najdivse(tabelaBesed);
   
   for(var j = 0; j<tabelaBesed.length; j++){
     switch (tabelaBesed[j]) {
@@ -349,6 +366,8 @@ function receivedMessage(event) {
         
       default:
         sendTextMessage(senderID, tabelaBesed[najdeneAkcijeIndex[j]]+j);
+        sendTextMessage(senderID, tabelaBesed[najdeniElementiIndex[j]]+j);
+        sendTextMessage(senderID, tabelaBesed[najdeneSobeIndex[j]]+j);
         
     }
   }
@@ -439,19 +458,28 @@ function alijekorenvbesedi(koren, beseda){
     return beseda.indexOf(koren) !== -1;
 } 
 
-function najdiakcije(sporocilo){
+function najdi(sporocilo,tabMoznih,najdene,najdeneIndex){
   //cez vse akcije
-  for(var i =0; i<Akcije.length;i++){
+  for(var i =0; i<tabMoznih.length;i++){
     //cez vse besede sporocila
     for(var j =0; j<sporocilo.length;j++){
-      if(alijekorenvbesedi(Akcije[i],sporocilo[j])){
-        najdeneAkcije.push(i);
-        najdeneAkcijeIndex.push(j);
+      if(alijekorenvbesedi(tabMoznih[i],sporocilo[j])){
+        najdene.push(i);
+        najdeneIndex.push(j);
         
       }
     }//konc sporocila
   }//konc akcij  
   
+}
+
+function najdivse(sporocilo){
+  //akcija
+  najdi(sporocilo,Akcije,najdeneAkcije,najdeneAkcijeIndex);
+  //Elementi
+  najdi(sporocilo,Elementi,najdeniElementi,najdeniElementiIndex);
+  //sobe
+  najdi(sporocilo,Sobe,najdeneSobe,najdeneSobeIndex);
 }
  
 function receivedDeliveryConfirmation(event) {
