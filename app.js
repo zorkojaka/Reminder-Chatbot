@@ -211,10 +211,10 @@ function receivedAuthentication(event) {
 
   //Možne besede
   var Akcije = 
-  ["on","prižgi","prizgi", "vklopi", "vključi", "vkljuci",     //ON
-  "off", "ugasni", "izklopi", "izključi", "izkljuci",     //OFF
+  ["on","prizgi", "vklopi", "vkljuci",     //ON
+  "off", "ugasni", "izklopi", "izkljuci",     //OFF
   "stanje", "vrednost", "info", "koliko",      //stanje
-  "nastavi", "odpri", "zapri", "zasenči", "zasenci", "povecaj", "povečaj", "zmanjšaj","zmanjsaj", "pomanjšaj", "pomanjsaj"   //nastavi vrednost  
+  "nastavi", "odpri", "zapri", "zasenci", "povecaj","zmanjsaj", "pomanjsaj", "odgrni","zagrni","odrolaj","naj", "bo"   //nastavi vrednost  
 ];
 
   var Elementi = ["Luč", "Klima", "Žaluzija"];
@@ -287,7 +287,18 @@ function receivedMessage(event) {
   if (messageText) {
     
   var tekst = JSON.stringify(messageText);
-  tekst=tekst.replace( /\"/g, "");  // TO NEKI NE ŠTIMA ŠE OSTANEJO ""
+  
+  tekst=tekst.toLowerCase();
+  
+  tekst=tekst.replace( /\"/g, "").
+              replace( /\./g, "").
+              replace( /\,/g, "").
+              replace( /\?/g, "").
+              replace( /\!/g, "").
+              replace( /č/g, "c").
+              replace( /š/g, "s").
+              replace( /ž/g, "z");
+              
   var tabelaBesed = tekst.split(" ");;
   
   //tabelaBesed[0]=[0].replace( /\"/g, "");
