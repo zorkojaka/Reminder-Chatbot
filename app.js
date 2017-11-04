@@ -314,6 +314,7 @@ function receivedMessage(event) {
         
       default:
         sendTextMessage(senderID, tabelaBesed[j]);
+        setTimeout(100);
     }
   }
   
