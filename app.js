@@ -239,8 +239,8 @@ var meje=[on,off,stanje,nastavi]
   var najdeneSobeIndex=[];
   
   var Akcija;
-  var Element;
-  var Vrednost;
+  var Element=[]
+  var Vrednost=-1;
 
 
 /*
@@ -367,7 +367,7 @@ function receivedMessage(event) {
   console.log("PRED-FUNKCIJAM");
   najdivse(tabelaBesed);
   dolociakcijo();
-  //dolociElement();
+  dolociElement();
   
   for(var j = 0; j<tabelaBesed.length; j++){
     switch (tabelaBesed[j]) {
