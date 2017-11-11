@@ -366,8 +366,8 @@ function receivedMessage(event) {
   
   console.log("PRED-FUNKCIJAM");
   najdivse(tabelaBesed);
-  dolociakcijo();
-  dolociElement();
+  //dolociakcijo();
+  //dolociElement();
   
   for(var j = 0; j<tabelaBesed.length; j++){
     switch (tabelaBesed[j]) {
