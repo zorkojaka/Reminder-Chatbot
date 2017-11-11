@@ -223,7 +223,7 @@ var meje=[on,off,stanje,nastavi]
   "nastavi", "odpri", "zapri", "zasenci", "povecaj","zmanjsaj", "pomanjsaj", "odgrni","zagrni","odrolaj","naj", "naredi"   //nastavi vrednost  
 ];
   
-  var Elementi = ["luc", "klima", "zaluzija"];
+  var Elementi = ["luc", "klim", "zaluzij", "gretje"];
   var Sobe = ["dnevn", "kuhinj",  "spalnic"];
   
   //STANJE???????????????''
@@ -390,8 +390,11 @@ function receivedMessage(event) {
         
     }
   }
-  sendTextMessage(senderID, "Akcija: "+Akcija+ " Element: "+Element);
-  
+  if(najdeneAkcije.length < 2){
+    sendTextMessage(senderID, "Akcija: "+Akcija+ " Element: "+Element);
+  }else{
+    sendTextMessage(senderID, "Se opravičujem, nisem vas popolnoma razumel. Lahko prosim samo eno zahtevo naenkrat.");
+  }
 }
 //KONC IF messageText
 
