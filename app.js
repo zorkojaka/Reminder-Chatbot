@@ -304,7 +304,7 @@ function receivedMessage(event) {
   console.log("ZACNEMO");
   if (messageText) {
     
-    
+  console.log("NOTR");  
     //incializacija od prej
   
     najdeneAkcije=[];
@@ -363,6 +363,8 @@ function receivedMessage(event) {
   //ZANKA za obdelavo prejetega sporocila: razdelim na besede in vsako besedo posebej pogledam kaj je
   
   //pregledam vse in najdem besede, ki so pomembne= spadajo v eno od grup AKCIJE, ELEMENTI, SOBE
+  
+  console.log("PRED-FUNKCIJAM");
   najdivse(tabelaBesed);
   dolociakcijo();
   dolociElement();
@@ -375,7 +377,7 @@ function receivedMessage(event) {
         break;
         
       default:
-        sendTextMessage(senderID, "Akcija: "+tabelaBesed[najdeneAkcijeIndex[j]]+j+ "Element: "+tabelaBesed[najdeniElementiIndex[j]]+j);
+        sendTextMessage(senderID, "Akcija: "+Akcija+" Element: "+tabelaBesed[najdeniElementiIndex[j]]+j);
         sendTextMessage(senderID, tabelaBesed[najdeneSobeIndex[j]]+j);
         
     }
