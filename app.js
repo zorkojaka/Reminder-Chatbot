@@ -375,7 +375,7 @@ function receivedMessage(event) {
         break;
         
       default:
-        //sendTextMessage(senderID, "Akcija: "+tabelaBesed[najdeneAkcijeIndex[j]]+j+ "Element: "+tabelaBesed[najdeniElementiIndex[j]]+j);
+        sendTextMessage(senderID, "Akcija: "+tabelaBesed[najdeneAkcijeIndex[j]]+j+ "Element: "+tabelaBesed[najdeniElementiIndex[j]]+j);
         sendTextMessage(senderID, tabelaBesed[najdeneSobeIndex[j]]+j);
         
     }
