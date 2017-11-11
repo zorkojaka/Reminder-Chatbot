@@ -513,7 +513,7 @@ function dolociElement(){
   //gremo čez vse najdene elemente
   for(var i = 0; i < najdeniElementi.length; i++){
     //ce jih je več in mamo kšno sobo pol samo te iz te sobe, drugače vse
-    Element.push(najdeniElementi[i]);
+    Element.push(najdeniElementiIndex[i]);
     
   }
   
