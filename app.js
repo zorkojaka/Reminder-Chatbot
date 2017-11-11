@@ -317,9 +317,9 @@ function receivedMessage(event) {
     najdeneSobeIndex=[];
     
     
-    var Akcija;
+    Akcija="";
     Element=[];
-    var Vrednost;
+    Vrednost=-1;
     
     
     
