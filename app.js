@@ -208,15 +208,20 @@ function receivedAuthentication(event) {
 
 //              HERE MAGIC HAPPENS
 
+//meje
+var on = 5;
+var off=on+4;
+var stanje=off+5;
+var nastavi=stanje+12;
 
   //Možne besede
   var Akcije = 
   ["on","prizgi","przgi", "vklopi", "vkljuc",     //ON
   "off", "ugasni", "izklopi", "izkljuci",     //OFF
-  "stanje", "vrednost", "info", "koliko",      //stanje
+  "stanje", "vrednost", "info", "koliko", "ali",      //stanje
   "nastavi", "odpri", "zapri", "zasenci", "povecaj","zmanjsaj", "pomanjsaj", "odgrni","zagrni","odrolaj","naj", "bo"   //nastavi vrednost  
 ];
-
+  
   var Elementi = ["luc", "klima", "zaluzija"];
   var Sobe = ["dnevn", "kuhinj",  "spalnic"];
   
@@ -232,7 +237,9 @@ function receivedAuthentication(event) {
   var najdeneSobe=[];
   var najdeneSobeIndex=[];
   
-
+  var Akcija;
+  var Element;
+  var Vrednost;
 
 
 /*
@@ -359,14 +366,13 @@ function receivedMessage(event) {
   
   for(var j = 0; j<tabelaBesed.length; j++){
     switch (tabelaBesed[j]) {
-      case 'živjo':
+      case 'zivjo':
         sendTextMessage(senderID, "Pozdravljen!");
         sendTextMessage(senderID, "Kako ti lahko pomagam? :D");
         break;
         
       default:
-        sendTextMessage(senderID, tabelaBesed[najdeneAkcijeIndex[j]]+j);
-        sendTextMessage(senderID, tabelaBesed[najdeniElementiIndex[j]]+j);
+        sendTextMessage(senderID, "Akcija: "+tabelaBesed[najdeneAkcijeIndex[j]]+j+ "Element: "+tabelaBesed[najdeniElementiIndex[j]]+j);
         sendTextMessage(senderID, tabelaBesed[najdeneSobeIndex[j]]+j);
         
     }
