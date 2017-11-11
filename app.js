@@ -239,8 +239,8 @@ var meje=[on,off,stanje,nastavi]
   var najdeneSobeIndex=[];
   
   var Akcija;
-  var Element=[]
-  var Vrednost=-1;
+  var Element;
+  var Vrednost;
 
 
 /*
@@ -315,6 +315,14 @@ function receivedMessage(event) {
   
     najdeneSobe=[];
     najdeneSobeIndex=[];
+    
+    
+    var Akcija;
+    Element=[];
+    var Vrednost;
+    
+    
+    
     
   var tekst = JSON.stringify(messageText);
   
@@ -511,7 +519,7 @@ function dolociakcijo(){
 
 function dolociElement(){
   //gremo čez vse najdene elemente
-  for(var i = 0; i < najdeniElementi.length; i++){
+  for(var i = 0; i < najdeniElementiIndex.length; i++){
     //ce jih je več in mamo kšno sobo pol samo te iz te sobe, drugače vse
     Element.push(najdeniElementiIndex[i]);
     
