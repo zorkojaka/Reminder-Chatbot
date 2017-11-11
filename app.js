@@ -365,6 +365,7 @@ function receivedMessage(event) {
   //pregledam vse in najdem besede, ki so pomembne= spadajo v eno od grup AKCIJE, ELEMENTI, SOBE
   najdivse(tabelaBesed);
   dolociakcijo();
+  dolociElement();
   
   for(var j = 0; j<tabelaBesed.length; j++){
     switch (tabelaBesed[j]) {
@@ -492,7 +493,7 @@ function najdivse(sporocilo){
 }
 
 function dolociakcijo(){
-  for(var i=0; i < najdeneAkcijeIndex; i++){
+  for(var i=0; i < najdeneAkcijeIndex.length; i++){
     if(najdeneAkcijeIndex[i]<meje[0]){
       Akcija="on";;
     }else if(najdeneAkcijeIndex[i]<meje[1]){
@@ -502,6 +503,16 @@ function dolociakcijo(){
     }else{
       Akcija="set";
     }
+  }
+  
+}
+
+function dolociElement(){
+  //gremo čez vse najdene elemente
+  for(var i = 0; i < najdeniElementi.length; i++){
+    //ce jih je več in mamo kšno sobo pol samo te iz te sobe, drugače vse
+    Element.push(najdeniElementi[i]);
+    
   }
   
 }
