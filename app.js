@@ -208,18 +208,19 @@ function receivedAuthentication(event) {
 
 //              HERE MAGIC HAPPENS
 
-//meje
+//meje akcij    kje so meje za nove akcije, po temu jih določam kera je
 var on = 5;
 var off=on+4;
 var stanje=off+5;
 var nastavi=stanje+12;
+var meje=[on,off,stanje,nastavi]
 
-  //Možne besede
+  //Možne besede    OB SPREMEMBAH POPRAVI MEJE!!!
   var Akcije = 
   ["on","prizgi","przgi", "vklopi", "vkljuc",     //ON
   "off", "ugasni", "izklopi", "izkljuci",     //OFF
   "stanje", "vrednost", "info", "koliko", "ali",      //stanje
-  "nastavi", "odpri", "zapri", "zasenci", "povecaj","zmanjsaj", "pomanjsaj", "odgrni","zagrni","odrolaj","naj", "bo"   //nastavi vrednost  
+  "nastavi", "odpri", "zapri", "zasenci", "povecaj","zmanjsaj", "pomanjsaj", "odgrni","zagrni","odrolaj","naj", "naredi"   //nastavi vrednost  
 ];
   
   var Elementi = ["luc", "klima", "zaluzija"];
@@ -363,6 +364,7 @@ function receivedMessage(event) {
   
   //pregledam vse in najdem besede, ki so pomembne= spadajo v eno od grup AKCIJE, ELEMENTI, SOBE
   najdivse(tabelaBesed);
+  dolociakcijo();
   
   for(var j = 0; j<tabelaBesed.length; j++){
     switch (tabelaBesed[j]) {
@@ -372,11 +374,12 @@ function receivedMessage(event) {
         break;
         
       default:
-        sendTextMessage(senderID, "Akcija: "+tabelaBesed[najdeneAkcijeIndex[j]]+j+ "Element: "+tabelaBesed[najdeniElementiIndex[j]]+j);
+        //sendTextMessage(senderID, "Akcija: "+tabelaBesed[najdeneAkcijeIndex[j]]+j+ "Element: "+tabelaBesed[najdeniElementiIndex[j]]+j);
         sendTextMessage(senderID, tabelaBesed[najdeneSobeIndex[j]]+j);
         
     }
   }
+  sendTextMessage(senderID, "Akcija: "+Akcija+ " Element: "+Element);
   
 }
 //KONC IF messageText
@@ -486,6 +489,21 @@ function najdivse(sporocilo){
   najdi(sporocilo,Elementi,najdeniElementi,najdeniElementiIndex);
   //sobe
   najdi(sporocilo,Sobe,najdeneSobe,najdeneSobeIndex);
+}
+
+function dolociakcijo(){
+  for(var i=0; i < najdeneAkcijeIndex; i++){
+    if(najdeneAkcijeIndex[i]<meje[0]){
+      Akcija="on";;
+    }else if(najdeneAkcijeIndex[i]<meje[1]){
+      Akcija="off";
+    }else if(najdeneAkcijeIndex[i]<meje[2]){
+      Akcija="get";
+    }else{
+      Akcija="set";
+    }
+  }
+  
 }
  
 function receivedDeliveryConfirmation(event) {
