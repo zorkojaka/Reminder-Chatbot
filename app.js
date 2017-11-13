@@ -530,7 +530,7 @@ function dolociElement(){
   }
   
 }
-
+/*
 function izvediUkaze(senderID){
   var elementstevec=0;
   var j;
@@ -550,7 +550,7 @@ function izvediUkaze(senderID){
   }
   
 }
- 
+ */
 function receivedDeliveryConfirmation(event) {
   var senderID = event.sender.id;
   var recipientID = event.recipient.id;
