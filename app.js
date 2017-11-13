@@ -543,16 +543,14 @@ function izvediUkaze(senderID){
     if(i>=(najdeneAkcije.length-1)){
       //ZADNA AKCIJA
       while(j<najdeniElementi.length){
-        sendTextMessage(senderID, "Akcija: "+Akcija.length+Akcija[i]+ " Element: "+Element[j]+" i: "+i+" najdeneAkcije.length-2:"+(najdeneAkcije.length-2)+ " Element: "+Element[j]+najdeneAkcijeIndex[x]+najdeniElementiIndex[j]);
+        sendTextMessage(senderID, "Akcija: "+Akcija.length+Akcija[i]+ " Element: "+Element[j]+" i: "+i+" najdeneAkcije.length-2:"+(najdeneAkcije.length-2)+ " Element: "+Element[j]+najdeneAkcijeIndex[i+1]+najdeniElementiIndex[j]);
         doAdelay(1000);
         j++;
       }  
     }else{
       //NEZADNA AKCIJA
-      var x=i;
-      x++;
-      while(najdeniElementiIndex[j]<najdeneAkcijeIndex[x]){
-        sendTextMessage(senderID, "Akcija: "+Akcija[i]+ " Element: "+Element[j]+najdeneAkcijeIndex[x]+najdeniElementiIndex[j]);
+      while(najdeniElementiIndex[j]<najdeneAkcijeIndex[i+1]){
+        sendTextMessage(senderID, "Akcija: "+Akcija[i]+ " Element: "+Element[j]+najdeneAkcijeIndex[i+1]+najdeniElementiIndex[j]);
          doAdelay(1000);
         j++;
       }
