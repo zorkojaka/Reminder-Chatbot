@@ -378,20 +378,7 @@ function receivedMessage(event) {
   najdivse(tabelaBesed);
   dolociakcijo();
   dolociElement();
-  
-  for(var j = 0; j<najdeneAkcijeIndex.length; j++){
-    switch (tabelaBesed[j]) {
-      case 'zivjo':
-        sendTextMessage(senderID, "Pozdravljen!");
-        sendTextMessage(senderID, "Kako ti lahko pomagam? :D");
-        break;
-        
-      default:
-        //sendTextMessage(senderID, "Akcija: "+Akcija+" Element: "+tabelaBesed[najdeniElementiIndex[j]]+j);
-        //sendTextMessage(senderID, tabelaBesed[najdeneSobeIndex[j]]+j);
-        
-    }
-  }
+
   /*
   if(najdeneAkcije.length < 2){
     sendTextMessage(senderID, "Akcija: "+Akcija+ " Element: "+Element);
@@ -552,7 +539,7 @@ function izvediUkaze(senderID){
       }  
     }else{
       while(najdeniElementiIndex[j]<najdeneAkcijeIndex[i+1]){
-        sendTextMessage(senderID, "Akcija: "+Akcija[i]+ " Element: "+Element[j]);
+        sendTextMessage(senderID, "Akcija: "+Akcija[i]+ " Element: "+Element[j]+najdeneAkcijeIndex[i+1]+najdeniElementiIndex[j]);
         j++;
       }
     }
