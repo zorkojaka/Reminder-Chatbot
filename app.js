@@ -209,7 +209,7 @@ function receivedAuthentication(event) {
 //              HERE MAGIC HAPPENS
 
 //meje akcij    kje so meje za nove akcije, po temu jih določam kera je
-var on = 5;
+var on = 4;
 var off=on+4;
 var stanje=off+5;
 var nastavi=stanje+12;
