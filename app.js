@@ -529,7 +529,7 @@ function izvediUkaze(senderID){
   var j=0;
   
   
-  for(var i=0; i< najdeneAkcijeIndex.length; i++){
+  for(var i=0; i< najdeneAkcije.length; i++){
     //akcija najdeneAkcije[i]
     
     
@@ -537,7 +537,7 @@ function izvediUkaze(senderID){
     if(i>(najdeneAkcije.length-2)){
       //ZADNA AKCIJA
       while(j<najdeniElementi.length){
-        sendTextMessage(senderID, "Akcija: "+Akcija.length+Akcija[i]+ " Element: "+Element[j]);
+        sendTextMessage(senderID, "Akcija: "+Akcija.length+Akcija[i]+ " Element: "+Element[j]+" i: "+i+" najdeneAkcije.length-2:"+(najdeneAkcije.length-2));
         j++;
       }  
     }else{
