@@ -527,17 +527,19 @@ function izvediUkaze(senderID){
   var j=0;
   
   
-  for(var i =0; i< najdeneAkcijeIndex.length; i++){
+  for(var i=0; i< najdeneAkcijeIndex.length; i++){
     //akcija najdeneAkcije[i]
     
     
     //ALI JE TO ZADNJA AKCIJA?
-    if(i>najdeneAkcije.length-2){
+    if(i>(najdeneAkcije.length-2)){
+      //ZADNA AKCIJA
       while(j<najdeniElementi.length){
         sendTextMessage(senderID, "Akcija: "+Akcija.length+Akcija[i]+ " Element: "+Element[j]);
         j++;
       }  
     }else{
+      //NEZADNA AKCIJA
       var x=i;
       x++;
       while(najdeniElementiIndex[j]<najdeneAkcijeIndex[x]){
