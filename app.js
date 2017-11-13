@@ -534,9 +534,9 @@ function dolociElement(){
 function izvediUkaze(senderID){
   var elementstevec=0;
   var j;
-  for(var i =0; i> najdeneAkcijeIndex.length; i++){
+  for(var i =0; i< najdeneAkcijeIndex.length; i++){
     //akcija najdeneAkcije[i]
-  if(najdeneAkcijeIndex[i+1]>0){
+  if(i!=najdeneAkcije.length){
     for(j=elementstevec; najdeniElementiIndex[j]<najdeneAkcijeIndex[i+1]; j++){
       //izvedi ukaz za najdeneAkcije[i] in najdeniElementi[j]  
       sendTextMessage(senderID, "Akcija: "+najdeneAkcije[i]+ " Element: "+najdeniElementi[j]);
