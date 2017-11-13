@@ -317,7 +317,7 @@ function receivedMessage(event) {
     najdeneSobeIndex=[];
     
     
-    Akcija="";
+    Akcija=[];
     Element=[];
     Vrednost=-1;
     
@@ -512,13 +512,13 @@ function najdivse(sporocilo){
 function dolociakcijo(){
   for(var i=0; i < najdeneAkcijeIndex.length; i++){
     if(najdeneAkcijeIndex[i]<meje[0]){
-      Akcija="on";;
+      Akcija.push("on");
     }else if(najdeneAkcijeIndex[i]<meje[1]){
-      Akcija="off";
+      Akcija.push("off");
     }else if(najdeneAkcijeIndex[i]<meje[2]){
-      Akcija="get";
+      Akcija.push("get");
     }else{
-      Akcija="set";
+      Akcija.push("set");
     }
   }
 }
@@ -545,12 +545,12 @@ function izvediUkaze(senderID){
     //ALI JE TO ZADNJA AKCIJA?
     if(i>najdeneAkcije.length-2){
       while(j<najdeniElementi.length){
-        sendTextMessage(senderID, "Akcija: "+najdeneAkcije[i]+ " Element: "+najdeniElementi[j]);
+        sendTextMessage(senderID, "Akcija: "+Akcija[i]+ " Element: "+Element[j]);
         j++;
       }  
     }else{
       while(najdeniElementiIndex[j]<najdeneAkcijeIndex[i+1]){
-        sendTextMessage(senderID, "Akcija: "+najdeneAkcije[i]+ " Element: "+najdeniElementi[j]);
+        sendTextMessage(senderID, "Akcija: "+Akcija[i]+ " Element: "+Element[j]);
         j++;
       }
     }
