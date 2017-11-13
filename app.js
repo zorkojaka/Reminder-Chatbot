@@ -476,11 +476,12 @@ function alijekorenvbesedi(koren, beseda){
 
 // grem čez vsako akcijo posebej in pogledam čez vse besede sporočila posebej če se ujema, če se shranm index akcije v najdene akcije in index akcije v sporočilu v najdrnrakcije index
 function najdi(sporocilo,tabMoznih,najdene,najdeneIndex){
-  
+  var i =0;
+  var j=0;
   //cez vse akcije
-  for(var i =0; i<tabMoznih.length;i++){
+  for(i =0; i<tabMoznih.length;i++){
     //cez vse besede sporocila
-    for(var j =0; j<sporocilo.length;j++){
+    for(j =0; j<sporocilo.length;j++){
       if(alijekorenvbesedi(tabMoznih[i],sporocilo[j])){
         najdene.push(i);
         najdeneIndex.push(j);
@@ -533,9 +534,10 @@ function dolociElement(){
 
 function izvediUkaze(senderID){
   var j=0;
+  var i=0;
   
   
-  for(var i=0; i< najdeneAkcije.length; i++){
+  for(i=0; i< najdeneAkcije.length; i++){
     //akcija najdeneAkcije[i]
     
     
