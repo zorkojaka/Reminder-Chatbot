@@ -396,7 +396,7 @@ function receivedMessage(event) {
     sendTextMessage(senderID, "Se opravičujem, nisem vas popolnoma razumel. Lahko prosim samo eno zahtevo naenkrat.");
   }
   
-  izvediUkaze(senderID);
+  //izvediUkaze(senderID);
 }
 //KONC IF messageText
 
