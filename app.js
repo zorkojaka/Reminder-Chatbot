@@ -534,6 +534,8 @@ function dolociElement(){
 function izvediUkaze(senderID){
   var elementstevec=0;
   var j;
+  
+  /*
   for(var i =0; i< najdeneAkcijeIndex.length; i++){
     //akcija najdeneAkcije[i]
   if(i!=najdeneAkcije.length-1){
@@ -548,6 +550,7 @@ function izvediUkaze(senderID){
       sendTextMessage(senderID, "Akcija: "+najdeneAkcije[i]+ " Element: "+najdeniElementi[j]);
   }
   }
+  */
   
 }
  
