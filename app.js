@@ -223,7 +223,7 @@ var meje=[on,off,stanje,nastavi]
   "nastavi", "odpri", "zapri", "zasenci", "povecaj","zmanjsaj", "pomanjsaj", "odgrni","zagrni","odrolaj","naj", "naredi"   //nastavi vrednost  
 ];
   
-  var Elementi = ["luc", "klim", "zaluzij", "gretje"];
+  var Elementi = ["luc", "klim", "zaluzij", "gretje", "okn"];
   var Sobe = ["dnevn", "kuhinj",  "spalnic"];
   
   //STANJE???????????????''
@@ -376,8 +376,8 @@ function receivedMessage(event) {
   
   console.log("PRED-FUNKCIJAM");
   najdivse(tabelaBesed);
-  dolociakcijo();
-  dolociElement();
+  dolociakcijo();//napolne tabelo akcija
+  dolociElement();//napolne tabelo element
 
   /*
   if(najdeneAkcije.length < 2){
