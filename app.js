@@ -475,17 +475,17 @@ function alijekorenvbesedi(koren, beseda){
 } 
 
 function najdi(sporocilo,tabMoznih,najdene,najdeneIndex){
-  var x =0;
+  
   //cez vse akcije
   for(var i =0; i<tabMoznih.length;i++){
     //cez vse besede sporocila
-    for(var j =x; j<sporocilo.length;j++){
+    for(var j =0; j<sporocilo.length;j++){
       if(alijekorenvbesedi(tabMoznih[i],sporocilo[j])){
         najdene.push(i);
         najdeneIndex.push(j);
         
       }
-      x=j;
+      
     }//konc sporocila
   }//konc akcij  
   
