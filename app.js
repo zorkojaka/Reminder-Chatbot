@@ -471,9 +471,10 @@ function receivedMessage(event) {
  */
 function alijekorenvbesedi(koren, beseda){
     //index ofvrne -1 ce ni korena v besed
-    return beseda.indexOf(koren) !== -1;
+    return beseda.indexOf(koren) != -1;
 } 
 
+// grem čez vsako akcijo posebej in pogledam čez vse besede sporočila posebej če se ujema, če se shranm index akcije v najdene akcije in index akcije v sporočilu v najdrnrakcije index
 function najdi(sporocilo,tabMoznih,najdene,najdeneIndex){
   
   //cez vse akcije
@@ -540,7 +541,7 @@ function izvediUkaze(senderID){
     
     
     //ALI JE TO ZADNJA AKCIJA?
-    if(i>(najdeneAkcije.length-2)){
+    if(i>=(najdeneAkcije.length-1)){
       //ZADNA AKCIJA
       while(j<najdeniElementi.length){
         sendTextMessage(senderID, "Akcija: "+Akcija.length+Akcija[i]+ " Element: "+Element[j]+" i: "+i+" najdeneAkcije.length-2:"+(najdeneAkcije.length-2));
