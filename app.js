@@ -396,7 +396,7 @@ function receivedMessage(event) {
     sendTextMessage(senderID, "Se opravičujem, nisem vas popolnoma razumel. Lahko prosim samo eno zahtevo naenkrat.");
   }
   
-  //izvediUkaze(senderID);
+  izvediUkaze(senderID);
 }
 //KONC IF messageText
 
@@ -530,13 +530,13 @@ function dolociElement(){
   }
   
 }
-/*
+
 function izvediUkaze(senderID){
   var elementstevec=0;
   var j;
   for(var i =0; i< najdeneAkcijeIndex.length; i++){
     //akcija najdeneAkcije[i]
-  if(i!=najdeneAkcije.length){
+  if(i!=najdeneAkcije.length-1){
     for(j=elementstevec; najdeniElementiIndex[j]<najdeneAkcijeIndex[i+1]; j++){
       //izvedi ukaz za najdeneAkcije[i] in najdeniElementi[j]  
       sendTextMessage(senderID, "Akcija: "+najdeneAkcije[i]+ " Element: "+najdeniElementi[j]);
@@ -550,7 +550,7 @@ function izvediUkaze(senderID){
   }
   
 }
- */
+ 
 function receivedDeliveryConfirmation(event) {
   var senderID = event.sender.id;
   var recipientID = event.recipient.id;
