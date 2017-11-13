@@ -524,6 +524,12 @@ function dolociElement(){
   
 }
 
+ function doAdelay(i)
+ {
+ setTimeout(function(){return true;},i);
+
+ }
+
 function izvediUkaze(senderID){
   var elementstevec=0;
   var j=0;
@@ -538,6 +544,7 @@ function izvediUkaze(senderID){
       //ZADNA AKCIJA
       while(j<najdeniElementi.length){
         sendTextMessage(senderID, "Akcija: "+Akcija.length+Akcija[i]+ " Element: "+Element[j]+" i: "+i+" najdeneAkcije.length-2:"+(najdeneAkcije.length-2));
+        doAdelay(1000);
         j++;
       }  
     }else{
@@ -546,6 +553,7 @@ function izvediUkaze(senderID){
       x++;
       while(najdeniElementiIndex[j]<najdeneAkcijeIndex[x]){
         sendTextMessage(senderID, "Akcija: "+Akcija[i]+ " Element: "+Element[j]+najdeneAkcijeIndex[x]+najdeniElementiIndex[j]);
+         doAdelay(1000);
         j++;
       }
     }
