@@ -390,11 +390,13 @@ function receivedMessage(event) {
         
     }
   }
+  /*
   if(najdeneAkcije.length < 2){
     sendTextMessage(senderID, "Akcija: "+Akcija+ " Element: "+Element);
   }else{
     sendTextMessage(senderID, "Se opravičujem, nisem vas popolnoma razumel. Lahko prosim samo eno zahtevo naenkrat.");
   }
+  */
   
   izvediUkaze(senderID);
 }
@@ -538,7 +540,6 @@ function izvediUkaze(senderID){
   
   for(var i =0; i< najdeneAkcijeIndex.length; i++){
     //akcija najdeneAkcije[i]
-    sendTextMessage(senderID, "Akcija: "+najdeneAkcije[i]+ " Element: ");
     
     
     //ALI JE TO ZADNJA AKCIJA?
