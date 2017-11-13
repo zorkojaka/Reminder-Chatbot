@@ -513,11 +513,11 @@ function najdivse(sporocilo){
 
 function dolociakcijo(){
   for(var i=0; i < najdeneAkcijeIndex.length; i++){
-    if(najdeneAkcijeIndex[i]<meje[0]){
+    if(najdeneAkcije[i]<meje[0]){
       Akcija.push("on");
-    }else if(najdeneAkcijeIndex[i]<meje[1]){
+    }else if(najdeneAkcije[i]<meje[1]){
       Akcija.push("off");
-    }else if(najdeneAkcijeIndex[i]<meje[2]){
+    }else if(najdeneAkcije[i]<meje[2]){
       Akcija.push("get");
     }else{
       Akcija.push("set");
