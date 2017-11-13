@@ -532,7 +532,6 @@ function dolociElement(){
  }
 
 function izvediUkaze(senderID){
-  var elementstevec=0;
   var j=0;
   
   
@@ -544,7 +543,7 @@ function izvediUkaze(senderID){
     if(i>=(najdeneAkcije.length-1)){
       //ZADNA AKCIJA
       while(j<najdeniElementi.length){
-        sendTextMessage(senderID, "Akcija: "+Akcija.length+Akcija[i]+ " Element: "+Element[j]+" i: "+i+" najdeneAkcije.length-2:"+(najdeneAkcije.length-2));
+        sendTextMessage(senderID, "Akcija: "+Akcija.length+Akcija[i]+ " Element: "+Element[j]+" i: "+i+" najdeneAkcije.length-2:"+(najdeneAkcije.length-2)+ " Element: "+Element[j]+najdeneAkcijeIndex[x]+najdeniElementiIndex[j]);
         doAdelay(1000);
         j++;
       }  
