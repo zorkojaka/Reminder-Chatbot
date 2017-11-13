@@ -238,8 +238,8 @@ var meje=[on,off,stanje,nastavi]
   var najdeneSobe=[];
   var najdeneSobeIndex=[];
   
-  var Akcija;
-  var Element;
+  var Akcija=[];
+  var Element=[];
   var Vrednost;
 
 
