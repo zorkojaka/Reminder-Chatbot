@@ -377,7 +377,7 @@ function receivedMessage(event) {
   dolociakcijo();
   dolociElement();
   
-  for(var j = 0; j<tabelaBesed.length; j++){
+  for(var j = 0; j<najdeneAkcijeIndex.length; j++){
     switch (tabelaBesed[j]) {
       case 'zivjo':
         sendTextMessage(senderID, "Pozdravljen!");
@@ -395,6 +395,8 @@ function receivedMessage(event) {
   }else{
     sendTextMessage(senderID, "Se opravičujem, nisem vas popolnoma razumel. Lahko prosim samo eno zahtevo naenkrat.");
   }
+  
+  izvediUkaze(senderID);
 }
 //KONC IF messageText
 
@@ -517,7 +519,6 @@ function dolociakcijo(){
       Akcija="set";
     }
   }
-  
 }
 
 function dolociElement(){
@@ -526,6 +527,26 @@ function dolociElement(){
     //ce jih je več in mamo kšno sobo pol samo te iz te sobe, drugače vse
     Element.push(najdeniElementiIndex[i]);
     
+  }
+  
+}
+
+function izvediUkaze(senderID){
+  var elementstevec=0;
+  var j;
+  for(var i =0; i> najdeneAkcijeIndex.length; i++){
+    //akcija najdeneAkcije[i]
+  if(najdeneAkcijeIndex[i+1]>0){
+    for(j=elementstevec; najdeniElementiIndex[j]<najdeneAkcijeIndex[i+1]; j++){
+      //izvedi ukaz za najdeneAkcije[i] in najdeniElementi[j]  
+      sendTextMessage(senderID, "Akcija: "+najdeneAkcije[i]+ " Element: "+najdeniElementi[j]);
+    }
+    elementstevec=j;
+  }else{
+        for(j=elementstevec; j<najdeniElementi.length; j++){
+      //izvedi ukaz za najdeneAkcije[i] in najdeniElementi[j]  
+      sendTextMessage(senderID, "Akcija: "+najdeneAkcije[i]+ " Element: "+najdeniElementi[j]);
+  }
   }
   
 }
