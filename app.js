@@ -543,17 +543,17 @@ function izvediUkaze(senderID){
     
     //ALI JE TO ZADNJA AKCIJA?
     if(i>najdeneAkcije.length-2){
-      //while(j<najdeniElementi.length){
+      while(j<najdeniElementi.length){
         sendTextMessage(senderID, "Akcija: "+najdeneAkcije[i]+ " Element: "+najdeniElementi[j]);
         j++;
-      //}  
+      }  
     }else{
-    //  while(najdeniElementiIndex[j]<najdeneAkcijeIndex[i+1]){
+      while(najdeniElementiIndex[j]<najdeneAkcijeIndex[i+1]){
         sendTextMessage(senderID, "Akcija: "+najdeneAkcije[i]+ " Element: "+najdeniElementi[j]);
         j++;
-      //}
+      }
     }
-    
+  }
     
     /*
   if(i!=najdeneAkcije.length-1){
