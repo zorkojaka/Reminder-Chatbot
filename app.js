@@ -541,21 +541,20 @@ function izvediUkaze(senderID){
     
     
     //ALI JE TO ZADNJA AKCIJA?
-    if(i<=(najdeneAkcije.length-1)){
+    if(i>=(najdeneAkcije.length-1)){
       //ZADNA AKCIJA
-            while(najdeniElementiIndex[j]<najdeneAkcijeIndex[x]){
-        sendTextMessage(senderID, "Akcija: "+Akcija[i]+ " Element: "+Element[j]+najdeneAkcijeIndex[x]+najdeniElementiIndex[j]);
-         doAdelay(1000);
+      while(j<najdeniElementi.length){
+        sendTextMessage(senderID, "Akcija: "+Akcija.length+Akcija[i]+ " Element: "+Element[j]+" i: "+i+" najdeneAkcije.length-2:"+(najdeneAkcije.length-2));
+        doAdelay(1000);
         j++;
       }  
     }else{
       //NEZADNA AKCIJA
       var x=i;
       x++;
-
-              while(j<najdeniElementi.length){
-        sendTextMessage(senderID, "Akcija: "+Akcija.length+Akcija[i]+ " Element: "+Element[j]+" i: "+i+" najdeneAkcije.length-2:"+(najdeneAkcije.length-2));
-        doAdelay(1000);
+      while(najdeniElementiIndex[j]<najdeneAkcijeIndex[x]){
+        sendTextMessage(senderID, "Akcija: "+Akcija[i]+ " Element: "+Element[j]+najdeneAkcijeIndex[x]+najdeniElementiIndex[j]);
+         doAdelay(1000);
         j++;
       }
     }
