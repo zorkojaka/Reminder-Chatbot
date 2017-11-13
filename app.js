@@ -532,14 +532,16 @@ function izvediUkaze(senderID){
     
     
     //ALI JE TO ZADNJA AKCIJA?
-    if(i<najdeneAkcije.length-2){
+    if(i>najdeneAkcije.length-2){
       while(j<najdeniElementi.length){
         sendTextMessage(senderID, "Akcija: "+Akcija.length+Akcija[i]+ " Element: "+Element[j]);
         j++;
       }  
     }else{
-      while(najdeniElementiIndex[j]<najdeneAkcijeIndex[i+1]){
-        sendTextMessage(senderID, "Akcija: "+Akcija[i]+ " Element: "+Element[j]+najdeneAkcijeIndex[i+1]+najdeniElementiIndex[j]);
+      var x=i;
+      x++;
+      while(najdeniElementiIndex[j]<najdeneAkcijeIndex[x]){
+        sendTextMessage(senderID, "Akcija: "+Akcija[i]+ " Element: "+Element[j]+najdeneAkcijeIndex[x]+najdeniElementiIndex[j]);
         j++;
       }
     }
