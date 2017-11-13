@@ -302,6 +302,8 @@ function receivedMessage(event) {
   
   //PREJETO SPOROCILO
   console.log("ZACNEMO");
+  
+  
   if (messageText) {
     
   console.log("NOTR");  
@@ -545,7 +547,7 @@ function izvediUkaze(senderID){
     //ALI JE TO ZADNJA AKCIJA?
     if(i>najdeneAkcije.length-2){
       while(j<najdeniElementi.length){
-        sendTextMessage(senderID, "Akcija: "+Akcija[i]+ " Element: "+Element[j]);
+        sendTextMessage(senderID, "Akcija: "+Akcija.length+Akcija[i]+ " Element: "+Element[j]);
         j++;
       }  
     }else{
