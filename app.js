@@ -479,12 +479,12 @@ function najdi(sporocilo,tabMoznih,najdene,najdeneIndex){
   var i =0;
   var j=0;
   //cez vse akcije
-  for(i =0; i<tabMoznih.length;i++){
+  for(i =0; i<sporocilo.length;i++){
     //cez vse besede sporocila
-    for(j =0; j<sporocilo.length;j++){
-      if(alijekorenvbesedi(tabMoznih[i],sporocilo[j])){
-        najdene.push(i);
-        najdeneIndex.push(j);
+    for(j =0; j<tabMoznih.length;j++){
+      if(alijekorenvbesedi(tabMoznih[j],sporocilo[i])){
+        najdene.push(j);
+        najdeneIndex.push(i);
         
       }
       
@@ -503,7 +503,7 @@ function najdivse(sporocilo){
 }
 
 function dolociakcijo(){
-  for(var i=0; i < najdeneAkcijeIndex.length; i++){
+  for(var i=0; i < najdeneAkcije.length; i++){
     if(najdeneAkcije[i]<meje[0]){
       Akcija.push("on");
     }else if(najdeneAkcije[i]<meje[1]){
