@@ -535,9 +535,11 @@ function izvediUkaze(senderID){
   var elementstevec=0;
   var j;
   
-  /*
+  
   for(var i =0; i< najdeneAkcijeIndex.length; i++){
     //akcija najdeneAkcije[i]
+    sendTextMessage(senderID, "Akcija: "+najdeneAkcije[i]+ " Element: ");
+    /*
   if(i!=najdeneAkcije.length-1){
     for(j=elementstevec; najdeniElementiIndex[j]<najdeneAkcijeIndex[i+1]; j++){
       //izvedi ukaz za najdeneAkcije[i] in najdeniElementi[j]  
@@ -548,9 +550,9 @@ function izvediUkaze(senderID){
         for(j=elementstevec; j<najdeniElementi.length; j++){
       //izvedi ukaz za najdeneAkcije[i] in najdeniElementi[j]  
       sendTextMessage(senderID, "Akcija: "+najdeneAkcije[i]+ " Element: "+najdeniElementi[j]);
+  }*/
   }
-  }
-  */
+  
   
 }
  
