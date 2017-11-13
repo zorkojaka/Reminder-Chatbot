@@ -532,7 +532,7 @@ function izvediUkaze(senderID){
     
     
     //ALI JE TO ZADNJA AKCIJA?
-    if(i>najdeneAkcije.length-1){
+    if(i>najdeneAkcije.length-2){
       while(j<najdeniElementi.length){
         sendTextMessage(senderID, "Akcija: "+Akcija.length+Akcija[i]+ " Element: "+Element[j]);
         j++;
