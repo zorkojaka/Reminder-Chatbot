@@ -544,7 +544,7 @@ function izvediUkaze(senderID){
     //ALI JE TO ZADNJA AKCIJA?
     if(i>=(najdeneAkcije.length-1)){
       //ZADNA AKCIJA
-       sendTextMessage(senderID, "zadna Akcija: "+Akcija.length+Akcija[i]);
+       sendTextMessage(senderID, "zadna Akcija: "+Akcija.length+Akcija[i]+i);
       /*
       while(j<najdeniElementi.length){
         sendTextMessage(senderID, "Akcija: "+Akcija.length+Akcija[i]+ " Element: "+Element[j]+" i: "+i+" najdeneAkcije.length-2:"+(najdeneAkcije.length-2)+ " Element: "+Element[j]+najdeneAkcijeIndex[i+1]+najdeniElementiIndex[j]);
@@ -555,7 +555,7 @@ function izvediUkaze(senderID){
       */
     }else{
       //NEZADNA AKCIJA
-      sendTextMessage(senderID, "nezadna Akcija: "+Akcija.length+Akcija[i]);
+      sendTextMessage(senderID, "nezadna Akcija: "+Akcija.length+Akcija[i]+i);
       /*
       while(najdeniElementiIndex[j]<najdeneAkcijeIndex[i+1]){
         sendTextMessage(senderID, "Akcija: "+Akcija[i]+ " Element: "+Element[j]+najdeneAkcijeIndex[i+1]+najdeniElementiIndex[j]);
