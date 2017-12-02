@@ -241,6 +241,9 @@ var meje=[on,off,stanje,nastavi]
   var Akcija=[];
   var Element=[];
   var Vrednost;
+  
+  var kriptGeslo="YWRtaW46U2FsdXNkZDE=";
+  //var URLIP = new URL("http://192.168.0.108:8083/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)");
 
 
 /*
@@ -303,6 +306,7 @@ function receivedMessage(event) {
   //PREJETO SPOROCILO
   console.log("ZACNEMO");
   
+  httpGet("http://192.168.0.108:8083/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)");
   
   if (messageText) {
     
@@ -379,13 +383,7 @@ function receivedMessage(event) {
   dolociakcijo();//napolne tabelo akcija
   dolociElement();//napolne tabelo element
 
-  /*
-  if(najdeneAkcije.length < 2){
-    sendTextMessage(senderID, "Akcija: "+Akcija+ " Element: "+Element);
-  }else{
-    sendTextMessage(senderID, "Se opravičujem, nisem vas popolnoma razumel. Lahko prosim samo eno zahtevo naenkrat.");
-  }
-  */
+
   
   izvediUkaze(senderID);
 }
@@ -526,6 +524,16 @@ function dolociElement(){
   
 }
 
+function httpGet(theUrl)
+{
+  
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.setRequestHeader('Authorization','Basic ' + kriptGeslo);
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
+
 
 function izvediUkaze(senderID){
   var j=0;
@@ -543,6 +551,11 @@ function izvediUkaze(senderID){
       
       while(j<najdeniElementi.length){
         sendTextMessage(senderID, "Akcija: "+Akcija[i]+ " Element: "+Element[j]);
+        
+        //ON
+        //http://192.168.0.108:8083/JS/Run/zway.devices[2].instances[0].commandClasses[37].Set(0)
+        //OFF
+        //http://192.168.0.108:8083/JS/Run/zway.devices[2].instances[0].commandClasses[37].Set(255)
         j++;
         
       } 
