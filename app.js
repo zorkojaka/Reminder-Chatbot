@@ -242,7 +242,7 @@ var meje=[on,off,stanje,nastavi]
   var Element=[];
   var Vrednost;
   
-  var kriptGeslo="YWRtaW46U2FsdXNkZDE=";
+  var kriptGeslo="Basic YWRtaW46U2FsdXNkZDE=";
   //var URLIP = new URL("http://192.168.0.108:8083/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)");
 
 
