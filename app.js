@@ -327,7 +327,7 @@ function receivedMessage(event) {
     port:8083,
     Authorization: kriptGeslo,
     path: '/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)',
-    method: 'GET'
+    method: 'POST'
   };
 
   var req = http.request(options, function(res){
