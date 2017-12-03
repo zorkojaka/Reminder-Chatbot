@@ -330,12 +330,12 @@ function receivedMessage(event) {
     method: 'GET'
   };
 
-  var req = https.request(options, function(res){
+  var req = http.request(options, function(res){
     //kaj nrdimo z respondom
     console.log("SPROŽEN URL");
     req.end();
-    req.on('error', function(e) {
-    console.error(e);
+        req.on('error', function(e) {
+        console.error(e);
 });
 
   });
