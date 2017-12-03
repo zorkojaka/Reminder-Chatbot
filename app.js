@@ -323,16 +323,21 @@ function receivedMessage(event) {
   var fs = require('fs');
 
   var options = {
-    hostname: "93.103.121.2",
+    hostname: '93.103.121.2',
     port:8083,
     Authorization: kriptGeslo,
-    path: "/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)",
-    method: "GET"
+    path: '/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)',
+    method: 'GET'
   };
 
-  var req = http.request(options, function(res){
+  var req = https.request(options, function(res){
     //kaj nrdimo z respondom
     console.log("SPROŽEN URL");
+    req.end();
+    req.on('error', function(e) {
+    console.error(e);
+});
+
   });
     
   console.log("NOTR");  
