@@ -332,7 +332,7 @@ function receivedMessage(event) {
     method: 'GET',
   };
 
-  var req = http.request(options, function(res){
+  var req = http.get(options, function(res){
     //kaj nrdimo z respondom
     console.log("SPROŽEN URL");
     req.end();
