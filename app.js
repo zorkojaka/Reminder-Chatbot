@@ -306,7 +306,7 @@ function receivedMessage(event) {
   //PREJETO SPOROCILO
   console.log("ZACNEMO");
   
-  httpGet('192.168.0.108:8083/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)');
+  httpGet('93.103.121.2:8083/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)');
   
   if (messageText) {
     
