@@ -304,7 +304,7 @@ function receivedMessage(event) {
 
   
   //PREJETO SPOROCILO
-  console.log("ZACNEMO");
+  console.log('ZACNEMO');
   
 
   
@@ -312,7 +312,7 @@ function receivedMessage(event) {
   
   
   if (messageText) {
-    
+    console.log('notr');
     
       //httpGet('93.103.121.2:8083/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)');
   var https = require('https');
