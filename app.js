@@ -324,10 +324,11 @@ function receivedMessage(event) {
 
   var options = {
     hostname: '93.103.121.2',
+    content_type: 'application/json',
     port:8083,
     authorization: kriptGeslo,
     path: '/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)',
-    method: 'POST'
+    method: 'GET',
   };
 
   var req = http.request(options, function(res){
