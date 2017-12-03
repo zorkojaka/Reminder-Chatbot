@@ -325,7 +325,7 @@ function receivedMessage(event) {
   var options = {
     hostname: '93.103.121.2',
     port:8083,
-    Authorization: kriptGeslo,
+    authorization: kriptGeslo,
     path: '/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)',
     method: 'POST'
   };
