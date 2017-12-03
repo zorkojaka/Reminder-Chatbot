@@ -306,7 +306,7 @@ function receivedMessage(event) {
   //PREJETO SPOROCILO
   console.log("ZACNEMO");
   
-  //httpGet("93.103.121.2:8083/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)");
+  httpGet('192.168.0.108:8083/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)');
   
   if (messageText) {
     
@@ -527,11 +527,13 @@ function dolociElement(){
 function httpGet(theUrl)
 {
   
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.setRequestHeader('Authorization','Basic ' + kriptGeslo);
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
+  var http = require('http');
+  var client = http.createClient(80, theUrl); 
+  
+  var header = {'Host': theUrl, 'Authorization': kriptGeslo};
+  var request = client.request('GET', '/', header);
+
+
 }
 
 
