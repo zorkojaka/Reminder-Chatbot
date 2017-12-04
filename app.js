@@ -575,7 +575,12 @@ function httpGet(napravaID,napravaI,command,value)
 
 function izvediUkaze(senderID){
   var j=0;
-  var i=0;
+  var i=0
+  
+  var napravaID = 2;
+  var napravaI = 1;
+  var command = 37;
+  var value=255;
   
   
   for(i=0; i< najdeneAkcije.length; i++){
@@ -591,7 +596,12 @@ function izvediUkaze(senderID){
         sendTextMessage(senderID, "Akcija: "+Akcija[i]+ " Element: "+Element[j]);
         
         //ON
-        //http://192.168.0.108:8083/JS/Run/zway.devices[2].instances[0].commandClasses[37].Set(0)
+        if(Akcija[i]<1){
+          value=255;
+        }else{
+          value=0;
+        }
+        httpGet(napravaID,napravaI,command,value);
         //OFF
         //http://192.168.0.108:8083/JS/Run/zway.devices[2].instances[0].commandClasses[37].Set(255)
         j++;
