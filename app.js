@@ -333,14 +333,23 @@ function receivedMessage(event) {
   };
 
   var req = http.get(options, function(res){
-    //kaj nrdimo z respondom
     console.log("SPROŽEN URL");
-    req.end();
-        req.on('error', function(e) {
+    
+    var odgovor="";
+    
+    res.on('data', function(chunk){
+      odgovor+=chunk;
+      console.log(chunk);
+    });
+    
+    res.on('error', function(e) {
         console.error(e);
-});
-
-  });
+    });
+    
+    res.on('end', function(){
+      console.log(odgovor);
+    });
+  }).end();
     
   console.log("NOTR");  
     //incializacija od prej
