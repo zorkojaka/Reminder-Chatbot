@@ -308,7 +308,7 @@ function receivedMessage(event) {
   
 
   
-  
+  httpGet(2,1,37,255);
   
   
   if (messageText) {
@@ -316,44 +316,7 @@ function receivedMessage(event) {
     
       //httpGet('93.103.121.2:8083/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)');
 
-  var http = require('http');
- // var request=require('request');
 
-  //file system
-
-  //var fs = require('fs');
-
-  var options = {
-    hostname: '93.103.121.2',
-    port: 8083,
-    path: '/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)',
-    method: 'GET',
-    headers: {
-     'Authorization': 'Basic YWRtaW46U2FsdXNkZDE='
-    } 
-  };
-
-  var req = http.get(options, function(res){
-    console.log("SPROŽEN URL");
-    
-    var odgovor="";
-    
-    res.on('data', function(chunk){
-      odgovor+=chunk;
-      console.log(chunk);
-    });
-    
-    res.on('error', function(e) {
-        console.error(e);
-    });
-    
-    res.on('end', function(){
-      console.log(odgovor);
-    });
-  }).end();
-    
-    
-    http.request(options, function(response){console.log("CALLback"+response)}).end();
   console.log("NOTR");  
     //incializacija od prej
   
@@ -568,14 +531,43 @@ function dolociElement(){
   
 }
 
-function httpGet(theUrl)
+function httpGet(napravaID,napravaI,command,value)
 {
   
   var http = require('http');
-  var client = http.createClient(8083, theUrl); 
-  
-  var header = {'Host': theUrl, 'Authorization': kriptGeslo};
-  var request = client.request('GET', '/', header);
+
+
+  var options = {
+    hostname: '93.103.121.2',
+    port: 8083,
+    path: '/JS/Run/zway.devices['+napravaID+'].instances['+napravaI+'].commandClasses['+command+'].Set('+value+')',
+    method: 'GET',
+    headers: {
+     'Authorization': 'Basic YWRtaW46U2FsdXNkZDE='
+    } 
+  };
+
+  var req = http.get(options, function(res){
+    console.log("SPROŽEN URL");
+    
+    var odgovor="";
+    
+    res.on('data', function(chunk){
+      odgovor+=chunk;
+      console.log(chunk);
+    });
+    
+    res.on('error', function(e) {
+        console.error(e);
+    });
+    
+    res.on('end', function(){
+      console.log(odgovor);
+    });
+  }).end();
+    
+    
+    http.request(options, function(response){console.log("CALLback"+response)}).end();
 
 
 }
