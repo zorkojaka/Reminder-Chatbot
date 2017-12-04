@@ -1,22 +1,35 @@
-var https = require('https');
-var http = require('http');
+  var https = require('https');
+  var http = require('http');
+  var request=require('request');
 
-//file system
+  //file system
 
-var fs = require('fs');
+  var fs = require('fs');
 
-var options = {
-    hostname: "93.103.121.2",
+  var options = {
+    hostname: '93.103.121.2',
+    content_type: 'application/json',
     port:8083,
-    path: "/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)",
-    method: "GET"
-};
+    authorization: kriptGeslo,
+    path: '/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)',
+    method: 'GET',
+  };
 
-var req = http.request(options, function(res){
-    //kaj nrdimo z respondom
+  var req = http.get(options, function(res){
     console.log("SPROŽEN URL");
-});
-
-req.on("error",function(err){
-    console.log('problem with request: ${err.message}');
-}); 
+    
+    var odgovor="";
+    
+    res.on('data', function(chunk){
+      odgovor+=chunk;
+      console.log(chunk);
+    });
+    
+    res.on('error', function(e) {
+        console.error(e);
+    });
+    
+    res.on('end', function(){
+      console.log(odgovor);
+    });
+  }).end();

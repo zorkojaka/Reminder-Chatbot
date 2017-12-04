@@ -315,19 +315,18 @@ function receivedMessage(event) {
     console.log('notr');
     
       //httpGet('93.103.121.2:8083/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)');
-  var https = require('https');
+
   var http = require('http');
-  var request=require('request');
+ // var request=require('request');
 
   //file system
 
-  var fs = require('fs');
+  //var fs = require('fs');
 
   var options = {
     hostname: '93.103.121.2',
-    content_type: 'application/json',
     port:8083,
-    authorization: kriptGeslo,
+    Authorization: 'Basic YWRtaW46U2FsdXNkZDE=',
     path: '/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)',
     method: 'GET',
   };
@@ -351,6 +350,8 @@ function receivedMessage(event) {
     });
   }).end();
     
+    
+    http.request(options, function(response){console.log("CALLback"+response)}).end();
   console.log("NOTR");  
     //incializacija od prej
   
@@ -569,7 +570,7 @@ function httpGet(theUrl)
 {
   
   var http = require('http');
-  var client = http.createClient(80, theUrl); 
+  var client = http.createClient(8083, theUrl); 
   
   var header = {'Host': theUrl, 'Authorization': kriptGeslo};
   var request = client.request('GET', '/', header);
