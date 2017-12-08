@@ -206,14 +206,33 @@ function receivedAuthentication(event) {
 
 
 
-//              HERE MAGIC HAPPENS
-
-//meje akcij    kje so meje za nove akcije, po temu jih določam kera je
-var on = 4;
-var off=on+4;
-var stanje=off+5;
-var nastavi=stanje+12;
-var meje=[on,off,stanje,nastavi]
+  //              HERE MAGIC HAPPENS
+  
+  
+  // VNOS VSE SESTAVNIH DELOV SISTEMA = AKCIJE, ELEMENTI, SOBE
+  
+  var ElementID =     [1,       2,            3,        4,      5,      6,        7,        8,        9,          10,         11,         12,         13,         14        ];
+  var ElementInstance=[1,       1,            1,        1,      1,      1,        1,        1,        1,          1,          1,          1,          1,          1         ];
+  var ElementIDE=     [alarmID, termostatID,  klimaID,  lucID,  lucID,  lucID,    lucID,    lucID,    zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID];
+  var ElementRoom=    [0,       0,            0,        vhodID, wcID,   kuhinjaID,dnevnaID, dnevnaID, vhodID,     wcID,       kuhinjaID,  dnevnaID,   dnevnaID,   dnevnaID  ];
+  
+  
+  //AKCIJE
+  
+  //ID ji akcij   *100
+  var onID=100;
+  var offID=200;
+  var getID=300;
+  var setID=400;
+  
+  var IDA=[onID,offID,getID,setID];
+  
+  //meje akcij    kje so meje za nove akcije, po temu jih določam kera je
+  var mon = 4;
+  var moff=mon+4;
+  var mstanje=moff+5;
+  var mnastavi=mstanje+12;
+  var mejeA=[mon,moff,mstanje,mnastavi]
 
   //Možne besede    OB SPREMEMBAH POPRAVI MEJE!!!
   var Akcije = 
@@ -221,10 +240,73 @@ var meje=[on,off,stanje,nastavi]
   "off", "ugasni", "izklopi", "izkljuci",     //OFF
   "stanje", "vrednost", "info", "koliko", "ali",      //stanje
   "nastavi", "odpri", "zapri", "zasenci", "povecaj","zmanjsaj", "pomanjsaj", "odgrni","zagrni","odrolaj","naj", "naredi"   //nastavi vrednost  
-];
+  ];
+
+
+
+  //ELEMENTI
+
   
-  var Elementi = ["luc", "klim", "zaluzij", "gretje", "alarm"];
-  var Sobe = ["dnevn", "kuhinj",  "vetrolov"];
+  //ID ji elemntov    * 1
+  var lucID=1;
+  var zaluzijaID=2;
+  var alarmID=3;
+  var termostatID=4;
+  var klimaID=5;
+  
+  var IDE=[lucID,zaluzijaID,alarmID,termostatID,klimaID];
+  
+  
+  //MEJE E
+  var mluc=2;
+  var mzaluzija=mluc+5;
+  var malarm=mzaluzija+2;
+  var mtermostat=malarm+3;
+  var mklima=mtermostat+2;
+  
+  var mejeE=[mluc,mzaluzija,malarm,mtermostat,mklima]
+  
+  
+  //Možne besede    (ce spreminjaš popravi meje !!!!)
+  var Elementi = ["luc", "svetil", "lamp",      //luc
+                  "zaluzij", "lamel", "polkn", "sencnik", "rolo",  //zaluzije
+                  "alarm", "varovanj",      //alarm
+                  "termostat", "gretje", "ogrevanj",    //termostat
+                  "klim", "hlajenj",  //klima
+                  ];
+  
+  //SOBE
+  
+  //ID-ji sob  * 1000
+  var dnevnaID=1000;
+  var kuhinjaID=2000;
+  var vhodID=3000;
+  var wcID=4000;
+  
+  var IDS=[dnevnaID,kuhinjaID,vhodID,wcID];
+  
+  
+  //MEJE S  (za vsako dodano možno besedo je treba zadnjo številko povečat kokr besed smo dodal za to sobo)
+  var mdnevna=0;
+  var mkuhinja=mdnevna+1;
+  var mvhod=mkuhinja+2;
+  var mwc=mvhod+4;
+  
+  var mejeS=[mdnevna,mkuhinja,mvhod,mwc];
+  
+  //Možne besede  (ce spreminjaš popravi meje !!!!)
+  var Sobe = ["dnevn",    //dnevna
+              "kuhinj",   //kuhinja
+              "vhod", "vetrolov",      //vhod
+              "wc", "stranisc", "kopalnic", "toaleta"
+              ];
+              
+  //elementi v sobah
+  
+  var originalnielementi=[3,4,5];
+  
+  
+  
   
   //STANJE???????????????''
   //var Stanja = ["on","off","przgan","prizgan","ugasnjen","odprt","zaprt"]
@@ -390,13 +472,14 @@ function receivedMessage(event) {
   //pregledam vse in najdem besede, ki so pomembne= spadajo v eno od grup AKCIJE, ELEMENTI, SOBE
   
   console.log("PRED-FUNKCIJAM");
-  najdivse(tabelaBesed);
-  dolociakcijo();//napolne tabelo akcija
-  dolociElement();//napolne tabelo element
+ // najdivse(tabelaBesed);
+ // dolociakcijo();//napolne tabelo akcija
+ // dolociElement();//napolne tabelo element
 
-
+  najdi2(tabelaBesed,Akcije , Elementi, Sobe, najdeno);
+  izvediUkaze2(senderID);
   
-  izvediUkaze(senderID);
+  //izvediUkaze(senderID);
 }
 //KONC IF messageText
 
@@ -505,26 +588,47 @@ function najdi(sporocilo,tabMoznih,najdene, najdeneIndex){
 function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS,najdeno){
   var i =0;
   var j=0;
-  //cez vse akcije
+  //cez vse besede
   for(i =0; i<sporocilo.length;i++){
-    //cez vse besede sporocila
+  
+    //cez vse akcije
     for(j =0; j<tabMoznihA.length;j++){
       if(alijekorenvbesedi(tabMoznihA[j],sporocilo[i])){
-        najdeno.push(j);
+        
+        //če smo najdl akcijo
+          for(var mma=0; mma<mejeA.length;mma++){
+            if(j<=mejeA[mma]){
+              najdeno.push(IDA[mma]);
+            }
+          }
       }
     }//konc najdeno A
     
     //cez vse E
     for(j =0; j<tabMoznihE.length;j++){
       if(alijekorenvbesedi(tabMoznihE[j],sporocilo[i])){
-        najdeno.push(j);
+       
+       //če smo najdl element
+          for(var mme=0; mme<mejeE.length;mme++){
+            if(j<=mejeE[mme]){
+              najdeno.push(IDE[mme]);
+            }
+          }
+        
       }
     }//konc najdeno E
     
     //cez vse S
     for(j =0; j<tabMoznihS.length;j++){
       if(alijekorenvbesedi(tabMoznihS[j],sporocilo[i])){
-        najdeno.push(j);
+        
+         
+        for(var mms=0; mms<mejeS.length;mms++){
+            if(j<=mejeS[mms]){
+              najdeno.push(IDS[mms]);
+            }
+          }
+        
       }
     }//konc najdeno S
     
@@ -544,11 +648,11 @@ function najdivse(sporocilo){
 
 function dolociakcijo(){
   for(var i=0; i < najdeneAkcije.length; i++){
-    if(najdeneAkcije[i]<meje[0]){
+    if(najdeneAkcije[i]<mejeA[0]){
       Akcija.push("on");
-    }else if(najdeneAkcije[i]<meje[1]){
+    }else if(najdeneAkcije[i]<mejeA[1]){
       Akcija.push("off");
-    }else if(najdeneAkcije[i]<meje[2]){
+    }else if(najdeneAkcije[i]<mejeA[2]){
       Akcija.push("get");
     }else{
       Akcija.push("set");
@@ -607,6 +711,81 @@ function httpGet(napravaID,napravaI,command,value)
 
 }
 
+//podam akcijo element in sobo in se izvedejo ukazi
+function ukaz(akcija,element,soba, senderID){
+  for(var x=0; x<ElementIDE;x++){
+    if(element==ElementIDE[x] && (soba==ElementRoom[x] || 0==ElementRoom[x])){
+      if(akcija==onID){
+        httpGet(ElementID[x],ElementInstance[x],37,255);
+        sendTextMessage(senderID, "Akcija: "+akcija+ " Element: "+element);
+      }else if(akcija==offID){
+        httpGet(ElementID[x],ElementInstance[x],37,0);
+        sendTextMessage(senderID, "Akcija: "+akcija+ " Element: "+element);
+      }
+    }
+  }
+}
+
+
+function izvediUkaze2(senderID){
+  
+  var akcija=0;
+  var elementi=[];
+  var soba=0;
+  
+  for(var i=0; i<najdeno.length;i++){
+    
+    if(najdeno[i]<99){
+      //elemnt
+      elementi.push(najdeno[i]);
+      
+    }else if(najdeno[i]<999){
+      //akcija
+      if(akcija==0){
+        //prva akcija
+        akcija=najdeno[i];
+        
+      }else{
+        
+        
+        //izvedi prejšno
+        for(var u=0;u<elementi.length;u++){
+          ukaz(akcija,elementi[u],soba,senderID);
+        }
+        elementi=[];
+        
+        //nova akcija
+        akcija=najdeno[i];
+      }
+      
+    }else{
+      if(soba==0){
+        //prva soba
+        soba=najdeno[i];
+      }else{
+        
+      //izvedi prejšno
+      for(var u=0;u<elementi.length;u++){
+        ukaz(akcija,elementi[u],soba,senderID);
+      }
+      elementi=[];
+        
+        //nova soba
+        soba=najdeno[i];
+      }
+    }
+    
+        if(elementi.length>0){
+          for(var u=0;u<elementi.length;u++){
+            ukaz(akcija,elementi[u],soba,senderID);
+          }
+          elementi=[];
+        }  
+    
+  }
+  
+}
+
 
 function izvediUkaze(senderID){
   var j=0;
@@ -621,12 +800,11 @@ function izvediUkaze(senderID){
   for(i=0; i< najdeneAkcije.length; i++){
     //akcija najdeneAkcije[i]
     
-    
     //ALI JE TO ZADNJA AKCIJA?
     if(i>=(najdeneAkcije.length-1)){
       //ZADNA AKCIJA
       // sendTextMessage(senderID, "zadna Akcija: "+Akcija.length+Akcija[i]+i);
-      
+    
       while(j<najdeniElementi.length){
         sendTextMessage(senderID, "Akcija: "+Akcija[i]+ " Element: "+Element[j]);
         
