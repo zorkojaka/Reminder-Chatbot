@@ -223,11 +223,13 @@ var meje=[on,off,stanje,nastavi]
   "nastavi", "odpri", "zapri", "zasenci", "povecaj","zmanjsaj", "pomanjsaj", "odgrni","zagrni","odrolaj","naj", "naredi"   //nastavi vrednost  
 ];
   
-  var Elementi = ["luc", "klim", "zaluzij", "gretje", "okn"];
-  var Sobe = ["dnevn", "kuhinj",  "spalnic"];
+  var Elementi = ["luc", "klim", "zaluzij", "gretje", "alarm"];
+  var Sobe = ["dnevn", "kuhinj",  "vetrolov"];
   
   //STANJE???????????????''
   //var Stanja = ["on","off","przgan","prizgan","ugasnjen","odprt","zaprt"]
+  var najdeno=[];
+  
   
   var najdeneAkcije=[];
   var najdeneAkcijeIndex=[];
@@ -320,6 +322,8 @@ function receivedMessage(event) {
   console.log("NOTR");  
     //incializacija od prej
   
+    najdeno=[];
+    
     najdeneAkcije=[];
     najdeneAkcijeIndex=[];
     
@@ -479,8 +483,8 @@ function alijekorenvbesedi(koren, beseda){
     return beseda.indexOf(koren) != -1;
 } 
 
-// grem čez vsako akcijo posebej in pogledam čez vse besede sporočila posebej če se ujema, če se shranm index akcije v najdene akcije in index akcije v sporočilu v najdrnrakcije index
-function najdi(sporocilo,tabMoznih,najdene,najdeneIndex){
+// grem čez vsako besedo sporočila posebej in pogledam čez vse besede Akcij, ELementov, Sob  če se ujema, če se, dodam v najdeno.
+function najdi(sporocilo,tabMoznih,najdene, najdeneIndex){
   var i =0;
   var j=0;
   //cez vse akcije
@@ -489,12 +493,43 @@ function najdi(sporocilo,tabMoznih,najdene,najdeneIndex){
     for(j =0; j<tabMoznih.length;j++){
       if(alijekorenvbesedi(tabMoznih[j],sporocilo[i])){
         najdene.push(j);
-        najdeneIndex.push(i);
-        
+        najdeneIndex.push(j);
       }
-      
-    }//konc sporocila
-  }//konc akcij  
+    }//konc najdeno A
+    
+    
+  }//konc sporocila
+  
+}
+
+function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS,najdeno){
+  var i =0;
+  var j=0;
+  //cez vse akcije
+  for(i =0; i<sporocilo.length;i++){
+    //cez vse besede sporocila
+    for(j =0; j<tabMoznihA.length;j++){
+      if(alijekorenvbesedi(tabMoznihA[j],sporocilo[i])){
+        najdeno.push(j);
+      }
+    }//konc najdeno A
+    
+    //cez vse E
+    for(j =0; j<tabMoznihE.length;j++){
+      if(alijekorenvbesedi(tabMoznihE[j],sporocilo[i])){
+        najdeno.push(j);
+      }
+    }//konc najdeno E
+    
+    //cez vse S
+    for(j =0; j<tabMoznihS.length;j++){
+      if(alijekorenvbesedi(tabMoznihS[j],sporocilo[i])){
+        najdeno.push(j);
+      }
+    }//konc najdeno S
+    
+    
+  }//konc sporocila
   
 }
 
