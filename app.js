@@ -472,6 +472,7 @@ function receivedMessage(event) {
   //pregledam vse in najdem besede, ki so pomembne= spadajo v eno od grup AKCIJE, ELEMENTI, SOBE
   
   console.log("PRED-FUNKCIJAM");
+ 
  // najdivse(tabelaBesed);
  // dolociakcijo();//napolne tabelo akcija
  // dolociElement();//napolne tabelo element
@@ -596,7 +597,7 @@ function najdi(sporocilo,tabMoznih,najdene, najdeneIndex){
   
 }
 
-function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS,najdeno){
+function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS){
   var i =0;
   var j=0;
   //cez vse besede
