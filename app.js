@@ -601,6 +601,7 @@ function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS,najdeno){
           for(var mma=0; mma<mejeA.length;mma++){
             if(j<=mejeA[mma]){
               najdeno.push(IDA[mma]);
+              break;
             }
           }
       }
@@ -614,6 +615,7 @@ function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS,najdeno){
           for(var mme=0; mme<mejeE.length;mme++){
             if(j<=mejeE[mme]){
               najdeno.push(IDE[mme]);
+              break;
             }
           }
         
@@ -628,6 +630,7 @@ function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS,najdeno){
         for(var mms=0; mms<mejeS.length;mms++){
             if(j<=mejeS[mms]){
               najdeno.push(IDS[mms]);
+              break;
             }
           }
         
