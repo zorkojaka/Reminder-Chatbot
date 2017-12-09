@@ -476,8 +476,17 @@ function receivedMessage(event) {
  // dolociakcijo();//napolne tabelo akcija
  // dolociElement();//napolne tabelo element
 
+for(var aa=0; aa<najdeno.length;aa++){
+  console.log(najdeno[aa]);
+}
+
+
   najdi2(tabelaBesed,Akcije , Elementi, Sobe, najdeno);
   console.log("po najdu2.");
+  
+  for(var aaa=0; aaa<najdeno.length;aaa++){
+    console.log(najdeno[aaa]);
+  }
   
   izvediUkaze2(senderID);
   console.log("po izvediukaze2")
