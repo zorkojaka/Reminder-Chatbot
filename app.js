@@ -392,7 +392,7 @@ function receivedMessage(event) {
   
 
   
-  httpGet(2,1,37,255);
+  //httpGet(2,1,37,255);
   
   
   if (messageText) {
@@ -477,8 +477,10 @@ function receivedMessage(event) {
  // dolociElement();//napolne tabelo element
 
   najdi2(tabelaBesed,Akcije , Elementi, Sobe, najdeno);
-  izvediUkaze2(senderID);
+  console.log("po najdu2.");
   
+  izvediUkaze2(senderID);
+  console.log("po izvediukaze2")
   //izvediUkaze(senderID);
 }
 //KONC IF messageText
@@ -634,6 +636,9 @@ function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS,najdeno){
     
     
   }//konc sporocila
+  for(var c=0; c<najdeno.length;c++){
+    console.log(najdeno[c]);
+  }
   
 }
 
