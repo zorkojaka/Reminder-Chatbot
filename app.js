@@ -757,7 +757,8 @@ function httpGet(napravaID,napravaI,command,value)
 //podam akcijo element in sobo in se izvedejo ukazi
 function ukaz(akcija,element,soba, senderID){
   
-  var valueforthisel;
+  var valueforthisel=value;
+  sendTextMessage(senderID, "Element1: "+element+ "Value1: "+valueforthisel);
   
   for(var x=0; x<ElementIDE.length;x++){
    // console.log("ROom:"+ElementRoom[x]+"Soba:" + soba+"  tab Ele IDE:"+ElementIDE[x]);
@@ -771,8 +772,6 @@ function ukaz(akcija,element,soba, senderID){
             if(value>0){
               valueforthisel=255;
             }
-          }else{
-            valueforthisel=value;
           }
           
           sendTextMessage(senderID, "Element: "+ElementID[x]+ "Value: "+valueforthisel);
