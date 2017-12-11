@@ -803,7 +803,7 @@ function izvediUkaze2(senderID){
   var akcija=0;
   var elementi=[];
   var soba=[];
-  var stevecakcij=1;
+  var stevecakcij=0;
   
   for(var i=0; i<najdeno.length;i++){
     
@@ -855,7 +855,7 @@ function izvediUkaze2(senderID){
         soba.push(0);
       }
       
-      ukaz(akcija,elementi[u],soba,senderID);
+      ukaz(akcija,elementi[u],soba,senderID,stevecakcij);
       stevecakcij++;
     }
     elementi=[];
