@@ -229,6 +229,7 @@ function receivedAuthentication(event) {
   var ElementInstance=[1,       1,            1,        1,      1,      1,        1,        1,        1,          1,          1,          1,          1,          1         ];
   var ElementIDE=     [alarmID, termostatID,  klimaID,  lucID,  lucID,  lucID,    lucID,    lucID,    zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID];
   var ElementRoom=    [0,       0,            0,        vhodID, wcID,   kuhinjaID,dnevnaID, dnevnaID, vhodID,     wcID,       kuhinjaID,  dnevnaID,   dnevnaID,   dnevnaID  ];
+  var ElementDimmable=[0,       1,            0,        1,      1,      1,        1,        1,        1,          1,          1,          1,          1,          1,        ];
   
   
   //AKCIJE
@@ -754,6 +755,9 @@ function httpGet(napravaID,napravaI,command,value)
 
 //podam akcijo element in sobo in se izvedejo ukazi
 function ukaz(akcija,element,soba, senderID){
+  
+  var valueforthisel;
+  
   for(var x=0; x<ElementIDE.length;x++){
    // console.log("ROom:"+ElementRoom[x]+"Soba:" + soba+"  tab Ele IDE:"+ElementIDE[x]);
     
@@ -761,8 +765,16 @@ function ukaz(akcija,element,soba, senderID){
     for(var sobaindex=0;sobaindex<soba.length;sobaindex++){
 
       if(element==ElementIDE[x] && (soba[sobaindex]==ElementRoom[x] || 0==ElementRoom[x] || 0==soba[sobaindex])){
-
-          sendTextMessage(senderID, "Element: "+ElementID[x]+ "Value: "+value);
+          
+          if(ElementDimmable[x]==0){
+            if(value>0){
+              valueforthisel=255;
+            }
+          }else{
+            valueforthisel=value;
+          }
+          
+          sendTextMessage(senderID, "Element: "+ElementID[x]+ "Value: "+valueforthisel);
           //httpGet(ElementID[x],ElementInstance[x],37,255);
         
       }
