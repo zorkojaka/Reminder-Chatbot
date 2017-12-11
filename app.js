@@ -334,7 +334,7 @@ function receivedAuthentication(event) {
   var Akcija=[];
   var Element=[];
   var vrednosti=[];
-  var stevcakcij=0;
+  var stevcakcij=-1;
   
   var kriptGeslo="Basic YWRtaW46U2FsdXNkZDE=";
   //var URLIP = new URL("http://192.168.0.108:8083/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)");
@@ -421,7 +421,7 @@ function receivedMessage(event) {
     najdeneSobeIndex=[];
     
     
-    stevcakcij=0;
+    stevcakcij=-1;
     Akcija=[];
     Element=[];
     vrednosti=[];
@@ -629,6 +629,8 @@ function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS){
                 vrednosti.push(255);
               }else if(IDA[mma==offID]){
                 vrednosti.push(0)
+              }else{
+                vrednosti.push(-1);
               }
               najdeno.push(IDA[mma]);
               break;
@@ -760,7 +762,7 @@ function httpGet(napravaID,napravaI,command,value)
 
 //podam akcijo element in sobo in se izvedejo ukazi
 function ukaz(akcija,element,soba, senderID, zaporednaakcija){
-  if(vrednosti[zaporednaakcija]==-1){
+  if(!(vrednosti[zaporednaakcija]>0) && !(vrednosti[zaporednaakcija]<256)){
     if(akcija==onID){
       vrednosti[zaporednaakcija]=255;
     }else if(akcija==offID){
