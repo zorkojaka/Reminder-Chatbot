@@ -744,7 +744,7 @@ function ukaz(akcija,element,soba, senderID){
     //za vsako sobo za ta element
     for(var sobaindex=0;sobaindex<soba.length;sobaindex++){
 
-      if(element==ElementIDE[x] && (soba[sobaindex]==ElementRoom[x] || 0==ElementRoom[x] || 0==soba[index])){
+      if(element==ElementIDE[x] && (soba[sobaindex]==ElementRoom[x] || 0==ElementRoom[x] || 0==soba[sobaindex])){
         if(akcija==onID){
           sendTextMessage(senderID, "Akcija: on Element: "+ElementID[x]+ "Value: 255");
           //httpGet(ElementID[x],ElementInstance[x],37,255);
