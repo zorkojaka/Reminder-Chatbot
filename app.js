@@ -778,6 +778,7 @@ function izvediUkaze2(senderID){
         
         //izvedi prejšno
         for(var u=0;u<elementi.length;u++){
+          console.log("Ukaz od akcije");
           ukaz(akcija,elementi[u],soba,senderID);
         }
         elementi=[];
@@ -795,6 +796,7 @@ function izvediUkaze2(senderID){
         
       //izvedi prejšno
       for(var u=0;u<elementi.length;u++){
+        console.log("Ukaz od sobe");
         ukaz(akcija,elementi[u],soba,senderID);
       }
       elementi=[];
@@ -806,6 +808,7 @@ function izvediUkaze2(senderID){
     
         if(elementi.length>0){
           for(var u=0;u<elementi.length;u++){
+            console.log("Ukaz  na koncu");
             ukaz(akcija,elementi[u],soba,senderID);
           }
           elementi=[];
