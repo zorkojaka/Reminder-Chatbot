@@ -736,7 +736,7 @@ function httpGet(napravaID,napravaI,command,value)
 //podam akcijo element in sobo in se izvedejo ukazi
 function ukaz(akcija,element,soba, senderID){
   for(var x=0; x<ElementIDE;x++){
-    if(element==ElementIDE[x] && (soba==ElementRoom[x] || 0==ElementRoom[x])){
+    if(element==ElementIDE[x] && (soba==ElementRoom[x] || 0==ElementRoom[x] || 0==soba)){
       console.log("BABABABBA");
       if(akcija==onID){
         sendTextMessage(senderID, "Akcija: on Element: "+ElementID[x]+ "Value: 255");
