@@ -225,10 +225,10 @@ function receivedAuthentication(event) {
   
   // VNOS VSE SESTAVNIH DELOV SISTEMA = AKCIJE, ELEMENTI, SOBE
   
-  var ElementID =     [1,       2,            3,        4,      5,      6,        7,        8,        9,          10,         11,         12,         13,         14        ];
+  var ElementID =     [1,       2,            3,        4,      5,      6,        7,        8,        9,          10,         11,         12,         13,         14        ]; // na sistemu realnem
   var ElementInstance=[1,       1,            1,        1,      1,      1,        1,        1,        1,          1,          1,          1,          1,          1         ];
-  var ElementIDE=     [alarmID, termostatID,  klimaID,  lucID,  lucID,  lucID,    lucID,    lucID,    zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID];
-  var ElementRoom=    [0,       0,            0,        vhodID, wcID,   kuhinjaID,dnevnaID, dnevnaID, vhodID,     wcID,       kuhinjaID,  dnevnaID,   dnevnaID,   dnevnaID  ];
+  var ElementIDE=     [alarmID, termostatID,  klimaID,  lucID,  lucID,  lucID,    lucID,    lucID,    zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID];  //v programu
+  var ElementRoom=    [0,       0,            0,        vhodID, wcID,   kuhinjaID,dnevnaID, dnevnaID, vhodID,     wcID,       kuhinjaID,  dnevnaID,   dnevnaID,   dnevnaID  ]; 
   var ElementDimmable=[0,       1,            0,        1,      1,      1,        1,        1,        1,          1,          1,          1,          1,          1,        ];
   
   
@@ -656,6 +656,7 @@ function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS){
          
         for(var mms=0; mms<mejeS.length;mms++){
             if(j<=mejeS[mms]){
+              console.log("SOBA najdena");
               najdeno.push(IDS[mms]);
               break;
             }
