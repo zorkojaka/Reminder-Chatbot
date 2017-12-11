@@ -404,12 +404,7 @@ function receivedMessage(event) {
   
   
   if (messageText) {
-    console.log('notr');
-    
-      //httpGet('93.103.121.2:8083/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)');
 
-
-  console.log("NOTR");  
     //incializacija od prej
   
     najdeno=[];
@@ -490,7 +485,7 @@ for(var aa=0; aa<najdeno.length;aa++){
 }
 
 
-  najdi2(tabelaBesed,Akcije , Elementi, Sobe, najdeno);
+  najdi2(tabelaBesed, Akcije, Elementi, Sobe, najdeno);
   console.log("po najdu2.");
   
   for(var aaa=0; aaa<najdeno.length;aaa++){
@@ -743,11 +738,9 @@ function httpGet(napravaID,napravaI,command,value)
 
 //podam akcijo element in sobo in se izvedejo ukazi
 function ukaz(akcija,element,soba, senderID){
-  sendTextMessage(senderID, "UKAZ");
   for(var x=0; x<ElementIDE.length;x++){
-    console.log("BABAB11111"+element+"  tab:"+ElementIDE[x]);
+    //console.log("BABAB11111"+element+"  tab:"+ElementIDE[x]);
     if(element==ElementIDE[x] && (soba==ElementRoom[x] || 0==ElementRoom[x] || 0==soba)){
-      console.log("BABABABBA");
       if(akcija==onID){
         sendTextMessage(senderID, "Akcija: on Element: "+ElementID[x]+ "Value: 255");
         //httpGet(ElementID[x],ElementInstance[x],37,255);
