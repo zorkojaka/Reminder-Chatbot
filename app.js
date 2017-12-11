@@ -319,7 +319,7 @@ function receivedAuthentication(event) {
   //STANJE???????????????''
   //var Stanja = ["on","off","przgan","prizgan","ugasnjen","odprt","zaprt"]
   var najdeno=[];
-  
+  var value=-1;
   
   var najdeneAkcije=[];
   var najdeneAkcijeIndex=[];
@@ -614,8 +614,18 @@ function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS){
       if(alijekorenvbesedi(tabMoznihA[j],sporocilo[i])){
         
         //če smo najdl akcijo
+        //grem čez vse grupe omejene z mejam
           for(var mma=0; mma<mejeA.length;mma++){
+            // če ej v tej grupi
             if(j<=mejeA[mma]){
+              
+              if(IDA[mma]==onID){
+                value=255;
+              }else if(IDA[mma]==offID){
+                value=0;
+              }
+              
+              //dodej id ot te grupe
               najdeno.push(IDA[mma]);
               break;
             }
@@ -653,6 +663,11 @@ function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS){
       }
     }//konc najdeno S
     
+    //preverm če se začne s številko če je je to value
+    if(sporocilo[i]){
+      var numstr=sporocilo[i];
+      value = parseInt(numstr.replace(/\D/g,''));
+    }
     
   }//konc sporocila
   for(var c=0; c<najdeno.length;c++){
@@ -745,15 +760,10 @@ function ukaz(akcija,element,soba, senderID){
     for(var sobaindex=0;sobaindex<soba.length;sobaindex++){
 
       if(element==ElementIDE[x] && (soba[sobaindex]==ElementRoom[x] || 0==ElementRoom[x] || 0==soba[sobaindex])){
-        if(akcija==onID){
-          sendTextMessage(senderID, "Akcija: on Element: "+ElementID[x]+ "Value: 255");
+
+          sendTextMessage(senderID, "Element: "+ElementID[x]+ "Value: "+value);
           //httpGet(ElementID[x],ElementInstance[x],37,255);
-        }else if(akcija==offID){
-          sendTextMessage(senderID, "Akcija: off Element: "+ElementID[x]+ "Value: 0");
-          //httpGet(ElementID[x],ElementInstance[x],37,0);
-        }else{
-          sendTextMessage(senderID, "Akcija: off Element: "+ElementID[x]+ "V ELSE");
-        }
+        
       }
     
       
@@ -793,6 +803,7 @@ function izvediUkaze2(senderID){
         }
         elementi=[];
         soba=[];
+        value=-1;
         
         //nova akcija
         akcija=najdeno[i];
