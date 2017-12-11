@@ -737,12 +737,15 @@ function httpGet(napravaID,napravaI,command,value)
 function ukaz(akcija,element,soba, senderID){
   for(var x=0; x<ElementIDE;x++){
     if(element==ElementIDE[x] && (soba==ElementRoom[x] || 0==ElementRoom[x])){
+      console.log("BABABABBA");
       if(akcija==onID){
         sendTextMessage(senderID, "Akcija: on Element: "+ElementID[x]+ "Value: 255");
         httpGet(ElementID[x],ElementInstance[x],37,255);
       }else if(akcija==offID){
         sendTextMessage(senderID, "Akcija: off Element: "+ElementID[x]+ "Value: 0");
         httpGet(ElementID[x],ElementInstance[x],37,0);
+      }else{
+        sendTextMessage(senderID, "Akcija: off Element: "+ElementID[x]+ "V ELSE");
       }
     }
   }
