@@ -739,17 +739,24 @@ function httpGet(napravaID,napravaI,command,value)
 //podam akcijo element in sobo in se izvedejo ukazi
 function ukaz(akcija,element,soba, senderID){
   for(var x=0; x<ElementIDE.length;x++){
-    console.log("ROom:"+ElementRoom[x]+"Soba:" + soba+"  tab Ele IDE:"+ElementIDE[x]);
-    if(element==ElementIDE[x] && (soba==ElementRoom[x] || 0==ElementRoom[x] || 0==soba)){
-      if(akcija==onID){
-        sendTextMessage(senderID, "Akcija: on Element: "+ElementID[x]+ "Value: 255");
-        //httpGet(ElementID[x],ElementInstance[x],37,255);
-      }else if(akcija==offID){
-        sendTextMessage(senderID, "Akcija: off Element: "+ElementID[x]+ "Value: 0");
-        //httpGet(ElementID[x],ElementInstance[x],37,0);
-      }else{
-        sendTextMessage(senderID, "Akcija: off Element: "+ElementID[x]+ "V ELSE");
+   // console.log("ROom:"+ElementRoom[x]+"Soba:" + soba+"  tab Ele IDE:"+ElementIDE[x]);
+    
+    //za vsako sobo za ta element
+    for(var sobaindex=0;sobaindex<soba.length;sobaindex++){
+
+      if(element==ElementIDE[x] && (soba[sobaindex]==ElementRoom[x] || 0==ElementRoom[x] || 0==soba[index])){
+        if(akcija==onID){
+          sendTextMessage(senderID, "Akcija: on Element: "+ElementID[x]+ "Value: 255");
+          //httpGet(ElementID[x],ElementInstance[x],37,255);
+        }else if(akcija==offID){
+          sendTextMessage(senderID, "Akcija: off Element: "+ElementID[x]+ "Value: 0");
+          //httpGet(ElementID[x],ElementInstance[x],37,0);
+        }else{
+          sendTextMessage(senderID, "Akcija: off Element: "+ElementID[x]+ "V ELSE");
+        }
       }
+    
+      
     }
   }
 }
@@ -759,7 +766,7 @@ function izvediUkaze2(senderID){
   
   var akcija=0;
   var elementi=[];
-  var soba=0;
+  var soba=[];
   
   for(var i=0; i<najdeno.length;i++){
     
@@ -772,37 +779,30 @@ function izvediUkaze2(senderID){
       if(akcija==0){
         //prva akcija
         akcija=najdeno[i];
-        
       }else{
-        
-        
         //izvedi prejšno
         for(var u=0;u<elementi.length;u++){
           console.log("Ukaz od akcije");
+          
+          //će ni podana soba velja za vse sobe
+          if(soba.length==0){
+            soba.push(0);
+          }
+          
           ukaz(akcija,elementi[u],soba,senderID);
         }
         elementi=[];
+        soba=[];
         
         //nova akcija
         akcija=najdeno[i];
       }
       
     }else{
-      if(soba==0){
-        //prva soba
-        soba=najdeno[i];
+        //soba
+        soba.push(najdeno[i]);
         console.log("NAJDENO dodam sobo");
-      }else{
-        
-      //izvedi prejšno
-      for(var u=0;u<elementi.length;u++){
-        console.log("Ukaz od sobe");
-        ukaz(akcija,elementi[u],soba,senderID);
-      }
-      elementi=[];
-        
-        //nova soba
-        soba=najdeno[i];
+    
       }
     }
   }
