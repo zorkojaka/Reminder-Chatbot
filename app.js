@@ -803,7 +803,7 @@ function izvediUkaze2(senderID){
         soba.push(najdeno[i]);
         console.log("NAJDENO dodam sobo");
     
-      }
+      
     }
   }
   
