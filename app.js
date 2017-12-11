@@ -790,6 +790,7 @@ function izvediUkaze2(senderID){
       if(soba==0){
         //prva soba
         soba=najdeno[i];
+        console.log("NAJDENO dodam sobo");
       }else{
         
       //izvedi prejšno
