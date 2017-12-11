@@ -208,6 +208,20 @@ function receivedAuthentication(event) {
 
   //              HERE MAGIC HAPPENS
   
+    //ID ji elemntov    * 1
+  var lucID=1;
+  var zaluzijaID=2;
+  var alarmID=3;
+  var termostatID=4;
+  var klimaID=5;
+  
+  var dnevnaID=1000;
+  var kuhinjaID=2000;
+  var vhodID=3000;
+  var wcID=4000;
+  
+  
+  
   
   // VNOS VSE SESTAVNIH DELOV SISTEMA = AKCIJE, ELEMENTI, SOBE
   
@@ -247,13 +261,7 @@ function receivedAuthentication(event) {
   //ELEMENTI
 
   
-  //ID ji elemntov    * 1
-  var lucID=1;
-  var zaluzijaID=2;
-  var alarmID=3;
-  var termostatID=4;
-  var klimaID=5;
-  
+
   var IDE=[lucID,zaluzijaID,alarmID,termostatID,klimaID];
   
   
