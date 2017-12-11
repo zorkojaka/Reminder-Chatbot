@@ -752,13 +752,13 @@ function httpGet(napravaID,napravaI,command,value)
 
 //podam akcijo element in sobo in se izvedejo ukazi
 function ukaz(akcija,element,soba, senderID){
-  
-  if(akcija==onID){
-    value=255;
-  }else if(akcija==offID){
-    value=0;
-  }
-  
+  if(value==-1){
+    if(akcija==onID){
+      value=255;
+    }else if(akcija==offID){
+      value=0;
+    }
+  }  
   
   var valueforthisel=value;
   
