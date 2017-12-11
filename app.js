@@ -332,7 +332,7 @@ function receivedAuthentication(event) {
   
   var Akcija=[];
   var Element=[];
-  var Vrednost;
+  var Vrednost=-1;
   
   var kriptGeslo="Basic YWRtaW46U2FsdXNkZDE=";
   //var URLIP = new URL("http://192.168.0.108:8083/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)");
@@ -664,7 +664,8 @@ function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS){
     }//konc najdeno S
     
     //preverm če se začne s številko če je je to value
-    if(sporocilo[i]){
+    if(sporocilo[i].charAt(0) >= '0' && sporocilo[i].charAt(0) <= '9'){
+      
       var numstr=sporocilo[i];
       value = parseInt(numstr.replace(/\D/g,''));
     }
@@ -825,6 +826,8 @@ function izvediUkaze2(senderID){
       ukaz(akcija,elementi[u],soba,senderID);
     }
     elementi=[];
+    soba=[];
+    value=-1;
   }  
     
   
