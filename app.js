@@ -805,16 +805,18 @@ function izvediUkaze2(senderID){
         soba=najdeno[i];
       }
     }
-    
-        if(elementi.length>0){
-          for(var u=0;u<elementi.length;u++){
-            console.log("Ukaz  na koncu");
-            ukaz(akcija,elementi[u],soba,senderID);
-          }
-          elementi=[];
-        }  
-    
   }
+  
+  
+  if(elementi.length>0){
+    for(var u=0;u<elementi.length;u++){
+      console.log("Ukaz  na koncu");
+      ukaz(akcija,elementi[u],soba,senderID);
+    }
+    elementi=[];
+  }  
+    
+  
   
 }
 
