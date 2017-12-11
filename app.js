@@ -758,13 +758,16 @@ function httpGet(napravaID,napravaI,command,value)
 function ukaz(akcija,element,soba, senderID){
   
   var valueforthisel=value;
-  sendTextMessage(senderID, "Element1: "+element+ "Value1: "+valueforthisel);
+  sendTextMessage(senderID, "Element1: "+element+ "Value1: "+valueforthisel+"soba:"+soba[0]+"length"+soba.length);
+  
+  //za vsako sobo za ta element
+  for(var sobaindex=0;sobaindex<soba.length;sobaindex++){
+  
   
   for(var x=0; x<ElementIDE.length;x++){
    // console.log("ROom:"+ElementRoom[x]+"Soba:" + soba+"  tab Ele IDE:"+ElementIDE[x]);
     
-    //za vsako sobo za ta element
-    for(var sobaindex=0;sobaindex<soba.length;sobaindex++){
+
 
       if(element==ElementIDE[x] && (soba[sobaindex]==ElementRoom[x] || 0==ElementRoom[x] || 0==soba[sobaindex])){
           
