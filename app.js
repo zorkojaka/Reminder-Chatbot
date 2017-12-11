@@ -838,6 +838,11 @@ function izvediUkaze2(senderID){
   if(elementi.length>0){
     for(var u=0;u<elementi.length;u++){
       console.log("Ukaz  na koncu");
+      
+      if(soba.length==0){
+        soba.push(0);
+      }
+      
       ukaz(akcija,elementi[u],soba,senderID);
     }
     elementi=[];
