@@ -737,7 +737,7 @@ function httpGet(napravaID,napravaI,command,value)
 function ukaz(akcija,element,soba, senderID){
   sendTextMessage(senderID, "UKAZ");
   for(var x=0; x<ElementIDE.length;x++){
-    console.log("BABAB11111"+((element==ElementIDE[x] && (soba==ElementRoom[x] || 0==ElementRoom[x] || 0==soba))));
+    console.log("BABAB11111"+element+"  tab:"+ElementIDE[x]);
     if(element==ElementIDE[x] && (soba==ElementRoom[x] || 0==ElementRoom[x] || 0==soba)){
       console.log("BABABABBA");
       if(akcija==onID){
