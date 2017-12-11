@@ -735,14 +735,13 @@ function httpGet(napravaID,napravaI,command,value)
 
 //podam akcijo element in sobo in se izvedejo ukazi
 function ukaz(akcija,element,soba, senderID){
-  sendTextMessage(senderID, "kaj ma?");
   for(var x=0; x<ElementIDE;x++){
     if(element==ElementIDE[x] && (soba==ElementRoom[x] || 0==ElementRoom[x])){
       if(akcija==onID){
-        sendTextMessage(senderID, "Akcija: "+akcija+ " Element: "+element);
+        sendTextMessage(senderID, "Akcija: on Element: "+ElementID[x]+ "Value: 255");
         httpGet(ElementID[x],ElementInstance[x],37,255);
       }else if(akcija==offID){
-        sendTextMessage(senderID, "Akcija: "+akcija+ " Element: "+element);
+        sendTextMessage(senderID, "Akcija: off Element: "+ElementID[x]+ "Value: 0");
         httpGet(ElementID[x],ElementInstance[x],37,0);
       }
     }
