@@ -758,7 +758,6 @@ function httpGet(napravaID,napravaI,command,value)
 function ukaz(akcija,element,soba, senderID){
   
   var valueforthisel=value;
-  sendTextMessage(senderID, "Element1: "+element+ "Value1: "+valueforthisel+"soba:"+soba[0]+"length"+soba.length);
   
   //za vsako sobo za ta element
   for(var sobaindex=0;sobaindex<soba.length;sobaindex++){
