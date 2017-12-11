@@ -333,7 +333,8 @@ function receivedAuthentication(event) {
   
   var Akcija=[];
   var Element=[];
-  var Vrednost=-1;
+  var vrednosti=[];
+  var stevcakcij=0;
   
   var kriptGeslo="Basic YWRtaW46U2FsdXNkZDE=";
   //var URLIP = new URL("http://192.168.0.108:8083/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)");
@@ -420,9 +421,10 @@ function receivedMessage(event) {
     najdeneSobeIndex=[];
     
     
+    stevcakcij=0;
     Akcija=[];
     Element=[];
-    Vrednost=-1;
+    vrednosti=[];
     
     
     
@@ -621,8 +623,13 @@ function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS){
             if(j<=mejeA[mma]){
               
 
-              
+              stevcakcij++;
               //dodej id ot te grupe
+              if(IDA[mma]==onID){
+                vrednosti.push(255);
+              }else if(IDA[mma==offID]){
+                vrednosti.push(0)
+              }
               najdeno.push(IDA[mma]);
               break;
             }
@@ -666,6 +673,7 @@ function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS){
       
       var numstr=sporocilo[i];
       value = parseInt(numstr.replace(/\D/g,''));
+      vrednosti[stevcakcij]=value;
     }
     
   }//konc sporocila
@@ -751,16 +759,16 @@ function httpGet(napravaID,napravaI,command,value)
 }
 
 //podam akcijo element in sobo in se izvedejo ukazi
-function ukaz(akcija,element,soba, senderID){
-  if(value==-1){
+function ukaz(akcija,element,soba, senderID, zaporednaakcija){
+  if(vrednosti[zaporednaakcija]==-1){
     if(akcija==onID){
-      value=255;
+      vrednosti[zaporednaakcija]=255;
     }else if(akcija==offID){
-      value=0;
+      vrednosti[zaporednaakcija]=0;
     }
   }  
   
-  var valueforthisel=value;
+  var valueforthisel=vrednosti[zaporednaakcija];
   
   //za vsako sobo za ta element
   for(var sobaindex=0;sobaindex<soba.length;sobaindex++){
@@ -795,6 +803,7 @@ function izvediUkaze2(senderID){
   var akcija=0;
   var elementi=[];
   var soba=[];
+  var stevecakcij=0;
   
   for(var i=0; i<najdeno.length;i++){
     
@@ -817,7 +826,8 @@ function izvediUkaze2(senderID){
             soba.push(0);
           }
           
-          ukaz(akcija,elementi[u],soba,senderID);
+          ukaz(akcija,elementi[u],soba,senderID,stevecakcij);
+          stevecakcij++;
         }
         elementi=[];
         soba=[];
@@ -836,7 +846,7 @@ function izvediUkaze2(senderID){
     }
   }
   
-  
+  //ukaz na koncu
   if(elementi.length>0){
     for(var u=0;u<elementi.length;u++){
       console.log("Ukaz  na koncu");
@@ -846,10 +856,12 @@ function izvediUkaze2(senderID){
       }
       
       ukaz(akcija,elementi[u],soba,senderID);
+      stevecakcij++;
     }
     elementi=[];
     soba=[];
     value=-1;
+    
   }  
     
   
