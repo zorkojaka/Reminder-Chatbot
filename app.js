@@ -579,6 +579,8 @@ function alijekorenvbesedi(koren, beseda){
 } 
 
 // grem čez vsako besedo sporočila posebej in pogledam čez vse besede Akcij, ELementov, Sob  če se ujema, če se, dodam v najdeno.
+
+/*
 function najdi(sporocilo,tabMoznih,najdene, najdeneIndex){
   var i =0;
   var j=0;
@@ -596,6 +598,7 @@ function najdi(sporocilo,tabMoznih,najdene, najdeneIndex){
   }//konc sporocila
   
 }
+*/
 
 function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS){
   var i =0;
@@ -654,7 +657,7 @@ function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS){
   }
   
 }
-
+/*
 function najdivse(sporocilo){
   //akcija
   najdi(sporocilo,Akcije,najdeneAkcije,najdeneAkcijeIndex);
@@ -687,6 +690,7 @@ function dolociElement(){
   }
   
 }
+*/
 
 function httpGet(napravaID,napravaI,command,value)
 {
@@ -734,11 +738,11 @@ function ukaz(akcija,element,soba, senderID){
   for(var x=0; x<ElementIDE;x++){
     if(element==ElementIDE[x] && (soba==ElementRoom[x] || 0==ElementRoom[x])){
       if(akcija==onID){
+        sendTextMessage(senderID, "Akcija: "+akcija+ " Element: "+element);
         httpGet(ElementID[x],ElementInstance[x],37,255);
-        sendTextMessage(senderID, "Akcija: "+akcija+ " Element: "+element);
       }else if(akcija==offID){
-        httpGet(ElementID[x],ElementInstance[x],37,0);
         sendTextMessage(senderID, "Akcija: "+akcija+ " Element: "+element);
+        httpGet(ElementID[x],ElementInstance[x],37,0);
       }
     }
   }
@@ -804,7 +808,7 @@ function izvediUkaze2(senderID){
   
 }
 
-
+/*
 function izvediUkaze(senderID){
   var j=0;
   var i=0
@@ -854,21 +858,9 @@ function izvediUkaze(senderID){
     
   }
     
-    /*
-  if(i!=najdeneAkcije.length-1){
-    for(j=elementstevec; najdeniElementiIndex[j]<najdeneAkcijeIndex[i+1]; j++){
-      //izvedi ukaz za najdeneAkcije[i] in najdeniElementi[j]  
-      sendTextMessage(senderID, "Akcija: "+najdeneAkcije[i]+ " Element: "+najdeniElementi[j]);
-    }
-    elementstevec=j;
-  }else{
-        for(j=elementstevec; j<najdeniElementi.length; j++){
-      //izvedi ukaz za najdeneAkcije[i] in najdeniElementi[j]  
-      sendTextMessage(senderID, "Akcija: "+najdeneAkcije[i]+ " Element: "+najdeniElementi[j]);
-  }*/
   }
   
-  
+  */
 
  
 function receivedDeliveryConfirmation(event) {
