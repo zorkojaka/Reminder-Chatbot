@@ -247,7 +247,7 @@ function receivedAuthentication(event) {
   var mon = 4;
   var moff=mon+4;
   var mstanje=moff+5;
-  var mnastavi=mstanje+12;
+  var mnastavi=mstanje+15;
   var mejeA=[mon,moff,mstanje,mnastavi]
 
   //Možne besede    OB SPREMEMBAH POPRAVI MEJE!!!
@@ -255,7 +255,7 @@ function receivedAuthentication(event) {
   ["on","prizgi","przgi", "vklopi", "vkljuc",     //ON
   "off", "ugasn", "izklop", "izkljuc",     //OFF
   "stanje", "vrednost", "info", "koliko", "ali",      //stanje
-  "nastavi", "odpri", "zapri", "zasenci", "povecaj","zmanjsaj", "pomanjsaj", "odgrni","zagrni","odrolaj","naj", "naredi"   //nastavi vrednost  
+  "nastavi", "odpri", "zapri", "zasenci", "zatemni", "osvetli", "osvetlji", "povecaj","zmanjsaj", "pomanjsaj", "odgrni","zagrni","odrolaj","naj", "naredi"   //nastavi vrednost  
   ];
 
 
