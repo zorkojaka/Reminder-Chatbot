@@ -225,11 +225,12 @@ function receivedAuthentication(event) {
   
   // VNOS VSE SESTAVNIH DELOV SISTEMA = AKCIJE, ELEMENTI, SOBE
   
+  //                  ALARM     TERMOSTAT     KLIMA     LUČ     LUČ     LUČ       LUČ       LUČ       ŽALUZIJA    ŽALUZIJA    ŽALUZIJA    ŽALUZIJA    ŽALUZIJA    ŽALUZIJA    
   var ElementID =     [1,       2,            3,        4,      5,      6,        7,        8,        9,          10,         11,         12,         13,         14        ]; // na sistemu realnem
-  var ElementInstance=[1,       1,            1,        1,      1,      1,        1,        1,        1,          1,          1,          1,          1,          1         ];
+  var ElementInstance=[1,       1,            1,        1,      1,      1,        1,        1,        1,          1,          1,          1,          1,          1         ];  //na realnem sistemu
   var ElementIDE=     [alarmID, termostatID,  klimaID,  lucID,  lucID,  lucID,    lucID,    lucID,    zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID];  //v programu
-  var ElementRoom=    [0,       0,            0,        vhodID, wcID,   kuhinjaID,dnevnaID, dnevnaID, vhodID,     wcID,       kuhinjaID,  dnevnaID,   dnevnaID,   dnevnaID  ]; 
-  var ElementDimmable=[0,       1,            0,        1,      1,      1,        1,        1,        1,          1,          1,          1,          1,          1,        ];
+  var ElementRoom=    [0,       0,            0,        vhodID, wcID,   kuhinjaID,dnevnaID, dnevnaID, vhodID,     wcID,       kuhinjaID,  dnevnaID,   dnevnaID,   dnevnaID  ];  //v programu
+  var ElementDimmable=[0,       1,            0,        1,      1,      1,        1,        1,        1,          1,          1,          1,          1,          1,        ];  // 0=on/off  1=lahko nastavimo tudi vrednost
   
   
   //AKCIJE
@@ -762,7 +763,7 @@ function httpGet(napravaID,napravaI,command,value)
 
 //podam akcijo element in sobo in se izvedejo ukazi
 function ukaz(akcija,element,soba, senderID, zaporednaakcija){
-  if(!(vrednosti[zaporednaakcija]>0) && !(vrednosti[zaporednaakcija]<256)){
+  if(!(vrednosti[zaporednaakcija]>0) || !(vrednosti[zaporednaakcija]<256)){
     if(akcija==onID){
       vrednosti[zaporednaakcija]=255;
     }else if(akcija==offID){
