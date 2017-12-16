@@ -244,16 +244,16 @@ function receivedAuthentication(event) {
   var IDA=[onID,offID,getID,setID];
   
   //meje akcij    kje so meje za nove akcije, po temu jih določam kera je
-  var mon = 4;
-  var moff=mon+4;
+  var mon = 5;
+  var moff=mon+5;
   var mstanje=moff+5;
   var mnastavi=mstanje+15;
   var mejeA=[mon,moff,mstanje,mnastavi]
 
   //Možne besede    OB SPREMEMBAH POPRAVI MEJE!!!
   var Akcije = 
-  ["on","prizgi","przgi", "vklopi", "vkljuc",     //ON
-  "off", "ugasn", "izklop", "izkljuc",     //OFF
+  ["on","prizgi","przgi", "vklopi", "vkljuc", "dvigni",     //ON
+  "off", "ugasn", "izklop", "izkljuc", "spusti",     //OFF
   "stanje", "vrednost", "info", "koliko", "ali",      //stanje
   "nastavi", "odpri", "zapri", "zasenci", "zatemni", "osvetli", "osvetlji", "povecaj","zmanjsaj", "pomanjsaj", "odgrni","zagrni","odrolaj","naj", "naredi"   //nastavi vrednost  
   ];
