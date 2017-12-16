@@ -253,7 +253,7 @@ function receivedAuthentication(event) {
   //Možne besede    OB SPREMEMBAH POPRAVI MEJE!!!
   var Akcije = 
   ["on","prizgi","przgi", "vklopi", "vkljuc",     //ON
-  "off", "ugasni", "izklopi", "izkljuci",     //OFF
+  "off", "ugasn", "izklop", "izkljuc",     //OFF
   "stanje", "vrednost", "info", "koliko", "ali",      //stanje
   "nastavi", "odpri", "zapri", "zasenci", "povecaj","zmanjsaj", "pomanjsaj", "odgrni","zagrni","odrolaj","naj", "naredi"   //nastavi vrednost  
   ];
