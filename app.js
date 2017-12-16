@@ -271,7 +271,7 @@ function receivedAuthentication(event) {
   var mluc=2;
   var mzaluzija=mluc+5;
   var malarm=mzaluzija+2;
-  var mtermostat=malarm+3;
+  var mtermostat=malarm+5;
   var mklima=mtermostat+2;
   
   var mejeE=[mluc,mzaluzija,malarm,mtermostat,mklima]
@@ -281,7 +281,7 @@ function receivedAuthentication(event) {
   var Elementi = ["luc", "svetil", "lamp",      //luc
                   "zaluzij", "lamel", "polkn", "sencnik", "rolo",  //zaluzije
                   "alarm", "varovanj",      //alarm
-                  "termostat", "gretje", "ogrevanj",    //termostat
+                  "termostat", "gretj", "ogrevanj", "greje", "temperaturo",    //termostat
                   "klim", "hlajenj",  //klima
                   ];
   
