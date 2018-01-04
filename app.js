@@ -729,7 +729,7 @@ function httpGetInfo(napravaID,napravaI,senderID){
   var options = {
     hostname: '93.103.121.2',
     port: 8083,
-    path: '/JS/Run/zway.devices['+napravaID+'].instances['+napravaI+'].commandClasses[37].data.level.value',
+    path: '/JS/Run/zway.devices['+napravaID+'].instances['+napravaI+'].commandClasses[49].data[1].val.value',
     method: 'GET',
     headers: {
      'Authorization': 'Basic YWRtaW46U2FsdXNkZDE='
