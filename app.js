@@ -228,6 +228,7 @@ function receivedAuthentication(event) {
   //                  ALARM     TERMOSTAT     KLIMA     LUČ     LUČ     LUČ       LUČ       LUČ       ŽALUZIJA    ŽALUZIJA    ŽALUZIJA    ŽALUZIJA    ŽALUZIJA    ŽALUZIJA    
   var ElementID =     [1,       2,            3,        4,      5,      6,        7,        8,        9,          10,         11,         12,         13,         14        ]; // na sistemu realnem
   var ElementInstance=[1,       1,            1,        1,      1,      1,        1,        1,        1,          1,          1,          1,          1,          1         ];  //na realnem sistemu
+  var ElementName=    ["alarm", "termostat",  "klima",  "luč",  "luč",  "luč",    "luč",    "luč",    "žaluizija","žaluizija","žaluizija","žaluizija","žaluizija","žaluizija"]; //ime
   var ElementIDE=     [alarmID, termostatID,  klimaID,  lucID,  lucID,  lucID,    lucID,    lucID,    zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID];  //v programu
   var ElementRoom=    [0,       0,            0,        vhodID, wcID,   kuhinjaID,dnevnaID, dnevnaID, vhodID,     wcID,       kuhinjaID,  dnevnaID,   dnevnaID,   dnevnaID  ];  //v programu
   var ElementDimmable=[0,       1,            0,        1,      1,      1,        1,        1,        1,          1,          1,          1,          1,          1,        ];  // 0=on/off  1=lahko nastavimo tudi vrednost
@@ -338,7 +339,7 @@ function receivedAuthentication(event) {
   var stevcakcij=-1;
   
   var kriptGeslo="Basic YWRtaW46U2FsdXNkZDE=";
-  //var URLIP = new URL("http://192.168.0.108:8083/JS/Run/zway.devices[2].instances[1].commandClasses[37].Set(255)");
+
 
 
 /*
@@ -790,7 +791,9 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
             }
           }
           
-          sendTextMessage(senderID, "Element: "+ElementID[x]+ "Value: "+valueforthisel);
+
+          
+          sendTextMessage(senderID, "Nastavljam element z ID-jem: "+ElementID[x]+"("+ElementName[x]+" iz sobe: "+ElementRoom[x]+") na vrednost: "+valueforthisel +"zaradi željene akcije: "+akcija+".");
           //httpGet(ElementID[x],ElementInstance[x],37,255);
         
       }
