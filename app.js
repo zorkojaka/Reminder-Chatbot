@@ -721,7 +721,7 @@ function dolociElement(){
   
 }
 */
-function httpGetInfo(napravaID,napravaI,senderID){
+function httpGetInfo(napravaID,napravaI,command, senderID){
   
   var http = require('http');
 
@@ -729,7 +729,7 @@ function httpGetInfo(napravaID,napravaI,senderID){
   var options = {
     hostname: '93.103.121.2',
     port: 8083,
-    path: '/JS/Run/zway.devices['+napravaID+'].instances['+napravaI+'].commandClasses[49].data[1].val.value',
+    path: '/JS/Run/zway.devices['+napravaID+'].instances['+napravaI+'].commandClasses['+command+'].data[1].val.value',
     method: 'GET',
     headers: {
      'Authorization': 'Basic YWRtaW46U2FsdXNkZDE='
@@ -838,7 +838,7 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
           }
           
           if(akcija==getID){
-            httpGetInfo(ElementID[x],ElementInstance[x],senderID);
+            httpGetInfo(ElementID[x],0,49,senderID);
           }else{
             //ODGOVORIMS S SPOROČILOM IN IZVEDEM UKAZ
             sendTextMessage(senderID, "Nastavljam element z ID-jem: "+ElementID[x]+"("+ElementName[x]+" iz sobe: "+RoomName[x]+") na vrednost: "+valueforthisel+".");
