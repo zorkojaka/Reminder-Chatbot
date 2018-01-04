@@ -248,7 +248,7 @@ function receivedAuthentication(event) {
   //meje akcij    kje so meje za nove akcije, po temu jih določam kera je
   var mon = 9;
   var moff=mon+9;
-  var mstanje=moff+5;
+  var mstanje=moff+7;
   var mnastavi=mstanje+6;
   var mejeA=[mon,moff,mstanje,mnastavi]
 
@@ -256,7 +256,7 @@ function receivedAuthentication(event) {
   var Akcije = 
   ["on","prizgi","przgi", "vklopi", "vkljuc", "dvigni","odpri","osvetli", "osvetlji", "odgrni",     //ON
   "off", "ugasn", "izklop", "izkljuc", "spusti","zapri", "zasenci", "zatemni",  "zagrni",      //OFF
-  "stanje", "vrednost", "info", "koliko", "ali",      //stanje
+  "stanje", "vrednost", "info", "koliko", "ali", "kakš", "kok",      //stanje
   "nastavi", "vecaj", "manjsaj", "odrolaj", "naj", "naredi"   //nastavi vrednost  
   ];
 
@@ -721,6 +721,47 @@ function dolociElement(){
   
 }
 */
+function httpGetInfo(napravaID,napravaI,senderID){
+  
+  var http = require('http');
+
+
+  var options = {
+    hostname: '93.103.121.2',
+    port: 8083,
+    path: '/JS/Run/zway.devices['+napravaID+'].instances['+napravaI+'].commandClasses[37].data.level.value',
+    method: 'GET',
+    headers: {
+     'Authorization': 'Basic YWRtaW46U2FsdXNkZDE='
+    } 
+  };
+
+  var req = http.get(options, function(res){
+    console.log("SPROŽEN URL");
+    
+    var odgovor="";
+    
+    res.on('data', function(chunk){
+      odgovor+=chunk;
+      console.log(chunk);
+    });
+    
+    res.on('error', function(e) {
+        console.error(e);
+    });
+    
+    res.on('end', function(){
+      console.log(odgovor);
+       sendTextMessage(senderID, "Vrednost iskane naprave je "+odgovor);
+    });
+  }).end();
+    
+    
+    http.request(options, function(response){console.log("CALLback"+response)}).end();
+
+
+}
+
 
 function httpGet(napravaID,napravaI,command,value)
 {
@@ -770,6 +811,8 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
       vrednosti[zaporednaakcija]=255;
     }else if(akcija==offID){
       vrednosti[zaporednaakcija]=0;
+    }else if(akcija==setID){
+      
     }
   }  
   
@@ -786,17 +829,21 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
 
       if(element==ElementIDE[x] && (soba[sobaindex]==ElementRoom[x] || 0==ElementRoom[x] || 0==soba[sobaindex])){
           
+          
+          
           if(ElementDimmable[x]==0){
             if(value>0){
               valueforthisel=255;
             }
           }
           
-
-          
-          sendTextMessage(senderID, "Nastavljam element z ID-jem: "+ElementID[x]+"("+ElementName[x]+" iz sobe: "+RoomName[x]+") na vrednost: "+valueforthisel+".");
-          //httpGet(ElementID[x],ElementInstance[x],37,255);
-        
+          if(akcija==setID){
+            httpGetInfo(ElementID[x],ElementInstance[x],senderID);
+          }else{
+            //ODGOVORIMS S SPOROČILOM IN IZVEDEM UKAZ
+            sendTextMessage(senderID, "Nastavljam element z ID-jem: "+ElementID[x]+"("+ElementName[x]+" iz sobe: "+RoomName[x]+") na vrednost: "+valueforthisel+".");
+            //httpGet(ElementID[x],ElementInstance[x],37,255);
+          }
       }
     
       
