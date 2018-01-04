@@ -837,7 +837,7 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
             }
           }
           
-          if(akcija==setID){
+          if(akcija==getID){
             httpGetInfo(ElementID[x],ElementInstance[x],senderID);
           }else{
             //ODGOVORIMS S SPOROČILOM IN IZVEDEM UKAZ
