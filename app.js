@@ -231,6 +231,7 @@ function receivedAuthentication(event) {
   var ElementName=    ["alarm", "termostat",  "klima",  "luč",  "luč",  "luč",    "luč",    "luč",    "žaluizija","žaluizija","žaluizija","žaluizija","žaluizija","žaluizija"]; //ime
   var ElementIDE=     [alarmID, termostatID,  klimaID,  lucID,  lucID,  lucID,    lucID,    lucID,    zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID];  //v programu
   var ElementRoom=    [0,       0,            0,        vhodID, wcID,   kuhinjaID,dnevnaID, dnevnaID, vhodID,     wcID,       kuhinjaID,  dnevnaID,   dnevnaID,   dnevnaID  ];  //v programu
+  var RoomName=       ["hiša",  "hiša",       "hiša",   "vhod", "wc",   "kuhinja","dnevna", "dnevna", "vhod",     "wc",       "kuhinja",  "dnevna",   "dnevna",   "dnevna"  ];
   var ElementDimmable=[0,       1,            0,        1,      1,      1,        1,        1,        1,          1,          1,          1,          1,          1,        ];  // 0=on/off  1=lahko nastavimo tudi vrednost
   
   
@@ -793,7 +794,7 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
           
 
           
-          sendTextMessage(senderID, "Nastavljam element z ID-jem: "+ElementID[x]+"("+ElementName[x]+" iz sobe: "+ElementRoom[x]+") na vrednost: "+valueforthisel +"zaradi željene akcije: "+akcija+".");
+          sendTextMessage(senderID, "Nastavljam element z ID-jem: "+ElementID[x]+"("+ElementName[x]+" iz sobe: "+RoomName[x]+") na vrednost: "+valueforthisel+".");
           //httpGet(ElementID[x],ElementInstance[x],37,255);
         
       }
