@@ -248,16 +248,16 @@ function receivedAuthentication(event) {
   //meje akcij    kje so meje za nove akcije, po temu jih določam kera je
   var mon = 9;
   var moff=mon+9;
-  var mstanje=moff+7;
-  var mnastavi=mstanje+6;
-  var mejeA=[mon,moff,mstanje,mnastavi]
+  var mnastavi=moff+6;
+  var mstanje=mstanje+7;
+  var mejeA=[mon,moff,mnastavi,mstanje]
 
   //Možne besede    OB SPREMEMBAH POPRAVI MEJE!!!
   var Akcije = 
   ["on","prizgi","przgi", "vklopi", "vkljuc", "dvigni","odpri","osvetli", "osvetlji", "odgrni",     //ON
   "off", "ugasn", "izklop", "izkljuc", "spusti","zapri", "zasenci", "zatemni",  "zagrni",      //OFF
-  "stanje", "vrednost", "info", "koliko", "ali", "kakš", "kok",      //stanje
-  "nastavi", "vecaj", "manjsaj", "odrolaj", "naj", "naredi"   //nastavi vrednost  
+  "nastavi", "vecaj", "manjsaj", "odrolaj", "naj", "naredi",   //nastavi vrednost  
+  "stanje", "vrednost", "info", "koliko", "ali", "kakš", "kok"      //stanje
   ];
 
 
@@ -804,6 +804,8 @@ function httpGet(napravaID,napravaI,command,value)
 
 }
 
+
+
 //podam akcijo element in sobo in se izvedejo ukazi
 function ukaz(akcija,element,soba, senderID, zaporednaakcija){
   if(!(vrednosti[zaporednaakcija]>0) || !(vrednosti[zaporednaakcija]<256)){
@@ -830,7 +832,7 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
       if(element==ElementIDE[x] && (soba[sobaindex]==ElementRoom[x] || 0==ElementRoom[x] || 0==soba[sobaindex])){
           
           
-          
+          /*
           if(ElementDimmable[x]==0){
             if(value>0){
               valueforthisel=255;
@@ -840,10 +842,14 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
           if(akcija==getID){
             httpGetInfo(ElementID[x],0,49,senderID);
           }else{
+          
+          }
+          */
             //ODGOVORIMS S SPOROČILOM IN IZVEDEM UKAZ
             sendTextMessage(senderID, "Nastavljam element z ID-jem: "+ElementID[x]+"("+ElementName[x]+" iz sobe: "+RoomName[x]+") na vrednost: "+valueforthisel+".");
             //httpGet(ElementID[x],ElementInstance[x],37,255);
-          }
+            //http://77.111.7.178:8083/JS/Run/zway.devices[50].instances[0].commandClasses[67].Set(1,X)
+          
       }
     
       
