@@ -808,17 +808,27 @@ function httpGet(napravaID,napravaI,command,value)
 
 //podam akcijo element in sobo in se izvedejo ukazi
 function ukaz(akcija,element,soba, senderID, zaporednaakcija){
+  
+  var valueforthiselproc=vrednosti[zaporednaakcija];
+  
+  
   if(!(vrednosti[zaporednaakcija]>0) || !(vrednosti[zaporednaakcija]<256)){
     if(akcija==onID){
       vrednosti[zaporednaakcija]=255;
     }else if(akcija==offID){
       vrednosti[zaporednaakcija]=0;
     }else if(akcija==setID){
-      
+      vrednosti[zaporednaakcija]=0;
     }
-  }  
+  }
+  
   
   var valueforthisel=vrednosti[zaporednaakcija];
+  
+  if(akcija==setID){
+    valueforthisel=255*(valueforthisel/100);
+  }
+  
   
   //za vsako sobo za ta element
   for(var sobaindex=0;sobaindex<soba.length;sobaindex++){
@@ -832,24 +842,32 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
       if(element==ElementIDE[x] && (soba[sobaindex]==ElementRoom[x] || 0==ElementRoom[x] || 0==soba[sobaindex])){
           
           
-          /*
+          
           if(ElementDimmable[x]==0){
             if(value>0){
               valueforthisel=255;
             }
+          }else{
+            if(value>0){
+              
+            }
           }
           
-          if(akcija==getID){
-            httpGetInfo(ElementID[x],0,49,senderID);
+          if(akcija==setID){
+           // httpGetInfo(ElementID[x],0,49,senderID);
+           
+            //http://77.111.7.178:8083/JS/Run/zway.devices[50].instances[0].commandClasses[67].Set(1,X)
+            
+            
           }else{
           
-          }
-          */
+          
+          
             //ODGOVORIMS S SPOROČILOM IN IZVEDEM UKAZ
             sendTextMessage(senderID, "Nastavljam element z ID-jem: "+ElementID[x]+"("+ElementName[x]+" iz sobe: "+RoomName[x]+") na vrednost: "+valueforthisel+".");
             //httpGet(ElementID[x],ElementInstance[x],37,255);
             //http://77.111.7.178:8083/JS/Run/zway.devices[50].instances[0].commandClasses[67].Set(1,X)
-          
+          }
       }
     
       
