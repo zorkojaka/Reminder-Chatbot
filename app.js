@@ -253,7 +253,7 @@ function receivedAuthentication(event) {
   var moff=mon+9;
   var mnastavi=moff+6;
   var mstanje=mstanje+7;
-  var mejeA=[mon,moff,mnastavi,mstanje]
+  var mejeA=[mon,moff,mnastavi,mstanje];
 
   //Možne besede    OB SPREMEMBAH POPRAVI MEJE!!!
   var Akcije = 
@@ -279,7 +279,7 @@ function receivedAuthentication(event) {
   var mtermostat=malarm+5;
   var mklima=mtermostat+2;
   
-  var mejeE=[mluc,mzaluzija,malarm,mtermostat,mklima]
+  var mejeE=[mluc,mzaluzija,malarm,mtermostat,mklima];
   
   
   //Možne besede    (ce spreminjaš popravi meje !!!!)
@@ -363,8 +363,7 @@ function receivedMessage(event) {
   var message = event.message;
   
 
-  console.log("Received message for user %d and page %d at %d with message:", 
-    senderID, recipientID, timeOfMessage);
+
   console.log(JSON.stringify(message));
 
   var isEcho = message.is_echo;
@@ -470,11 +469,12 @@ for(var aa=0; aa<najdeno.length;aa++){
   
   
   izvediUkaze2(senderID);
-  console.log("po izvediukaze2")
+  console.log("po izvediukaze2");
   //izvediUkaze(senderID);
 }
 //KONC IF messageText
 
+}
 
 //preveri če se koren nahaja v besedi
 function alijekorenvbesedi(koren, beseda){
@@ -507,7 +507,7 @@ function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS){
               if(IDA[mma]==onID){
                 vrednosti.push(255);
               }else if(IDA[mma==offID]){
-                vrednosti.push(0)
+                vrednosti.push(0);
               }else{
                 vrednosti.push(-1);
               }
@@ -603,7 +603,9 @@ function httpGetInfo(napravaID,napravaI,command, senderID){
   }).end();
     
     
-    http.request(options, function(response){console.log("CALLback"+response)}).end();
+    http.request(options, function(response){
+      console.log("CALLback"+response);
+    }).end();
 
 
 }
@@ -687,11 +689,11 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
     
 
 
-      if(element==ElementIDE[x] && (soba[sobaindex]==ElementRoom[x] || 0==ElementRoom[x] || 0==soba[sobaindex])){
+      if(element==ElementIDE[x] && (soba[sobaindex]==ElementRoom[x] || 0===ElementRoom[x] || 0===soba[sobaindex])){
           
           
           
-          if(ElementDimmable[x]==0){
+          if(ElementDimmable[x]===0){
             if(value>0){
               valueforthisel=255;
             }
