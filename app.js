@@ -206,6 +206,8 @@ function receivedAuthentication(event) {
 
 
 
+
+
   //              HERE MAGIC HAPPENS
   
     //ID ji elemntov    * 1
@@ -215,6 +217,7 @@ function receivedAuthentication(event) {
   var termostatID=4;
   var klimaID=5;
   
+  //ID ji Sob 
   var dnevnaID=1000;
   var kuhinjaID=2000;
   var vhodID=3000;
@@ -289,11 +292,7 @@ function receivedAuthentication(event) {
   
   //SOBE
   
-  //ID-ji sob  * 1000
-  var dnevnaID=1000;
-  var kuhinjaID=2000;
-  var vhodID=3000;
-  var wcID=4000;
+
   
   var IDS=[dnevnaID,kuhinjaID,vhodID,wcID];
   
@@ -310,7 +309,7 @@ function receivedAuthentication(event) {
   var Sobe = ["dnevn",    //dnevna
               "kuhinj",   //kuhinja
               "vhod", "vetrolov",      //vhod
-              "wc", "stranisc", "kopalnic", "toaleta"
+              "wc", "stranisc", "kopalnic", "toalet"
               ];
               
   //elementi v sobah
@@ -393,19 +392,12 @@ function receivedMessage(event) {
   }
 
 
-  /* prepoznavanje ukazev
-  - AKCIJE (on / off / set+value / info-stanja)
-  - ELEMENTI (Luč, Žaluzija, scena1, scena2, scena3, temperaturni-senzor, klima)
-  - SOBE (Dnevna, Kopalnica, Kuhinja)
-  */
 
   
   //PREJETO SPOROCILO
   console.log('ZACNEMO');
   
 
-  
-  //httpGet(2,1,37,255);
   
   
   if (messageText) {
@@ -448,34 +440,10 @@ function receivedMessage(event) {
               
   var tabelaBesed = tekst.split(" ");;
   
-  //tabelaBesed[0]=[0].replace( /\"/g, "");
-  //tabelaBesed[tabelaBesed.length-1] = tabelaBesed[tabelaBesed.length-1].replace( /\"/g, "");
-  
-
   //Sporocilo razdeljeno na besede v tabelo
   
   
-  //KORENJENJE
-  
 
-  //PREPOZNAVANJE UKAZOV
-  /* prejeto sporočilo ločim na besede
-     besede korenim
-     primerjam besede kam bi loh spadale (akcije elementi sobe)
-     primerjam kaj bi lahko pomenile (točkovanje? glasovanje)
-     */
-     
-     /* PREPOZNAVANJE BESED
-        lahko iščem samo korene možnih besed v vseh prejetih besedah sporočila.
-        naprimer tako da poiščem vse prve črke korena v besedi in preverjam če se nadaljujejo kot koren...
-        tiste korene ki najdem, označim katere akcije so se pojavile, kateri elementi in katere sobe, in index teh besed v spooročilu, da jih lahko naprej pregledujem.
-     */
-  
-  //IZVAJANJE UKAZOV
-  
-  //ODGOVOR
-  
-  
   //ZANKA za obdelavo prejetega sporocila: razdelim na besede in vsako besedo posebej pogledam kaj je
   
   //pregledam vse in najdem besede, ki so pomembne= spadajo v eno od grup AKCIJE, ELEMENTI, SOBE
@@ -494,9 +462,12 @@ for(var aa=0; aa<najdeno.length;aa++){
   najdi2(tabelaBesed, Akcije, Elementi, Sobe, najdeno);
   console.log("po najdu2.");
   
+  
   for(var aaa=0; aaa<najdeno.length;aaa++){
     console.log(najdeno[aaa]);
   }
+  
+  
   
   izvediUkaze2(senderID);
   console.log("po izvediukaze2")
@@ -505,109 +476,14 @@ for(var aa=0; aa<najdeno.length;aa++){
 //KONC IF messageText
 
 
-
-
-
-  if (messageText) {
-
-    // If we receive a text message, check to see if it matches any special
-    // keywords and send back the corresponding example. Otherwise, just echo
-    // the text we received.
-    switch (messageText) {
-      case 'image':
-        sendImageMessage(senderID);
-        break;
-
-      case 'gif':
-        sendGifMessage(senderID);
-        break;
-
-      case 'audio':
-        sendAudioMessage(senderID);
-        break;
-
-      case 'video':
-        sendVideoMessage(senderID);
-        break;
-
-      case 'file':
-        sendFileMessage(senderID);
-        break;
-
-      case 'button':
-        sendButtonMessage(senderID);
-        break;
-
-      case 'generic':
-        sendGenericMessage(senderID);
-        break;
-
-      case 'receipt':
-        sendReceiptMessage(senderID);
-        break;
-
-      case 'quick reply':
-        sendQuickReply(senderID);
-        break;        
-
-      case 'read receipt':
-        sendReadReceipt(senderID);
-        break;        
-
-      case 'typing on':
-        sendTypingOn(senderID);
-        break;        
-
-      case 'typing off':
-        sendTypingOff(senderID);
-        break;        
-
-      case 'account linking':
-        sendAccountLinking(senderID);
-        break;
-
-      default:
-        sendTextMessage(senderID, messageText);
-    }
-  } else if (messageAttachments) {
-    sendTextMessage(senderID, "Message with attachment received");
-  }
-}
-
-
-/*
- * Delivery Confirmation Event
- *
- * This event is sent to confirm the delivery of a message. Read more about 
- * these fields at https://developers.facebook.com/docs/messenger-platform/webhook-reference/message-delivered
- *
- */
+//preveri če se koren nahaja v besedi
 function alijekorenvbesedi(koren, beseda){
     //index ofvrne -1 ce ni korena v besed
     return beseda.indexOf(koren) != -1;
 } 
 
 // grem čez vsako besedo sporočila posebej in pogledam čez vse besede Akcij, ELementov, Sob  če se ujema, če se, dodam v najdeno.
-
-/*
-function najdi(sporocilo,tabMoznih,najdene, najdeneIndex){
-  var i =0;
-  var j=0;
-  //cez vse akcije
-  for(i =0; i<sporocilo.length;i++){
-    //cez vse besede sporocila
-    for(j =0; j<tabMoznih.length;j++){
-      if(alijekorenvbesedi(tabMoznih[j],sporocilo[i])){
-        najdene.push(j);
-        najdeneIndex.push(j);
-      }
-    }//konc najdeno A
-    
-    
-  }//konc sporocila
-  
-}
-*/
+// najdeno je seznam besed po vrsti
 
 function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS){
   var i =0;
@@ -687,40 +563,10 @@ function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS){
   }
   
 }
-/*
-function najdivse(sporocilo){
-  //akcija
-  najdi(sporocilo,Akcije,najdeneAkcije,najdeneAkcijeIndex);
-  //Elementi
-  najdi(sporocilo,Elementi,najdeniElementi,najdeniElementiIndex);
-  //sobe
-  najdi(sporocilo,Sobe,najdeneSobe,najdeneSobeIndex);
-}
 
-function dolociakcijo(){
-  for(var i=0; i < najdeneAkcije.length; i++){
-    if(najdeneAkcije[i]<mejeA[0]){
-      Akcija.push("on");
-    }else if(najdeneAkcije[i]<mejeA[1]){
-      Akcija.push("off");
-    }else if(najdeneAkcije[i]<mejeA[2]){
-      Akcija.push("get");
-    }else{
-      Akcija.push("set");
-    }
-  }
-}
 
-function dolociElement(){
-  //gremo čez vse najdene elemente
-  for(var i = 0; i < najdeniElementiIndex.length; i++){
-    //ce jih je več in mamo kšno sobo pol samo te iz te sobe, drugače vse
-    Element.push(najdeniElementi[i]);
-    
-  }
-  
-}
-*/
+
+//pripravljeno za preverit vrednosti na sistemu
 function httpGetInfo(napravaID,napravaI,command, senderID){
   
   var http = require('http');
