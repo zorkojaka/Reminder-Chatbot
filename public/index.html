@@ -12,25 +12,8 @@ LICENSE file in the root directory of this source tree.
     <title>Messenger Demo</title>
   </head>
   <body>
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId: '110352722856385',
-          xfbml: true,
-          version: 'v2.6'
-        });
-      };
-
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    </script>
-
-    <h1>Messenger Demo</h1>
+    
+      <h1>Messenger Demo</h1>
 
     <div>
       <p>The "Send to Messenger" plugin will trigger an authentication callback to your webhook.</p>
@@ -113,5 +96,28 @@ LICENSE file in the root directory of this source tree.
 
     
 
+    
+    
+    
+    
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId: '110352722856385',
+          xfbml: true,
+          version: 'v2.6'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+  
   </body>
 </html>
