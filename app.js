@@ -438,7 +438,7 @@ function receivedMessage(event) {
               replace( /š/g, "s").
               replace( /ž/g, "z");
               
-  var tabelaBesed = tekst.split(" ");;
+  var tabelaBesed = tekst.split(" ");
   
   //Sporocilo razdeljeno na besede v tabelo
   
@@ -645,7 +645,9 @@ function httpGet(napravaID,napravaI,command,value)
   }).end();
     
     
-    http.request(options, function(response){console.log("CALLback"+response)}).end();
+    http.request(options, function(response){
+      console.log("CALLback"+response);
+    }).end();
 
 
 }
@@ -1359,4 +1361,3 @@ app.listen(app.get('port'), function() {
 });
 
 module.exports = app;
-
