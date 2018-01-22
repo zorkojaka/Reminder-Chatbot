@@ -229,9 +229,9 @@ function receivedAuthentication(event) {
   // VNOS VSE SESTAVNIH DELOV SISTEMA = AKCIJE, ELEMENTI, SOBE
   
   //                  ALARM     TERMOSTAT     KLIMA     LUČ     LUČ     LUČ       LUČ       LUČ       ŽALUZIJA    ŽALUZIJA    ŽALUZIJA    ŽALUZIJA    ŽALUZIJA    ŽALUZIJA    
-  var ElementID =     [1,       2,            3,        4,      5,      6,        7,        8,        9,          10,         11,         12,         13,         14        ]; // na sistemu realnem
+  var ElementID =     [1,       2,            3,        4,      5,      6,        7,        8,        9,          10,         11,         12,         13,         14        ];  // na sistemu realnem
   var ElementInstance=[1,       1,            1,        1,      1,      1,        1,        1,        1,          1,          1,          1,          1,          1         ];  //na realnem sistemu
-  var ElementName=    ["alarm", "termostat",  "klima",  "luč",  "luč",  "luč",    "luč",    "luč",    "žaluizija","žaluizija","žaluizija","žaluizija","žaluizija","žaluizija"]; //ime
+  var ElementName=    ["alarm", "termostat",  "klima",  "luč",  "luč",  "luč",    "luč",    "luč",    "žaluzija", "žaluzija", "žaluzija", "žaluzija", "žaluzija", "žaluzija"];  //ime
   var ElementIDE=     [alarmID, termostatID,  klimaID,  lucID,  lucID,  lucID,    lucID,    lucID,    zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID];  //v programu
   var ElementRoom=    [0,       0,            0,        vhodID, wcID,   kuhinjaID,dnevnaID, dnevnaID, vhodID,     wcID,       kuhinjaID,  dnevnaID,   dnevnaID,   dnevnaID  ];  //v programu
   var RoomName=       ["hiša",  "hiša",       "hiša",   "vhod", "wc",   "kuhinja","dnevna", "dnevna", "vhod",     "wc",       "kuhinja",  "dnevna",   "dnevna",   "dnevna"  ];
