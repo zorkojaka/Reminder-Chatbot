@@ -482,6 +482,7 @@ for(var aa=0; aa<najdeno.length;aa++){
 
 function runosvezi(id,instanca,vrednost){
   document.getElementById('v'+id).innerHTML=vrednost;
+  console.log("vrunosvezi");
 }
 
 //_________________________________________________
