@@ -56,7 +56,7 @@ LICENSE file in the root directory of this source tree.
       <th>1</th>
       <th>Alarm</th>
       <th>Hiša</th>
-      <th>0</th>
+      <th id="v1">0</th>
       <th>on/off</th>
     </tr>
     <tr>
@@ -167,13 +167,17 @@ LICENSE file in the root directory of this source tree.
     
 </table>
 
-    
+    <a href="javascript:osvezi()" >osveži</a>
 
     
     
     
     
     <script>
+    function osvezi(){
+      document.getElementById("v1").innerHTML=11;
+      return 0;
+    }
       window.fbAsyncInit = function() {
         FB.init({
           appId: '110352722856385',
