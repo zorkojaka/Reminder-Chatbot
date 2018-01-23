@@ -64,7 +64,7 @@ LICENSE file in the root directory of this source tree.
       <th>1</th>
       <th>Termostat</th>
       <th>Hiša</th>
-      <th>21</th>
+      <th id="v2">21</th>
       <th>°C</th>
     </tr>
     <tr>
@@ -73,14 +73,14 @@ LICENSE file in the root directory of this source tree.
       <th>Klima</th>
       <th>Hiša</th>
       <th>0</th>
-      <th>on/off</th>
+      <th id="v3">on/off</th>
     </tr>
     <tr>
       <th>4</th>
       <th>1</th>
       <th>Luč</th>
       <th>Vhod</th>
-      <th>0</th>
+      <th id="v4">0</th>
       <th>%</th>
     </tr>
     <tr>
@@ -88,7 +88,7 @@ LICENSE file in the root directory of this source tree.
       <th>1</th>
       <th>Luč</th>
       <th>WC</th>
-      <th>0</th>
+      <th id="v5">0</th>
       <th>%</th>
     </tr>
     <tr>
@@ -96,7 +96,7 @@ LICENSE file in the root directory of this source tree.
       <th>1</th>
       <th>Luč</th>
       <th>Kuhinja</th>
-      <th>0</th>
+      <th id="v6">0</th>
       <th>%</th>
     </tr>
     <tr>
@@ -104,7 +104,7 @@ LICENSE file in the root directory of this source tree.
       <th>1</th>
       <th>Luč</th>
       <th>Dnevna</th>
-      <th>0</th>
+      <th id="v7">0</th>
       <th>%</th>
     </tr>
     <tr>
@@ -112,7 +112,7 @@ LICENSE file in the root directory of this source tree.
       <th>1</th>
       <th>Luč</th>
       <th>Dnevna</th>
-      <th>0</th>
+      <th id="v8">0</th>
       <th>%</th>
     </tr>
         <tr>
@@ -120,7 +120,7 @@ LICENSE file in the root directory of this source tree.
       <th>1</th>
       <th>Žaluzija</th>
       <th>Vhod</th>
-      <th>0</th>
+      <th id="v9">0</th>
       <th>%</th>
     </tr>
     <tr>
@@ -128,7 +128,7 @@ LICENSE file in the root directory of this source tree.
       <th>1</th>
       <th>Žaluzija</th>
       <th>WC</th>
-      <th>0</th>
+      <th id="v10">0</th>
       <th>%</th>
     </tr>
     <tr>
@@ -136,7 +136,7 @@ LICENSE file in the root directory of this source tree.
       <th>1</th>
       <th>Žaluzija</th>
       <th>Kuhinja</th>
-      <th>0</th>
+      <th id="v11">0</th>
       <th>%</th>
     </tr>
     <tr>
@@ -144,7 +144,7 @@ LICENSE file in the root directory of this source tree.
       <th>1</th>
       <th>Žaluzija</th>
       <th>Dnevna</th>
-      <th>0</th>
+      <th id="v12">0</th>
       <th>%</th>
     </tr>
     <tr>
@@ -152,7 +152,7 @@ LICENSE file in the root directory of this source tree.
       <th>1</th>
       <th>Žaluzija</th>
       <th>Dnevna</th>
-      <th>0</th>
+      <th id="v13">0</th>
       <th>%</th>
     </tr>
     <tr>
@@ -160,22 +160,22 @@ LICENSE file in the root directory of this source tree.
       <th>1</th>
       <th>Žaluzija</th>
       <th>Dnevna</th>
-      <th>0</th>
+      <th id="v14">0</th>
       <th>%</th>
     </tr>
     
     
 </table>
 
-    <a href="javascript:osvezi()" >osveži</a>
+    <a href="javascript:osvezi(1,1,5)" >osveži</a>
 
     
     
     
     
     <script>
-    function osvezi(){
-      document.getElementById("v1").innerHTML=11;
+    function osvezi(ID, instanca, Vrednost){
+      document.getElementById('v'+ID).innerHTML=11;
       return 0;
     }
       window.fbAsyncInit = function() {
