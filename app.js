@@ -476,6 +476,15 @@ for(var aa=0; aa<najdeno.length;aa++){
 
 }
 
+
+
+//FUNKCIJE ZA PREDSTAVITEV____________________________
+
+function runosvezi(id,instanca,vrednost){
+  document.getElementById('v'+id).innerHTML=vrednost;
+}
+
+//_________________________________________________
 //preveri če se koren nahaja v besedi
 function alijekorenvbesedi(koren, beseda){
     //index ofvrne -1 ce ni korena v besed
@@ -717,6 +726,7 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
             sendTextMessage(senderID, "Nastavljam element z ID-jem: "+ElementID[x]+"("+ElementName[x]+" iz sobe: "+RoomName[x]+") na vrednost: "+valueforthisel+".");
             //httpGet(ElementID[x],ElementInstance[x],37,255);
             //http://77.111.7.178:8083/JS/Run/zway.devices[50].instances[0].commandClasses[67].Set(1,X)
+            runosvezi(7,1,99);
           }
       }
     
