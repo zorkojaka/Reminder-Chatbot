@@ -1,4 +1,4 @@
-var http = require("http");
+/*var http = require("http");
 
 
 function onRequest(request, response){
@@ -8,3 +8,5 @@ function onRequest(request, response){
 }
 
 http.createServer(onRequest).listen(8000);
+
+*/
