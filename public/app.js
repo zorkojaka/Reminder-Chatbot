@@ -481,8 +481,16 @@ for(var aa=0; aa<najdeno.length;aa++){
 //FUNKCIJE ZA PREDSTAVITEV____________________________
 
 function runosvezi(id,instanca,vrednost){
+  var http = require('http');
+
+  http.createServer(function (req, res) {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end('Hello World!');
+  }).listen(8080);
+
   document.getElementById('v'+id).innerHTML=vrednost;
   console.log("vrunosvezi");
+  
 }
 
 //_________________________________________________
