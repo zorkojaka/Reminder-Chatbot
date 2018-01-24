@@ -189,7 +189,7 @@ function HTMLgen(){
   for(a=0;a<ElementID.length;a++){
     page+="<tr><th>"+ElementID[a]+"</th><th>1</th><th>"+ElementName[a]+"</th><th>"+RoomName[a]+"</th><th>"+nastavljenavrednost[a]+"</th><th>on/off</th></tr>";
   }
-  page+="</table><a href'/a'>osveži</a></html>"
+  page+="</table><a href='/a'>osveži</a></html>"
   return page;
 }
 
