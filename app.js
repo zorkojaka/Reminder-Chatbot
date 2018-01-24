@@ -258,7 +258,7 @@ function receivedAuthentication(event) {
   var RoomName=       ["hiša",  "hiša",       "hiša",   "vhod", "wc",   "kuhinja","dnevna", "dnevna", "vhod",     "wc",       "kuhinja",  "dnevna",   "dnevna",   "dnevna"  ];
   var ElementDimmable=[0,       1,            0,        1,      1,      1,        1,        1,        1,          1,          1,          1,          1,          1         ];  // 0=on/off  1=lahko nastavimo tudi vrednost
   
-  var nastavljenavrednost=[0,   0,            0,        0,      0,      0,        0,        0,        0,          0,          0,          0,          0,          0         ];
+  var nastavljenavrednost=["off", 20,         "off",    0,      0,      0,        0,        0,        0,          80,          0,          0,          0,          0         ];
   var enota =         ["on/off","°C",         "on/off", "%",    "%",    "%",      "%",      "%",      "%",        "%",        "%",        "%",        "%",        "%"       ];
   //AKCIJE
   
