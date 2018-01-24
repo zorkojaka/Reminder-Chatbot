@@ -66,8 +66,7 @@ if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN && SERVER_URL)) {
  
 app.get('/a',function(req, res) {
   console.log("V MOJI FUNKCIJI");
-  
-    res.send("<table><tr><th>ID</th><th>Instanca</th></tr></table>");
+    res.send(HTMLgen());
 }); 
  
 app.get('/webhook', function(req, res) {
@@ -159,6 +158,7 @@ app.get('/authorize', function(req, res) {
  *
  * https://developers.facebook.com/docs/graph-api/webhooks#setup
  *
+
  */
 function verifyRequestSignature(req, res, buf) {
   var signature = req.headers["x-hub-signature"];
@@ -180,6 +180,17 @@ function verifyRequestSignature(req, res, buf) {
       throw new Error("Couldn't validate the request signature.");
     }
   }
+}
+
+
+function HTMLgen(){
+  var a;
+  var page="<html><table><tr><th>ID</th><th>Instanca</th><th>Ime</th><th>Soba</th><th>Vrednost</th><th>Enota</th></tr>";
+  for(a=0;a<ElementID.length;a++){
+    page+="<tr><th>"+ElementID[a]+"</th><th>1</th><th>"+ElementName[a]+"</th><th>"+ElementRoom[a]+"</th><th>"+nastavljenavrednost[a]+"</th><th>on/off</th></tr>";
+  }
+  page+="</table></html>"
+  return page;
 }
 
 /*
