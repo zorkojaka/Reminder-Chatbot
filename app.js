@@ -187,9 +187,9 @@ function HTMLgen(){
   var a;
   var page="<html><table><tr><th>ID</th><th>Instanca</th><th>Ime</th><th>Soba</th><th>Vrednost</th><th>Enota</th></tr>";
   for(a=0;a<ElementID.length;a++){
-    page+="<tr><th>"+ElementID[a]+"</th><th>1</th><th>"+ElementName[a]+"</th><th>"+ElementRoom[a]+"</th><th>"+nastavljenavrednost[a]+"</th><th>on/off</th></tr>";
+    page+="<tr><th>"+ElementID[a]+"</th><th>1</th><th>"+ElementName[a]+"</th><th>"+RoomName[a]+"</th><th>"+nastavljenavrednost[a]+"</th><th>on/off</th></tr>";
   }
-  page+="</table></html>"
+  page+="</table><a href'/a'>osveži</a></html>"
   return page;
 }
 
