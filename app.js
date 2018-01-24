@@ -750,10 +750,22 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
           
             //ODGOVORIMS S SPOROČILOM IN IZVEDEM UKAZ
             sendTextMessage(senderID, "Nastavljam element z ID-jem: "+ElementID[x]+"("+ElementName[x]+" iz sobe: "+RoomName[x]+") na vrednost: "+valueforthisel+".");
-            nastavljenavrednost[x]=valueforthisel;
+            
+            
+            //PRILAGODITVE ZA ENOTE - enako za pametni sistem s pretvorbo v 255
+            
+            if(enota[x]=="°C"){
+              nastavljenavrednost[x]=valueforthisel;
+            }else if(enota[x]=="on/off"){
+              if(valueforthisel==0){
+                nastavljenavrednost[x]="off";
+              }else{
+                nastavljenavrednost[x]="on";
+              }
+            }
             //httpGet(ElementID[x],ElementInstance[x],37,255);
             //http://77.111.7.178:8083/JS/Run/zway.devices[50].instances[0].commandClasses[67].Set(1,X)
-            runosvezi(7,1,99);
+            
           }
       }
     
@@ -805,7 +817,7 @@ function izvediUkaze2(senderID){
     }else{
         //soba
         soba.push(najdeno[i]);
-        console.log("NAJDENO dodam sobo");
+        //console.log("NAJDENO dodam sobo");
     
       
     }
@@ -814,7 +826,7 @@ function izvediUkaze2(senderID){
   //ukaz na koncu
   if(elementi.length>0){
     for(var u=0;u<elementi.length;u++){
-      console.log("Ukaz  na koncu");
+      //console.log("Ukaz  na koncu");
       
       if(soba.length==0){
         soba.push(0);
