@@ -187,7 +187,7 @@ function HTMLgen(){
   var a;
   var page="<html><head><title>Prikaz</title><meta http-equiv='refresh' content='2'/></head><h1>TABELA ELEMENTOV</h1><table><tr><th>ID</th><th>Instanca</th><th>Ime</th><th>Soba</th><th>Vrednost</th><th>Enota</th></tr>";
   for(a=0;a<ElementID.length;a++){
-    page+="<tr><th>"+ElementID[a]+"</th><th>1</th><th>"+ElementName[a]+"</th><th>"+RoomName[a]+"</th><th>"+nastavljenavrednost[a]+"</th><th>on/off</th></tr>";
+    page+="<tr><th>"+ElementID[a]+"</th><th>1</th><th>"+ElementName[a]+"</th><th>"+RoomName[a]+"</th><th>"+nastavljenavrednost[a]+"</th><th>"+enota[a]+"</th></tr>";
   }
   page+="</table></html>"
   return page;
@@ -259,7 +259,7 @@ function receivedAuthentication(event) {
   var ElementDimmable=[0,       1,            0,        1,      1,      1,        1,        1,        1,          1,          1,          1,          1,          1         ];  // 0=on/off  1=lahko nastavimo tudi vrednost
   
   var nastavljenavrednost=[0,   0,            0,        0,      0,      0,        0,        0,        0,          0,          0,          0,          0,          0         ];
-  
+  var enota =         ["on/off","°C",         "on/off", "%",    "%",    "%",      "%",      "%",      "%",        "%",        "%",        "%",        "%",        "%"       ];
   //AKCIJE
   
   //ID ji akcij   *100
