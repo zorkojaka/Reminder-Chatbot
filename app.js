@@ -67,7 +67,7 @@ if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN && SERVER_URL)) {
 app.get('/a',function(req, res) {
   console.log("V MOJI FUNKCIJI");
   
-    res.send(vrednosti);
+    res.send(vrednosti[1]);
 }); 
  
 app.get('/webhook', function(req, res) {
