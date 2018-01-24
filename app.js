@@ -67,7 +67,7 @@ if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN && SERVER_URL)) {
 app.get('/',function(req, res) {
   console.log("V MOJI FUNKCIJI");
     res.send('ok');
-}) 
+}); 
  
 app.get('/webhook', function(req, res) {
   if (req.query['hub.mode'] === 'subscribe' &&
