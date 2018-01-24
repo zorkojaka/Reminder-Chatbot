@@ -185,7 +185,7 @@ function verifyRequestSignature(req, res, buf) {
 
 function HTMLgen(){
   var a;
-  var page="<html><table><tr><th>ID</th><th>Instanca</th><th>Ime</th><th>Soba</th><th>Vrednost</th><th>Enota</th></tr>";
+  var page="<html><head><meta http-equiv='refresh' content='2'/></head><table><tr><th>ID</th><th>Instanca</th><th>Ime</th><th>Soba</th><th>Vrednost</th><th>Enota</th></tr>";
   for(a=0;a<ElementID.length;a++){
     page+="<tr><th>"+ElementID[a]+"</th><th>1</th><th>"+ElementName[a]+"</th><th>"+RoomName[a]+"</th><th>"+nastavljenavrednost[a]+"</th><th>on/off</th></tr>";
   }
