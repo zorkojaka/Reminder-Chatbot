@@ -763,7 +763,11 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
                 nastavljenavrednost[x]="on";
               }
             }else{
-              nastavljenavrednost[x]=valueforthisel;
+              if(valueforthisel>100){
+                nastavljenavrednost[x]=100;
+              }else{
+                nastavljenavrednost[x]=valueforthisel;
+              }  
             }
             //httpGet(ElementID[x],ElementInstance[x],37,255);
             //http://77.111.7.178:8083/JS/Run/zway.devices[50].instances[0].commandClasses[67].Set(1,X)
