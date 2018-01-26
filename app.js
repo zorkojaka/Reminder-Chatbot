@@ -272,7 +272,7 @@ function receivedAuthentication(event) {
   
   //meje akcij    kje so meje za nove akcije, po temu jih določam kera je
   var mon = 9;
-  var moff=mon+9;
+  var moff=mon+10;
   var mnastavi=moff+6;
   var mstanje=mstanje+7;
   var mejeA=[mon,moff,mnastavi,mstanje];
@@ -280,7 +280,7 @@ function receivedAuthentication(event) {
   //Možne besede    OB SPREMEMBAH POPRAVI MEJE!!!
   var Akcije = 
   ["on","prizgi","przgi", "vklopi", "vkljuc", "dvigni","odpri","osvetli", "osvetlji", "odgrni",     //ON
-  "off", "ugasn", "izklop", "izkljuc", "spusti","zapri", "zasenci", "zatemni",  "zagrni",      //OFF
+  "off", "ugasn", "izklop", "izkljuc", "spusti","zapri", "zasenci", "zatemni",  "zagrni", "zastri",      //OFF
   "nastavi", "vecaj", "manjsaj", "odrolaj", "naj", "naredi",   //nastavi vrednost  
   "stanje", "vrednost", "info", "koliko", "ali", "kakš", "kok"      //stanje
   ];
@@ -306,7 +306,7 @@ function receivedAuthentication(event) {
   
   //Možne besede    (ce spreminjaš popravi meje !!!!)
   var Elementi = ["luc", "svetil", "lamp",      //luc
-                  "zaluzij", "lamel", "polkn", "sencnik", "rolo", "rule", "role",  //zaluzije
+                  "zaluzij", "lamel", "polkn", "sencil", "rolo", "rule", "role",  //zaluzije
                   "alarm", "varovanj",      //alarm
                   "termostat", "gretj", "ogrevanj", "greje", "temperaturo",    //termostat
                   "klim", "hlajenj",  //klima
