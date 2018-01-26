@@ -296,7 +296,7 @@ function receivedAuthentication(event) {
   
   //MEJE E
   var mluc=2;
-  var mzaluzija=mluc+7;
+  var mzaluzija=mluc+8;
   var malarm=mzaluzija+2;
   var mtermostat=malarm+5;
   var mklima=mtermostat+2;
@@ -306,7 +306,7 @@ function receivedAuthentication(event) {
   
   //Možne besede    (ce spreminjaš popravi meje !!!!)
   var Elementi = ["luc", "svetil", "lamp",      //luc
-                  "zaluzij", "lamel", "polkn", "sencil", "rolo", "rule", "role",  //zaluzije
+                  "zaluzij", "lamel", "polkn", "sencil", "rolo", "rule", "role", "zaves",  //zaluzije
                   "alarm", "varovanj",      //alarm
                   "termostat", "gretj", "ogrevanj", "greje", "temperaturo",    //termostat
                   "klim", "hlajenj",  //klima
