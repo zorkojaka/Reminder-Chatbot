@@ -761,11 +761,7 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
             
           }else{
           
-            if(ElementIDE[x]==zaluzijaID){
-              console.log("zzzzzzaluzija");
-              nastavljenavrednost[x]=100-valueforthisel;
-            }
-          
+ 
           
             
             
@@ -786,6 +782,12 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
                 nastavljenavrednost[x]=valueforthisel;
               }  
             }
+            
+           if(ElementIDE[x]==zaluzijaID){
+              console.log("zzzzzzaluzija");
+              nastavljenavrednost[x]=100-valueforthisel;
+            }
+          
             
             
             //ODGOVORIMS S SPOROČILOM IN IZVEDEM UKAZ
