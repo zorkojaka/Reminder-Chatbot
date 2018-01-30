@@ -237,12 +237,17 @@ function receivedAuthentication(event) {
   var alarmID=3;
   var termostatID=4;
   var klimaID=5;
+  var radioID=6;
+  var zalivanjeID=7;
+  var prezracevanjeID=8;
   
   //ID ji Sob 
   var dnevnaID=1000;
   var kuhinjaID=2000;
   var vhodID=3000;
   var wcID=4000;
+  var jedilnicaID=5000;
+  var spalnicaID=6000;
   
   
   
@@ -291,7 +296,7 @@ function receivedAuthentication(event) {
 
   
 
-  var IDE=[lucID,zaluzijaID,alarmID,termostatID,klimaID];
+  var IDE=[lucID,zaluzijaID,alarmID,termostatID,klimaID,radioID,prezracevanjeID,zalivanjeID];
   
   
   //MEJE E
@@ -300,8 +305,11 @@ function receivedAuthentication(event) {
   var malarm=mzaluzija+2;
   var mtermostat=malarm+5;
   var mklima=mtermostat+2;
+  var mradio=mklima+4;
+  var mprezracevanje=mradio+2;
+  var mzalivanje=mprezracevanje+2;
   
-  var mejeE=[mluc,mzaluzija,malarm,mtermostat,mklima];
+  var mejeE=[mluc,mzaluzija,malarm,mtermostat,mklima,mradio,mprezracevanje,mzalivanje];
   
   
   //Možne besede    (ce spreminjaš popravi meje !!!!)
@@ -310,28 +318,35 @@ function receivedAuthentication(event) {
                   "alarm", "varovanj",      //alarm
                   "termostat", "gretj", "ogrevanj", "greje", "temperaturo",    //termostat
                   "klim", "hlajenj",  //klima
+                  "radio","muzik","musko","glasb", //radio
+                  "zrace", "ventila", //zračenje 
+                  "zaliva", "skroplen", //zalivanje
                   ];
   
   //SOBE
   
 
   
-  var IDS=[dnevnaID,kuhinjaID,vhodID,wcID];
+  var IDS=[dnevnaID,kuhinjaID,vhodID,wcID,jedilnicaID,spalnicaID];
   
   
   //MEJE S  (za vsako dodano možno besedo je treba zadnjo številko povečat kokr besed smo dodal za to sobo)
   var mdnevna=0;
   var mkuhinja=mdnevna+1;
-  var mvhod=mkuhinja+2;
+  var mvhod=mkuhinja+3;
   var mwc=mvhod+4;
+  var mjedilnica=mwc+3;
+  var mspalnica=mjedilnica+1;
   
-  var mejeS=[mdnevna,mkuhinja,mvhod,mwc];
+  var mejeS=[mdnevna,mkuhinja,mvhod,mwc,mjedilnica,mspalnica];
   
   //Možne besede  (ce spreminjaš popravi meje !!!!)
   var Sobe = ["dnevn",    //dnevna
               "kuhinj",   //kuhinja
-              "vhod", "vetrolov",      //vhod
-              "wc", "stranisc", "kopalnic", "toalet"
+              "vhod", "hodnik","prehod",      //vhod
+              "wc", "stranisc", "kopalnic", "toalet",
+              "jediln", "jemo", "kosilo",
+              "spaln", 
               ];
               
   //elementi v sobah
