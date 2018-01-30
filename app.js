@@ -7,11 +7,11 @@
  *
  */
 
-/* jshint node: true, devel: true */
+/* jshint node: true, devel: true  */
 'use strict';
 
 const 
-  bodyParser = require('body-parser'),
+  bodyParser = require('body-parser'),xxxx
   config = require('config'),
   crypto = require('crypto'),
   express = require('express'),
