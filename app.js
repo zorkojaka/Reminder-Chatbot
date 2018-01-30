@@ -762,7 +762,7 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
           }else{
           
             if(ElementIDE[x]==zaluzijaID){
-              nastavljenavrednost[x]=100-valueforthisel;
+              nastavljenavrednost[x]=valueforthisel;
             }
           
           
