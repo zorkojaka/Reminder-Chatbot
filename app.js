@@ -11,7 +11,7 @@
 'use strict';
 
 const 
-  bodyParser = require('body-parser'),xxxx
+  bodyParser = require('body-parser'),
   config = require('config'),
   crypto = require('crypto'),
   express = require('express'),
