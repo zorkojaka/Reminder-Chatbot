@@ -320,7 +320,7 @@ function receivedAuthentication(event) {
                   "klim", "hlajenj",  //klima
                   "radio","muzik","musko","glasb", //radio
                   "zrace", "ventila", //zračenje 
-                  "zaliva", "skroplen", //zalivanje
+                  "zaliva", "skrop",  //zalivanje
                   ];
   
   //SOBE
@@ -761,7 +761,9 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
             
           }else{
           
-          
+            if(ElementIDE==zaluzijaID){
+              nastavljenavrednost[x]=100-valueforthisel;
+            }
           
             //ODGOVORIMS S SPOROČILOM IN IZVEDEM UKAZ
             sendTextMessage(senderID, "Nastavljam element z ID-jem: "+ElementID[x]+"("+ElementName[x]+" iz sobe: "+RoomName[x]+") na vrednost: "+valueforthisel+".");
@@ -784,6 +786,7 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
                 nastavljenavrednost[x]=valueforthisel;
               }  
             }
+
             //httpGet(ElementID[x],ElementInstance[x],37,255);
             //http://77.111.7.178:8083/JS/Run/zway.devices[50].instances[0].commandClasses[67].Set(1,X)
             
