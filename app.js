@@ -762,7 +762,8 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
           }else{
           
             if(ElementIDE[x]==zaluzijaID){
-              nastavljenavrednost[x]=valueforthisel;
+              console.log("zzzzzzaluzija");
+              nastavljenavrednost[x]=100-valueforthisel;
             }
           
           
@@ -790,7 +791,7 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
             //ODGOVORIMS S SPOROČILOM IN IZVEDEM UKAZ
             sendTextMessage(senderID, "Nastavljam element z ID-jem: "+ElementID[x]+"("+ElementName[x]+" iz sobe: "+RoomName[x]+") na vrednost: "+nastavljenavrednost[x]+".");
             // valueforthisel je za 255 vrednpsti
-            //sendTextMessage(senderID, "Nastavljam element z ID-jem: "+ElementID[x]+"("+ElementName[x]+" iz sobe: "+RoomName[x]+") na vrednost: "+nastavljenavrednost[x]+".");
+            //sendTextMessage(senderID, "Nastavljam element z ID-jem: "+ElementID[x]+"("+ElementName[x]+" iz sobe: "+RoomName[x]+") na vrednost: "+valueforthisel+".");
 
             //httpGet(ElementID[x],ElementInstance[x],37,255);
             //http://77.111.7.178:8083/JS/Run/zway.devices[50].instances[0].commandClasses[67].Set(1,X)
