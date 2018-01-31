@@ -753,13 +753,13 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
             }
           }
           
-          if(akcija==setID){
+         // if(akcija==setID){ }else{}
            // httpGetInfo(ElementID[x],0,49,senderID);
            
             //http://77.111.7.178:8083/JS/Run/zway.devices[50].instances[0].commandClasses[67].Set(1,X)
             
             
-          }else{
+          
           
  
           
