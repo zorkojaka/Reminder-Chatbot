@@ -283,9 +283,9 @@ var nastavljenavrednost=["off", 20,           "off",    0,      0,       0,     
 
   //Možne besede    OB SPREMEMBAH POPRAVI MEJE!!!
   var Akcije = 
-  ["on","prizgi","przgi", "vklop", "vkljuc", "dvigni","odpri","osvetl", "odgrn",     //ON
-  "off", "ugasn", "izklop", "izkljuc", "spusti","zapri", "zasenci", "zatemni",  "zagrni", "zastri",      //OFF
-  "nastavi", "vecaj", "manjsaj", "odrolaj", "naj", "naredi",   //nastavi vrednost  
+  ["on","prizgi","przgi", "vklop", "vkljuc", "dvign","odpri","osvetl", "odgrn",     //ON
+  "off", "ugasn", "izklop", "izkljuc", "spust","zapri", "zasenc", "zatemn",  "zagrn", "zastri",      //OFF
+  "nastav", "vecaj", "manjsaj", "odrolaj", "naj", "nared",   //nastavi vrednost  
   "stanje", "vrednost", "info", "koliko", "ali", "kakš", "kok"      //stanje
   ];
 
