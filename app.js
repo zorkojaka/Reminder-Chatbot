@@ -275,7 +275,7 @@ var nastavljenavrednost=["off", 20,           "off",    0,      0,       0,     
   var IDA=[onID,offID,setID,getID];
   
   //meje akcij    kje so meje za nove akcije, po temu jih določam kera je
-  var mon = 9;
+  var mon = 8;
   var moff=mon+10;
   var mnastavi=moff+6;
   var mstanje=mstanje+7;
@@ -283,7 +283,7 @@ var nastavljenavrednost=["off", 20,           "off",    0,      0,       0,     
 
   //Možne besede    OB SPREMEMBAH POPRAVI MEJE!!!
   var Akcije = 
-  ["on","prizgi","przgi", "vklopi", "vkljuc", "dvigni","odpri","osvetli", "osvetlji", "odgrni",     //ON
+  ["on","prizgi","przgi", "vklop", "vkljuc", "dvigni","odpri","osvetl", "odgrn",     //ON
   "off", "ugasn", "izklop", "izkljuc", "spusti","zapri", "zasenci", "zatemni",  "zagrni", "zastri",      //OFF
   "nastavi", "vecaj", "manjsaj", "odrolaj", "naj", "naredi",   //nastavi vrednost  
   "stanje", "vrednost", "info", "koliko", "ali", "kakš", "kok"      //stanje
@@ -489,19 +489,20 @@ function receivedMessage(event) {
  // dolociakcijo();//napolne tabelo akcija
  // dolociElement();//napolne tabelo element
 
+/*
 for(var aa=0; aa<najdeno.length;aa++){
   console.log(najdeno[aa]);
 }
-
+*/
 
   najdi2(tabelaBesed, Akcije, Elementi, Sobe, najdeno);
-  console.log("po najdu2.");
+  //console.log("po najdu2.");
   
-  
+  /*
   for(var aaa=0; aaa<najdeno.length;aaa++){
     console.log(najdeno[aaa]);
   }
-  
+  */
   
   
   izvediUkaze2(senderID);
@@ -532,6 +533,7 @@ function alijekorenvbesedi(koren, beseda){
 
 // grem čez vsako besedo sporočila posebej in pogledam čez vse besede Akcij, ELementov, Sob  če se ujema, če se, dodam v najdeno.
 // najdeno je seznam besed po vrsti
+// vrednosti je seznam vrednosti za akcije
 
 function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS){
   var i =0;
