@@ -270,10 +270,10 @@ function receivedAuthentication(event) {
   //ID ji akcij   *100
   var onID=100;
   var offID=200;
-  var getID=300;
-  var setID=400;
+  var setID=300;
+  var getID=400;
   
-  var IDA=[onID,offID,getID,setID];
+  var IDA=[onID,offID,setID,getID];
   
   //meje akcij    kje so meje za nove akcije, po temu jih določam kera je
   var mon = 9;
