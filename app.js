@@ -725,9 +725,10 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
   
   var valueforthisel=vrednosti[zaporednaakcija];
   
+  /*
   if(akcija==setID){
     valueforthisel=255*(valueforthisel/100);
-  }
+  }*/
   
   
   //za vsako sobo za ta element
