@@ -798,7 +798,7 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
             //httpGet(ElementID[x],ElementInstance[x],37,255);
             //http://77.111.7.178:8083/JS/Run/zway.devices[50].instances[0].commandClasses[67].Set(1,X)
             
-          }
+          
       }
     
       
