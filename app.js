@@ -787,7 +787,7 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
             
             if(ElementIDE[x]==zaluzijaID && !(akcija==setID)){
               console.log("zzzzzzaluzija"+akcija);
-              nastavljenavrednost[x]=100-valueforthisel;
+              nastavljenavrednost[x]=100-nastavljenavrednost[x];
             }
           
             
