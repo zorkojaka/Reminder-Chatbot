@@ -315,9 +315,9 @@ var nastavljenavrednost=["off", 20,           "off",    0,      0,       0,     
   var Elementi = ["luc", "svetil", "lamp",      //luc
                   "zaluzij", "lamel", "polkn", "sencil", "rolo", "rule", "role", "zaves",  //zaluzije
                   "alarm", "varovanj",      //alarm
-                  "termostat", "gretj", "ogrevanj", "greje", "temperaturo",    //termostat
+                  "termostat", "gretj", "ogrevanj", "greje", "temperatur",    //termostat
                   "klim", "hlajenj",  //klima
-                  "radio","muzik","musko","glasb", //radio
+                  "radio","radijo","musko","glasb", //radio
                   "zrace", "ventila", //zračenje 
                   "zaliva", "skrop",  //zalivanje
                   ];
