@@ -741,7 +741,7 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
 
       if(element==ElementIDE[x] && (soba[sobaindex]==ElementRoom[x] || 0===ElementRoom[x] || 0===soba[sobaindex])){
           
-          
+          /* za smarthome pretvorba v 255
           
           if(ElementDimmable[x]===0){
             if(value>0){
@@ -752,6 +752,8 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
               
             }
           }
+          */
+          
           
          // if(akcija==setID){ }else{}
            // httpGetInfo(ElementID[x],0,49,senderID);
