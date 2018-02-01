@@ -54,6 +54,15 @@ LICENSE file in the root directory of this source tree.
     
     
     <script>
+           window.setInterval(function() {
+            reloadIFrame()
+        }, 3000);
+
+    function reloadIFrame() {
+            console.log('reloading..');
+            document.getElementById('iframe').contentWindow.location.reload();
+    }
+    
     function osvezi(id, instanca, vrednost){
       document.getElementById('v'+id).innerHTML=vrednost;
       return 0;
