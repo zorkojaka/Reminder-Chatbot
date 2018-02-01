@@ -189,7 +189,7 @@ function HTMLgen(){
   for(a=0;a<ElementID.length;a++){
     page+="<tr><th>"+ElementID[a]+"</th><th>1</th><th>"+ElementName[a]+"</th><th>"+RoomName[a]+"</th><th>"+nastavljenavrednost[a]+"</th><th>"+enota[a]+"</th></tr>";
   }
-  page+="</table><div><img href='/res/Nacrt-hise.png'/></div></html>"
+  page+="</table><div><img src='/res/Nacrt-hise.png' alt='Razporeditev elementov po sobah'/></div></html>"
   return page;
 }
 
