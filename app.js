@@ -254,16 +254,16 @@ function receivedAuthentication(event) {
   
   // VNOS VSE SESTAVNIH DELOV SISTEMA = AKCIJE, ELEMENTI, SOBE
   
-  //                  ALARM     TERMOSTAT     KLIMA     LUČ     LUČ      LUČ       LUČ       LUČ       LUČ           ŽALUZIJA     ŽALUZIJA    ŽALUZIJA    ŽALUZIJA    ŽALUZIJA    ŽALUZIJA    ŽALUZIJA    RADIO     PREZRAČEVANJE     ZALIVANJE
-  var ElementID =     [1,       2,            3,        4,      5,       6,        7,        8,        9,            10,          11,         12,         13,         14,         15,         16,         17,       18,               19          ];  // na sistemu realnem
-  var ElementInstance=[1,       1,            1,        1,      1,       1,        1,        1,        1,            1,           1,          1,          1,          1,          1,          1,          1,        1,                1           ];  //na realnem sistemu
-  var ElementName=    ["alarm", "termostat",  "klima",  "luč",  "luč",   "luč",    "luč",    "luč",    "luč",        "žaluzija",  "žaluzija", "žaluzija", "žaluzija", "žaluzija", "žaluzija", "žaluzija", "radio",  "prezračevanje",  "zalivanje"  ];  //ime
-  var ElementIDE=     [alarmID, termostatID,  klimaID,  lucID,  lucID,   lucID,    lucID,    lucID,    lucID,        zaluzijaID,  zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID, radioID,  prezracevanjeID,  zalivanjeID ];  //v programu
-  var ElementRoom=    [0,       0,            0,        vhodID, wcID,    kuhinjaID,dnevnaID, dnevnaID, spalnicaID,   vhodID,      wcID,       kuhinjaID,  dnevnaID,   dnevnaID,   dnevnaID,   spalnicaID, 0,        0,                0           ];  //v programu
-  var RoomName=       ["hiša",  "hiša",       "dnevna", "hodnik","wc",   "kuhinja","dnevna", "dnevna", "spalnica",   "hodnik",    "wc",       "kuhinja",  "dnevna",   "dnevna",   "dnevna",   "spalnica", "dnevna", "hiša",           "zunaj"     ];
-  var ElementDimmable=[0,       1,            0,        1,      1,       1,        1,        1,        1,            1,           1,          1,          1,          1,          1,          1,          0,        0,                0           ];  // 0=on/off  1=lahko nastavimo tudi vrednost
-var nastavljenavrednost=["off", 20,           "off",    0,      0,       0,        0,        0,        0,            0,           80,         0,          0,          0,          0,          0,          "off",    "off",            "off"       ];
-  var enota =         ["on/off","°C",         "on/off", "%",    "on/off","on/off", "%",      "%",      "%",         "%",          "%",        "%",        "%",        "%",        "%",        "%",        "on/off", "on/off",         "on/off"    ];
+  //                  ALARM     TERMOSTAT     KLIMA     LUČ       LUČ      LUČ      LUČ       LUČ       LUČ           LUČ         LUČ           ŽALUZIJA     ŽALUZIJA    ŽALUZIJA     ŽALUZIJA    ŽALUZIJA    ŽALUZIJA    ŽALUZIJA    ŽALUZIJA      ŽALUZIJA        RADIO          PREZRAČEVANJE     ZALIVANJE
+  var ElementID =     [1,       2,            3,        4,        5,        6,       7,        8,        9,           10,           11,            12,          13,         14,        15,          16,         17,         18,         19,          20,             21,          22,               23          ];  // na sistemu realnem
+  var ElementInstance=[1,       1,            1,        1,        1,        1,       1,        1,        1,            1,            1,            1,           1,          1,          1,           1,          1,          1,          1,          1,              1,           1,                1           ];  //na realnem sistemu
+  var ElementName=    ["alarm", "termostat",  "klima",  "luč",    "luč",    "luč",   "luč",    "luč",    "luč",        "luč",        "luč",        "žaluzija",  "žaluzija", "žaluzija", "žaluzija",  "žaluzija", "žaluzija", "žaluzija", "žaluzija", "žaluzija", "radio",     "prezračevanje",  "zalivanje"  ];  //ime
+  var ElementIDE=     [alarmID, termostatID,  klimaID,  lucID,    lucID,    lucID,   lucID,    lucID,    lucID,        lucID,        lucID,        zaluzijaID,  zaluzijaID, zaluzijaID,  zaluzijaID,  zaluzijaID, zaluzijaID, zaluzijaID, zaluzijaID,  zaluzijaID, radioID,     prezracevanjeID,  zalivanjeID ];  //v programu
+  var ElementRoom=    [0,       0,            0,        vhodID,   vhodID,   wcID,    kuhinjaID,dnevnaID, jedilnicaID,  jedilnicaID,  spalnicaID,   vhodID,      wcID,       kuhinjaID,  jedilnicaID,    dnevnaID,   dnevnaID,   dnevnaID,  spalnicaID,  spalnicaID, 0,           0,                0           ];  //v programu
+  var RoomName=       ["hiša",  "hiša",       "dnevna", "hodnik", "hodnik", "wc",   "kuhinja","dnevna", "jedilnica",  "jedilnica",  "spalnica",   "hodnik",    "wc",       "kuhinja",   "jedilnica",  "dnevna",   "dnevna",   "dnevna",   "spalnica",   "spalnica", "jedilnica", "hiša",           "zunaj"     ];
+  var ElementDimmable=[0,       1,            0,        1,        1,        1,       1,        1,        1,            1,            1,            1,           1,          1,          1,             1,          1,          1,          1,          1,          0,           0,                0           ];  // 0=on/off  1=lahko nastavimo tudi vrednost
+var nastavljenavrednost=["off", 20,           "off",    0,        0,        0,       0,        0,        0,            0,            0,            0,           80,         0,          0,             0,          0,          0,          0,          0,          "off",       "off",            "off"       ];
+  var enota =         ["on/off","°C",         "on/off", "on/off", "on/off", "on/off","on/off", "%",      "%",          "%",          "%",         "%",          "%",        "%",        "%",           "%",        "%",        "%",        "%",        "%",        "on/off",    "on/off",         "on/off"    ];
   //AKCIJE
   
   //ID ji akcij   *100
@@ -331,7 +331,7 @@ var nastavljenavrednost=["off", 20,           "off",    0,      0,       0,     
   
   //MEJE S  (za vsako dodano možno besedo je treba zadnjo številko povečat kokr besed smo dodal za to sobo)
   var mdnevna=0;
-  var mkuhinja=mdnevna+1;
+  var mkuhinja=mdnevna+2;
   var mvhod=mkuhinja+3;
   var mwc=mvhod+4;
   var mjedilnica=mwc+3;
@@ -341,10 +341,10 @@ var nastavljenavrednost=["off", 20,           "off",    0,      0,       0,     
   
   //Možne besede  (ce spreminjaš popravi meje !!!!)
   var Sobe = ["dnevn",    //dnevna
-              "kuhinj",   //kuhinja
-              "vhod", "hodnik","prehod",      //vhod
+              "kuhin","kuhn",   //kuhinja
+              "vhod", "hodni","prehod",      //vhod
               "wc", "stranisc", "kopalnic", "toalet",
-              "jediln", "jemo", "kosilo",
+              "jediln", "jemo", "obed",
               "spaln", 
               ];
               
