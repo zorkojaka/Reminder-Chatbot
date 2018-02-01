@@ -65,9 +65,14 @@ if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN && SERVER_URL)) {
  */
  
 app.get('/predstavitev',function(req, res) {
-  console.log("V MOJI FUNKCIJI");
+  //console.log("V MOJI FUNKCIJI");
     res.send(HTMLgen());
 }); 
+ 
+ app.get('/test',function(req, res) {
+  //console.log("V MOJI FUNKCIJI");
+    res.send(HTMLgentest());
+});
  
 app.get('/webhook', function(req, res) {
   if (req.query['hub.mode'] === 'subscribe' &&
@@ -193,6 +198,16 @@ function HTMLgen(){
   return page;
 }
 
+function HTMLgentest(){
+  var a;
+  var page="<html><head><title>Prikaz</title><meta http-equiv='refresh' content='2'/></head><h1>TABELA ELEMENTOV</h1><table><tr border='1'><th>ID</th><th>Instanca</th><th>Ime</th><th>Soba</th><th>Vrednost</th><th>Enota</th><th>Željena vrednost</th></tr>";
+  for(a=0;a<ElementID.length;a++){
+    page+="<tr><th>"+ElementID[a]+"</th><th>1</th><th>"+ElementName[a]+"</th><th>"+RoomName[a]+"</th><th>"+nastavljenavrednost[a]+"</th><th>"+enota[a]+"</th><th>"+zeljenavrednost[a]+"</th></tr>";
+  }
+  page+="</table></html>"
+  return page;
+}
+
 /*
  * Authorization Event
  *
@@ -264,6 +279,11 @@ function receivedAuthentication(event) {
   var ElementDimmable=[0,       1,            0,        1,        1,        1,          1,        1,        1,            1,            1,            1,           1,          1,          1,             1,          1,          1,          1,          1,          0,           0,                0           ];  // 0=on/off  1=lahko nastavimo tudi vrednost
 var nastavljenavrednost=["off", 20,           "off",    0,        0,        0,          0,        0,        0,            0,            0,            0,           80,         0,          0,             0,          0,          0,          0,          0,          "off",       "off",            "off"       ];
   var enota =         ["on/off","°C",         "on/off", "on/off", "on/off", "on/off",   "on/off", "%",      "%",          "%",          "%",         "%",          "%",        "%",        "%",           "%",        "%",        "%",        "%",        "%",        "on/off",    "on/off",         "on/off"    ];
+ 
+ 
+ var zeljenavrednost=["off", 20,           "off",    20,        0,        0,          0,        0,        0,            0,            0,            0,           80,         0,          0,             0,          0,          0,          0,          0,          "off",       "off",            "off"       ];
+
+ 
   //AKCIJE
   
   //ID ji akcij   *100
