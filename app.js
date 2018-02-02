@@ -349,7 +349,7 @@ var nastavljenavrednost=["off", 20,           "off",    "off",    "off",    "off
  
  var zeljenavrednost=["off",    20,           "off",    "off",    "off",    "off",      "off",    0,        0,            0,            0,            0,           80,         0,          0,             0,          0,          0,          0,          0,          "off",       "off",            "off"       ];
 
- 
+ sestavizeljenavrednost();
   //AKCIJE
   
   //ID ji akcij   *100
@@ -890,6 +890,9 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
             
             //ODGOVORIMS S SPOROČILOM IN IZVEDEM UKAZ
             sendTextMessage(senderID, "Nastavljam element z ID-jem: "+ElementID[x]+"("+ElementName[x]+" iz sobe: "+RoomName[x]+") na vrednost: "+nastavljenavrednost[x]+".");
+            
+            //                                                                                                                                                TESTIRANJE          TESTIRANJE
+            izvedenihukazov++;
             // valueforthisel je za 255 vrednpsti
             //sendTextMessage(senderID, "Nastavljam element z ID-jem: "+ElementID[x]+"("+ElementName[x]+" iz sobe: "+RoomName[x]+") na vrednost: "+valueforthisel+".");
             
