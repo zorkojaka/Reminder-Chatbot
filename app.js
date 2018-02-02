@@ -199,6 +199,9 @@ function HTMLgen(){
 }
 
 function HTMLgentest(){
+  if(preverivrednosti()==[]){
+    sestavizeljenavrednost();
+  }
   var a;
   var page="<html><head><title>Prikaz</title><meta http-equiv='refresh' content='2'/></head><h1>TABELA ELEMENTOV</h1><table><tr border='1'><th>ID</th><th>Instanca</th><th>Ime</th><th>Soba</th><th>Vrednost</th><th>Enota</th><th>Željena vrednost</th></tr>";
   for(a=0;a<ElementID.length;a++){
@@ -235,6 +238,17 @@ function sestavizeljenavrednost(){
     }
   }
   
+}
+
+function preverivrednosti(){
+  var x;
+  var napake=[];
+  for(x=0; x<nastavljenavrednost.length;x++){
+    if(nastavljenavrednost[x]!=zeljenavrednost[x]){
+      napake.push(x);
+    }
+  }
+  return napake;
 }
 
 function ran(zac,kon){
@@ -557,7 +571,7 @@ for(var aa=0; aa<najdeno.length;aa++){
   }
   */
   
-  sestavizeljenavrednost();
+
   izvediUkaze2(senderID);
   console.log("po izvediukaze2");
   //izvediUkaze(senderID);
