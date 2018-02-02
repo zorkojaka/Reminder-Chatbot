@@ -228,6 +228,13 @@ function sestavizeljenavrednost(){
         
     }
   }
+  
+  for(x=1;x<zeljenavrednost.length;x++){
+    if(ElementRoom[x]==ElementRoom[x-1] && ElementIDE[x]==ElementIDE[x-1]){
+      zeljenavrednost[x]=zeljenavrednost[x-1];
+    }
+  }
+  
 }
 
 function ran(zac,kon){
