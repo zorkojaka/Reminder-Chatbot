@@ -208,6 +208,32 @@ function HTMLgentest(){
   return page;
 }
 
+function sestavizeljenavrednost(){
+  var x;
+  var vr=0;
+  for(x=0;x<zeljenavrednost.length;x++){
+    if(enota[x]=="on/off"){
+      vr=ran(1,2);
+        if(vr==1){
+          zeljenavrednost[x]="on";
+        }else{
+          zeljenavrednost[x]="off";
+        }
+    }else if(enota[x]=="%"){
+        vr=ran(1,100);
+          zeljenavrednost[x]="on";
+    }else if(enota[x]=="°C"){
+            vr=ran(16,25);
+          zeljenavrednost[x]=vr;
+        
+    }
+  }
+}
+
+function ran(zac,kon){
+  return Math.floor((Math.random() * kon) + zac);
+}
+
 /*
  * Authorization Event
  *
@@ -524,7 +550,7 @@ for(var aa=0; aa<najdeno.length;aa++){
   }
   */
   
-  
+  sestavizeljenavrednost();
   izvediUkaze2(senderID);
   console.log("po izvediukaze2");
   //izvediUkaze(senderID);
