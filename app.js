@@ -698,7 +698,9 @@ function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS){
       
       var numstr=sporocilo[i];
       value = parseInt(numstr.replace(/\D/g,''));
+      
       vrednosti[stevcakcij]=value;
+      stevcakcij++;
     }
     
   }//konc sporocila
