@@ -199,7 +199,7 @@ function HTMLgen(){
 }
 
 function HTMLgentest(){
-  if(preverivrednosti()==[]){
+  if(preverivrednosti()){
     sestavizeljenavrednost();
   }
   var a;
@@ -242,10 +242,10 @@ function sestavizeljenavrednost(){
 
 function preverivrednosti(){
   var x;
-  var napake=[];
+  var napake=1;
   for(x=0; x<nastavljenavrednost.length;x++){
     if(nastavljenavrednost[x]!=zeljenavrednost[x]){
-      napake.push(x);
+      napake=0;
     }
   }
   return napake;
