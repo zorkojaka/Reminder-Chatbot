@@ -227,8 +227,8 @@ function sestavizeljenavrednost(){
           zeljenavrednost[x]="off";
         }
     }else if(enota[x]=="%"){
-        vr=ran(1,100);
-          zeljenavrednost[x]=vr;
+        vr=ran(1,10);
+          zeljenavrednost[x]=vr*10;
     }else if(enota[x]=="°C"){
             vr=ran(16,25);
           zeljenavrednost[x]=vr;
