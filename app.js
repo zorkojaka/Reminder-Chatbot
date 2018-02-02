@@ -199,9 +199,7 @@ function HTMLgen(){
 }
 
 function HTMLgentest(){
-  if(preverivrednosti()){
-    sestavizeljenavrednost();
-  }
+
   var a;
   var page="<html><head><title>Prikaz</title><meta http-equiv='refresh' content='2'/></head><h1>TABELA ELEMENTOV</h1><table><tr border='1'><th>ID</th><th>Instanca</th><th>Ime</th><th>Soba</th><th>Vrednost</th><th>Enota</th><th>Željena vrednost</th></tr>";
   for(a=0;a<ElementID.length;a++){
@@ -217,6 +215,7 @@ function HTMLgentest(){
 }
 
 function sestavizeljenavrednost(){
+  zacnitestiranje()
   var x;
   var vr=0;
   for(x=0;x<zeljenavrednost.length;x++){
@@ -243,6 +242,12 @@ function sestavizeljenavrednost(){
     }
   }
   
+}
+
+function zacnitestiranje(){
+  uporabljenihbesed=0;
+  izvedenihukazov=0;
+  prepoznanihbesed=0;
 }
 
 function preverivrednosti(){
@@ -298,6 +303,15 @@ function receivedAuthentication(event) {
 
   //              HERE MAGIC HAPPENS
   
+  
+  //    TESTIRANJE
+  var uporabljenihbesed=0;
+  var izvedenihukazov=0;
+  var prepoznanihbesed=0;
+  
+  
+  //_____________________
+  
     //ID ji elemntov    * 1
   var lucID=1;
   var zaluzijaID=2;
@@ -333,7 +347,7 @@ var nastavljenavrednost=["off", 20,           "off",    "off",    "off",    "off
   var enota =         ["on/off","°C",         "on/off", "on/off", "on/off", "on/off",   "on/off", "%",      "%",          "%",          "%",         "%",          "%",        "%",        "%",           "%",        "%",        "%",        "%",        "%",        "on/off",    "on/off",         "on/off"    ];
  
  
- var zeljenavrednost=["off", 20,           "off",    "off",    "off",    "off",      "off",    0,        0,            0,            0,            0,           80,         0,          0,             0,          0,          0,          0,          0,          "off",       "off",            "off"       ];
+ var zeljenavrednost=["off",    20,           "off",    "off",    "off",    "off",      "off",    0,        0,            0,            0,            0,           80,         0,          0,             0,          0,          0,          0,          0,          "off",       "off",            "off"       ];
 
  
   //AKCIJE
@@ -600,6 +614,11 @@ function runosvezi(id,instanca,vrednost){
 //preveri če se koren nahaja v besedi
 function alijekorenvbesedi(koren, beseda){
     //index ofvrne -1 ce ni korena v besed
+    //                                                                TESTIRANJE
+    if(beseda.indexOf(koren) != -1){
+      prepoznanihbesed++;
+    }
+    
     return beseda.indexOf(koren) != -1;
 } 
 
@@ -612,7 +631,10 @@ function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS){
   var j=0;
   //cez vse besede
   for(i =0; i<sporocilo.length;i++){
-  
+    //                                                              TESTIRANJE
+    uporabljenihbesed++;
+    
+    
     //cez vse akcije
     for(j =0; j<tabMoznihA.length;j++){
       if(alijekorenvbesedi(tabMoznihA[j],sporocilo[i])){
@@ -860,7 +882,7 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
             }
             
             if(ElementIDE[x]==zaluzijaID && !(akcija==setID)){
-              console.log("zzzzzzaluzija"+akcija);
+              //console.log("zzzzzzaluzija"+akcija);
               nastavljenavrednost[x]=100-nastavljenavrednost[x];
             }
           
@@ -870,7 +892,15 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
             sendTextMessage(senderID, "Nastavljam element z ID-jem: "+ElementID[x]+"("+ElementName[x]+" iz sobe: "+RoomName[x]+") na vrednost: "+nastavljenavrednost[x]+".");
             // valueforthisel je za 255 vrednpsti
             //sendTextMessage(senderID, "Nastavljam element z ID-jem: "+ElementID[x]+"("+ElementName[x]+" iz sobe: "+RoomName[x]+") na vrednost: "+valueforthisel+".");
-
+            
+            if(preverivrednosti()){
+              sendTextMessage(senderID, "Uspešno ste zaključili test. Hvala za vaše sodelovanje.");
+              sendTextMessage(senderID, "Rezultati testiranja: povprečje uporabljenih besed za izveden ukaz=" + (uporabljenihbesed / izvedenihukazov));
+    
+              sestavizeljenavrednost();
+            }
+            
+            
             //httpGet(ElementID[x],ElementInstance[x],37,255);
             //http://77.111.7.178:8083/JS/Run/zway.devices[50].instances[0].commandClasses[67].Set(1,X)
             
