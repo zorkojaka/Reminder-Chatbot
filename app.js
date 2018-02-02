@@ -328,7 +328,7 @@ var nastavljenavrednost=["off", 20,           "off",    0,        0,        0,  
   var enota =         ["on/off","°C",         "on/off", "on/off", "on/off", "on/off",   "on/off", "%",      "%",          "%",          "%",         "%",          "%",        "%",        "%",           "%",        "%",        "%",        "%",        "%",        "on/off",    "on/off",         "on/off"    ];
  
  
- var zeljenavrednost=["off", 20,           "off",    20,        0,        0,          0,        0,        0,            0,            0,            0,           80,         0,          0,             0,          0,          0,          0,          0,          "off",       "off",            "off"       ];
+ var zeljenavrednost=["off", 20,           "off",    0,        0,        0,          0,        0,        0,            0,            0,            0,           80,         0,          0,             0,          0,          0,          0,          0,          "off",       "off",            "off"       ];
 
  
   //AKCIJE
