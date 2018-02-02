@@ -205,7 +205,7 @@ function HTMLgentest(){
   var a;
   var page="<html><head><title>Prikaz</title><meta http-equiv='refresh' content='2'/></head><h1>TABELA ELEMENTOV</h1><table><tr border='1'><th>ID</th><th>Instanca</th><th>Ime</th><th>Soba</th><th>Vrednost</th><th>Enota</th><th>Željena vrednost</th></tr>";
   for(a=0;a<ElementID.length;a++){
-    if(zeljenavrednost[a]==vrednosti[a]){
+    if(zeljenavrednost[a]==nastavljenavrednost[a]){
       page+="<tr><th>"+ElementID[a]+"</th><th>1</th><th>"+ElementName[a]+"</th><th>"+RoomName[a]+"</th><th>"+nastavljenavrednost[a]+"</th><th>"+enota[a]+"</th><th style='color:black'>"+zeljenavrednost[a]+"</th></tr>";
     }else{
       page+="<tr><th>"+ElementID[a]+"</th><th>1</th><th>"+ElementName[a]+"</th><th>"+RoomName[a]+"</th><th>"+nastavljenavrednost[a]+"</th><th>"+enota[a]+"</th><th style='color:red'>"+zeljenavrednost[a]+"</th></tr>";
