@@ -897,9 +897,9 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
             //sendTextMessage(senderID, "Nastavljam element z ID-jem: "+ElementID[x]+"("+ElementName[x]+" iz sobe: "+RoomName[x]+") na vrednost: "+valueforthisel+".");
             
             if(preverivrednosti()){
+              sendTextMessage(senderID, "Rezultati testiranja: Z "+ uporabljenihbesed+"-imi besedami ste izvedli "+ izvedenihukazov+" ukazov. Za posredovanje enega ukaza ste povprečno uporabili " + (uporabljenihbesed/izvedenihukazov).toFixed(2)+"besed.");
               sendTextMessage(senderID, "Uspešno ste zaključili test. Hvala za vaše sodelovanje.");
-              sendTextMessage(senderID, "Rezultati testiranja: povprečje uporabljenih besed za izveden ukaz=" + (uporabljenihbesed / izvedenihukazov));
-    
+              
               sestavizeljenavrednost();
             }
             
