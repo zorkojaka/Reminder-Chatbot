@@ -949,7 +949,7 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
             
             //ODGOVORIMS S SPOROČILOM IN IZVEDEM UKAZ
             sendTextMessage(senderID, "Nastavljam element z ID-jem: "+ElementID[x]+"("+ElementName[x]+" iz sobe: "+RoomName[x]+") na vrednost: "+nastavljenavrednost[x]+".");
-            console.timeEnd('POSLANO SPOROČILO');
+            console.timeEnd('PREJETO SPOROČILO');
             //                                                                                                                                                TESTIRANJE          TESTIRANJE
             izvedenihukazov++;
             // valueforthisel je za 255 vrednpsti
