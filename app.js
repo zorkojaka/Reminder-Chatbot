@@ -487,6 +487,7 @@ function receivedMessage(event) {
 
 
   console.log(JSON.stringify(message));
+  console.log("čas sporočila: "+timeOfMessage);
 
   var isEcho = message.is_echo;
   var messageId = message.mid;
