@@ -973,7 +973,7 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
 }
 
 
-function izvediUkaze2(senderID){
+function izvediUkaze2(senderID,timeOfMessage){
   
   var akcija=0;
   var elementi=[];
@@ -1032,6 +1032,7 @@ function izvediUkaze2(senderID){
       
       ukaz(akcija,elementi[u],soba,senderID,stevecakcij);
       stevecakcij++;
+      vsotacasazaizvedbo+=((new Date).getTime()-timeOfMessage);
     }
     elementi=[];
     soba=[];
