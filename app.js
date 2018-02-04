@@ -722,6 +722,9 @@ function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS){
           for(var mme=0; mme<mejeE.length;mme++){
             if(j<=mejeE[mme]){
               najdeno.push(IDE[mme]);
+              
+              //                                                                            TESTIRANJE SAMOSTALNIk
+              samostalnikov++;
               break;
             }
           }
@@ -736,7 +739,8 @@ function najdi2(sporocilo,tabMoznihA,tabMoznihE,tabMoznihS){
          
         for(var mms=0; mms<mejeS.length;mms++){
             if(j<=mejeS[mms]){
-              console.log("SOBA najdena");
+              //                                                                            TESTIRANJE SMAOSTALNIK
+              samostalnikov++;
               najdeno.push(IDS[mms]);
               break;
             }
