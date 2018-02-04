@@ -614,7 +614,7 @@ function receivedMessage(event) {
   }
   
   if(tekst=="koncaj testiranje"){
-    koncajtestiranje();
+    koncajtestiranje(uporabljenihbesed,izvedenihukazov,prepoznanihbesed,samostalnikov,vsotacasazaizvedbo,senderID);
   }
 
   //ZANKA za obdelavo prejetega sporocila: razdelim na besede in vsako besedo posebej pogledam kaj je
