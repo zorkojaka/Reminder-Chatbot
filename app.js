@@ -265,10 +265,10 @@ function zacnitestiranje(){
 
 function koncajtestiranje(uporabljenihbesed, izvedenihukazov, prepoznanihbesed, samostalnikov, vsotacasazaizvedbo, senderID){
   testiranje=0;
-  var odg="Uporabljenih besed: "+uporabljenihbesed+"\nIzvedenih ukazov: "+izvedenihukazov+"\nšt. uporabljenih besed/ukaz na sistemu: "+ (uporabljenihbesed/izvedenihukazov).toFixed(3) +"\nprepoznanih samostalnikov: "+ samostalnikov+"\npovrpecen cas izvedbe ukaza: "+ povprecencasizvedbe;
+  var odg="REZULTATI:\nUporabljenih besed: "+uporabljenihbesed+"\nIzvedenih ukazov: "+izvedenihukazov+"\nšt. uporabljenih besed/ukaz na sistemu: "+ (uporabljenihbesed/izvedenihukazov).toFixed(3) +"\nprepoznanih samostalnikov: "+ samostalnikov+"\npovrpecen cas izvedbe ukaza: "+ povprecencasizvedbe;
   zapisirezultate(odg)+"\nSistem je za izvedbo vseh ukazov potreboval: "+vsotacasazaizvedbo+"\n povprečen čas za izvedbo enega ukaza: "+(vsotacasazaizvedbo/izvedenihukazov).toFixed(5);
   
-  sendTextMessage(senderID, "Rezultati:\n"+odg);
+  sendTextMessage(senderID, odg);
   sendTextMessage(senderID, "Uspešno ste zaključili test. Hvala za vaše sodelovanje.");
 }
 
