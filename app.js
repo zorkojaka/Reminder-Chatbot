@@ -940,7 +940,8 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
               }  
             }
             
-            if(ElementIDE[x]==zaluzijaID && !(akcija==setID)){
+            //if(ElementIDE[x]==zaluzijaID && !(akcija==setID)){
+            if(ElementIDE[x]==zaluzijaID){
               //console.log("zzzzzzaluzija"+akcija);
               nastavljenavrednost[x]=100-nastavljenavrednost[x];
             }
@@ -1033,6 +1034,7 @@ function izvediUkaze2(senderID,timeOfMessage){
       
       ukaz(akcija,elementi[u],soba,senderID,stevecakcij);
       stevecakcij++;
+      //                                                                                          TESTIRANJE
       vsotacasazaizvedbo+=(process.hrtime()-timeOfMessage);
     }
     elementi=[];
