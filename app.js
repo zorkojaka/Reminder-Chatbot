@@ -272,7 +272,7 @@ function koncajtestiranje(uporabljenihbesed, izvedenihukazov, prepoznanihbesed, 
   sendTextMessage(senderID, odg);
   sendTextMessage(senderID, "Uspešno ste zaključili test. Hvala za vaše sodelovanje.");
   
-    zapisirezultate(odg);
+    //zapisirezultate(odg);
   
 }
 
