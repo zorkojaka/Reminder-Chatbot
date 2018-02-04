@@ -74,7 +74,7 @@ app.get('/predstavitev',function(req, res) {
     if(testiranje==1){
       res.send(HTMLgentest());
     }else{
-      res.send("<html><body><p>Za začetek testiranja napišite sporočilo klepetalniku \"Zacni testiranje\"</p></body></html>");
+      res.send("<html><head><title>Testiranje</title><meta http-equiv='refresh' content='2'/></head><body><p>Za začetek testiranja napišite sporočilo klepetalniku \"Zacni testiranje\"</p></body></html>");
     }
       
 });
@@ -195,18 +195,18 @@ function verifyRequestSignature(req, res, buf) {
 
 function HTMLgen(){
   var a;
-  var page="<html><head><title>Prikaz</title><meta http-equiv='refresh' content='2'/></head><h1>TABELA ELEMENTOV</h1><table><tr border='1'><th>ID</th><th>Instanca</th><th>Ime</th><th>Soba</th><th>Vrednost</th><th>Enota</th></tr>";
+  var page="<html><head><title>Prikaz</title><meta http-equiv='refresh' content='2'/></head><body><h1>TABELA ELEMENTOV</h1><table><tr border='1'><th>ID</th><th>Instanca</th><th>Ime</th><th>Soba</th><th>Vrednost</th><th>Enota</th></tr>";
   for(a=0;a<ElementID.length;a++){
     page+="<tr><th>"+ElementID[a]+"</th><th>1</th><th>"+ElementName[a]+"</th><th>"+RoomName[a]+"</th><th>"+nastavljenavrednost[a]+"</th><th>"+enota[a]+"</th></tr>";
   }
-  page+="</table></html>"
+  page+="</table><body></html>"
   return page;
 }
 
 function HTMLgentest(){
 
   var a;
-  var page="<html><head><title>Prikaz</title><meta http-equiv='refresh' content='2'/></head><h1>TABELA ELEMENTOV</h1><table><tr border='1'><th>ID</th><th>Instanca</th><th>Ime</th><th>Soba</th><th>Vrednost</th><th>Enota</th><th>Željena vrednost</th></tr>";
+  var page="<html><head><title>Prikaz</title><meta http-equiv='refresh' content='2'/></head><body><h1>TABELA ELEMENTOV</h1><table><tr border='1'><th>ID</th><th>Instanca</th><th>Ime</th><th>Soba</th><th>Vrednost</th><th>Enota</th><th>Željena vrednost</th></tr>";
   for(a=0;a<ElementID.length;a++){
     if(zeljenavrednost[a]==nastavljenavrednost[a]){
       page+="<tr><th>"+ElementID[a]+"</th><th>1</th><th>"+ElementName[a]+"</th><th>"+RoomName[a]+"</th><th>"+nastavljenavrednost[a]+"</th><th>"+enota[a]+"</th><th style='color:black'>"+zeljenavrednost[a]+"</th></tr>";
@@ -215,7 +215,7 @@ function HTMLgentest(){
     }
       
     }
-  page+="</table></html>"
+  page+="</table></body></html>"
   return page;
 }
 
