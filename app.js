@@ -414,7 +414,7 @@ var nastavljenavrednost=["off", 20,           "off",    "off",    "off",    "off
   var Akcije = 
   ["on","prizgi","przgi", "vklop", "vkljuc", "dvign","odpri","osvetl", "odgrn",     //ON
   "off", "ugasn", "izklop", "izkljuc", "spust","zapri", "zasenc", "zatemn",  "zagrn", "zastri",      //OFF
-  "nastav", "vecaj", "manjsaj", "odrolaj", "naj", "nared",   //nastavi vrednost  
+  "nastav", "vecaj", "manjsaj", "odrolaj", "naj", "nared", "dej",   //nastavi vrednost  
   "stanje", "vrednost", "info", "koliko", "ali", "kakš", "kok"      //stanje
   ];
 
@@ -472,7 +472,7 @@ var nastavljenavrednost=["off", 20,           "off",    "off",    "off",    "off
   var Sobe = ["dnevn",    //dnevna
               "kuhin","kuhn",   //kuhinja
               "vhod", "hodni","prehod",      //vhod
-              "wc", "stranisc", "kopalnic", "toalet",
+              "wc", "stranisc", "kopaln", "toalet",
               "jediln", "jemo", "obed",
               "spaln", 
               ];
