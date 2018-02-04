@@ -248,6 +248,28 @@ function zacnitestiranje(){
   uporabljenihbesed=0;
   izvedenihukazov=0;
   prepoznanihbesed=0;
+  
+  samostalnikov=0;
+  vsotacasazaizvedbo=0;
+  povprecencasizvedbe=0;
+  
+  sestavizeljenavrednost();
+}
+
+function koncajtestiranje(uporabljenihbesed, izvedenihukazov, prepoznanihbesed, samostalnikov, vsotacasazaizvedbo){
+  var odg="Uporabljenih besed: "+uporabljenihbesed+"\nIzvedenih ukazov: "+izvedenihukazov+"\nšt. uporabljenih besed/ukaz na sistemu: "+ (uporabljenihbesed/izvedenihukazov) +"\nprepoznanih samostalnikov: "+ samostalnikov+"\npovrpecen cas izvedbe ukaza: "+ povprecencasizvedbe;
+  zapisirezultate(odg)+"\nSistem je za izvedbo vseh ukazov potreboval: "+vsotacasazaizvedbo+"\n povprečen čas za izvedbo enega ukaza: "+(vsotacasazaizvedbo/izvedenihukazov);
+}
+
+function zapisirezultate(str){
+
+    const fs = require('fs');
+
+    // dodaj rezultat
+    fs.appendFile('rezultati.txt', '\n \n REZULTATI TESTA \n'+str, (err) => {  
+    if (err) throw err;
+    console.log('dodan rezultat');
+});
 }
 
 function preverivrednosti(){
@@ -309,6 +331,10 @@ function receivedAuthentication(event) {
   var izvedenihukazov=0;
   var prepoznanihbesed=0;
   
+  var samostalnikov=0;
+  var vsotacasazaizvedbo=0;
+  var povprecencasizvedbe=0;
+  
   
   //_____________________
   
@@ -349,7 +375,7 @@ var nastavljenavrednost=["off", 20,           "off",    "off",    "off",    "off
  
  var zeljenavrednost=["off",    20,           "off",    "off",    "off",    "off",      "off",    0,        0,            0,            0,            0,           80,         0,          0,             0,          0,          0,          0,          0,          "off",       "off",            "off"       ];
 
- sestavizeljenavrednost();
+
   //AKCIJE
   
   //ID ji akcij   *100
@@ -565,6 +591,14 @@ function receivedMessage(event) {
   //Sporocilo razdeljeno na besede v tabelo
   
   
+  //                                                                                                           LOVLJENJE POSEBNIH SPOROČIL = TEST
+  if(tekst=="zacni testiranje"){
+    zacnitestiranje(); 
+  }
+  
+  if(tekst=="koncaj testiranje"){
+    koncajtestiranje();
+  }
 
   //ZANKA za obdelavo prejetega sporocila: razdelim na besede in vsako besedo posebej pogledam kaj je
   
@@ -903,7 +937,7 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
               sendTextMessage(senderID, "Rezultati testiranja: Z "+ uporabljenihbesed+"-imi besedami ste izvedli "+ izvedenihukazov+" ukazov. Za posredovanje enega ukaza ste povprečno uporabili " + (uporabljenihbesed/izvedenihukazov).toFixed(2)+"besed.");
               sendTextMessage(senderID, "Uspešno ste zaključili test. Hvala za vaše sodelovanje.");
               
-              sestavizeljenavrednost();
+              koncajtestiranje(uporabljenihbesed,izvedenihukazov,samostalnikov,povprecencasizvedbe);
             }
             
             
