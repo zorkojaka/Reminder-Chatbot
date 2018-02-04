@@ -220,7 +220,6 @@ function HTMLgentest(){
 }
 
 function sestavizeljenavrednost(){
-  zacnitestiranje()
   var x;
   var vr=0;
   for(x=0;x<zeljenavrednost.length;x++){
