@@ -941,10 +941,10 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
             }
             
             //if(ElementIDE[x]==zaluzijaID && !(akcija==setID)){
-            if(ElementIDE[x]==zaluzijaID){
+            //if(ElementIDE[x]==zaluzijaID){
               //console.log("zzzzzzaluzija"+akcija);
-              nastavljenavrednost[x]=100-nastavljenavrednost[x];
-            }
+            //  nastavljenavrednost[x]=100-nastavljenavrednost[x];
+            //}
           
             
             
