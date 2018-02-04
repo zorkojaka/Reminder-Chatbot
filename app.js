@@ -71,7 +71,12 @@ app.get('/predstavitev',function(req, res) {
  
  app.get('/test',function(req, res) {
   //console.log("V MOJI FUNKCIJI");
-    res.send(HTMLgentest());
+    if(testiranje==1){
+      res.send(HTMLgentest());
+    }else{
+      res.send("<html><body><p>Za začetek testiranja napišite sporočilo klepetalniku \"Zacni testiranje\"</p></body></html>");
+    }
+      
 });
  
 app.get('/webhook', function(req, res) {
@@ -245,6 +250,9 @@ function sestavizeljenavrednost(){
 }
 
 function zacnitestiranje(){
+  
+  testiranje=1;
+  
   uporabljenihbesed=0;
   izvedenihukazov=0;
   prepoznanihbesed=0;
@@ -257,6 +265,7 @@ function zacnitestiranje(){
 }
 
 function koncajtestiranje(uporabljenihbesed, izvedenihukazov, prepoznanihbesed, samostalnikov, vsotacasazaizvedbo){
+  testiranje=0;
   var odg="Uporabljenih besed: "+uporabljenihbesed+"\nIzvedenih ukazov: "+izvedenihukazov+"\nšt. uporabljenih besed/ukaz na sistemu: "+ (uporabljenihbesed/izvedenihukazov) +"\nprepoznanih samostalnikov: "+ samostalnikov+"\npovrpecen cas izvedbe ukaza: "+ povprecencasizvedbe;
   zapisirezultate(odg)+"\nSistem je za izvedbo vseh ukazov potreboval: "+vsotacasazaizvedbo+"\n povprečen čas za izvedbo enega ukaza: "+(vsotacasazaizvedbo/izvedenihukazov);
 }
@@ -327,6 +336,8 @@ function receivedAuthentication(event) {
   
   
   //    TESTIRANJE
+  var testiranje=0;
+  
   var uporabljenihbesed=0;
   var izvedenihukazov=0;
   var prepoznanihbesed=0;
