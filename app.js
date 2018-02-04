@@ -265,7 +265,7 @@ function zacnitestiranje(){
 
 function koncajtestiranje(uporabljenihbesed, izvedenihukazov, prepoznanihbesed, samostalnikov, vsotacasazaizvedbo, senderID){
   testiranje=0;
- var odg="REZULTATI:\nUporabljenih besed: "+uporabljenihbesed+"\nIzvedenih ukazov: "+izvedenihukazov+"\nšt. uporabljenih besed/ukaz na sistemu: "+ (uporabljenihbesed/izvedenihukazov).toFixed(3) +"\nprepoznanih samostalnikov: "+ samostalnikov+"\npovrpecen cas izvedbe ukaza: "+ povprecencasizvedbe+"\nSistem je za izvedbo vseh ukazov potreboval: "+vsotacasazaizvedbo+"\n povprečen čas za izvedbo enega ukaza: "+(vsotacasazaizvedbo/izvedenihukazov).toFixed(5);;
+ var odg="REZULTATI:\n- Uporabljenih besed: "+uporabljenihbesed+"\n- Izvedenih ukazov: "+izvedenihukazov+"\n- Št. uporabljenih besed/ukaz na sistemu: "+ (uporabljenihbesed/izvedenihukazov).toFixed(3) +"\n- Prepoznanih samostalnikov: "+ samostalnikov+"\n- Povrpečen čas izvedbe ukaza: "+ povprecencasizvedbe+"\n- Sistem je za izvedbo vseh ukazov potreboval: "+vsotacasazaizvedbo+"ms\n - Povprečen čas za izvedbo enega ukaza: "+(vsotacasazaizvedbo/izvedenihukazov).toFixed(4)+"ms";;
  
 
   
