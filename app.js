@@ -263,10 +263,13 @@ function zacnitestiranje(){
   sestavizeljenavrednost();
 }
 
-function koncajtestiranje(uporabljenihbesed, izvedenihukazov, prepoznanihbesed, samostalnikov, vsotacasazaizvedbo){
+function koncajtestiranje(uporabljenihbesed, izvedenihukazov, prepoznanihbesed, samostalnikov, vsotacasazaizvedbo, senderID){
   testiranje=0;
-  var odg="Uporabljenih besed: "+uporabljenihbesed+"\nIzvedenih ukazov: "+izvedenihukazov+"\nšt. uporabljenih besed/ukaz na sistemu: "+ (uporabljenihbesed/izvedenihukazov) +"\nprepoznanih samostalnikov: "+ samostalnikov+"\npovrpecen cas izvedbe ukaza: "+ povprecencasizvedbe;
-  zapisirezultate(odg)+"\nSistem je za izvedbo vseh ukazov potreboval: "+vsotacasazaizvedbo+"\n povprečen čas za izvedbo enega ukaza: "+(vsotacasazaizvedbo/izvedenihukazov);
+  var odg="Uporabljenih besed: "+uporabljenihbesed+"\nIzvedenih ukazov: "+izvedenihukazov+"\nšt. uporabljenih besed/ukaz na sistemu: "+ (uporabljenihbesed/izvedenihukazov).toFixed(3) +"\nprepoznanih samostalnikov: "+ samostalnikov+"\npovrpecen cas izvedbe ukaza: "+ povprecencasizvedbe;
+  zapisirezultate(odg)+"\nSistem je za izvedbo vseh ukazov potreboval: "+vsotacasazaizvedbo+"\n povprečen čas za izvedbo enega ukaza: "+(vsotacasazaizvedbo/izvedenihukazov).toFixed(5);
+  
+  sendTextMessage(senderID, "Rezultati:\n"+odg);
+  sendTextMessage(senderID, "Uspešno ste zaključili test. Hvala za vaše sodelovanje.");
 }
 
 function zapisirezultate(str){
@@ -944,10 +947,9 @@ function ukaz(akcija,element,soba, senderID, zaporednaakcija){
             //sendTextMessage(senderID, "Nastavljam element z ID-jem: "+ElementID[x]+"("+ElementName[x]+" iz sobe: "+RoomName[x]+") na vrednost: "+valueforthisel+".");
             
             if(preverivrednosti()){
-              sendTextMessage(senderID, "Rezultati testiranja: Z "+ uporabljenihbesed+"-imi besedami ste izvedli "+ izvedenihukazov+" ukazov. Za posredovanje enega ukaza ste povprečno uporabili " + (uporabljenihbesed/izvedenihukazov).toFixed(2)+"besed.");
-              sendTextMessage(senderID, "Uspešno ste zaključili test. Hvala za vaše sodelovanje.");
+
               
-              koncajtestiranje(uporabljenihbesed,izvedenihukazov,samostalnikov,povprecencasizvedbe);
+              koncajtestiranje(uporabljenihbesed,izvedenihukazov,samostalnikov,povprecencasizvedbe, senderID);
             }
             
             
