@@ -1032,7 +1032,7 @@ function izvediUkaze2(senderID,timeOfMessage){
       
       ukaz(akcija,elementi[u],soba,senderID,stevecakcij);
       stevecakcij++;
-      vsotacasazaizvedbo+=((new Date).getTime()-timeOfMessage);
+      vsotacasazaizvedbo+=(process.hrtime()-timeOfMessage);
     }
     elementi=[];
     soba=[];
