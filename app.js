@@ -206,7 +206,7 @@ function HTMLgen(){
 function HTMLgentest(){
 
   var a;
-  var page="<html><head><title>Prikaz</title><meta http-equiv='refresh' content='2'/></head><body><h1>TABELA ELEMENTOV</h1><table><tr border='1'><th>ID</th><th>Instanca</th><th>Ime</th><th>Soba</th><th>Vrednost</th><th>Enota</th><th>Željena vrednost</th></tr>";
+  var page="<html><head><title>Prikaz</title><meta http-equiv='refresh' content='2'/></head><body><h1>TABELA ELEMENTOV</h1><table><tr border='1'><th>ID</th><th>Instanca</th><th>Ime</th><th>Soba</th><th>Vrednost</th><th>Enota</th><th>Želena vrednost</th></tr>";
   for(a=0;a<ElementID.length;a++){
     if(zeljenavrednost[a]==nastavljenavrednost[a]){
       page+="<tr><th>"+ElementID[a]+"</th><th>1</th><th>"+ElementName[a]+"</th><th>"+RoomName[a]+"</th><th>"+nastavljenavrednost[a]+"</th><th>"+enota[a]+"</th><th style='color:black'>"+zeljenavrednost[a]+"</th></tr>";
@@ -429,7 +429,7 @@ var nastavljenavrednost=["off", 20,           "off",    "off",    "off",    "off
   
   //MEJE E
   var mluc=2;
-  var mzaluzija=mluc+8;
+  var mzaluzija=mluc+9;
   var malarm=mzaluzija+2;
   var mtermostat=malarm+5;
   var mklima=mtermostat+2;
@@ -442,7 +442,7 @@ var nastavljenavrednost=["off", 20,           "off",    "off",    "off",    "off
   
   //Možne besede    (ce spreminjaš popravi meje !!!!)
   var Elementi = ["luc", "svetil", "lamp",      //luc
-                  "zaluzij", "lamel", "polkn", "sencil", "rolo", "rule", "role", "zaves",  //zaluzije
+                  "zaluzij", "lamel", "polkn", "sencil", "rolo", "rule", "role", "zaves", "okn",   //zaluzije
                   "alarm", "varovanj",      //alarm
                   "termostat", "gretj", "ogrevanj", "greje", "temperatur",    //termostat
                   "klim", "hlajenj",  //klima
